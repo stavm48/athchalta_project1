@@ -41,6 +41,7 @@
   --text-body: 1rem;
   --lh-heading: 1.2;
   --lh-body: 1.6;
+  --prose-measure: 47em;
 }
 
 *,
@@ -119,6 +120,12 @@ h3 {
   font-size: var(--text-lead);
   font-weight: 400;
   line-height: var(--lh-body);
+}
+
+.ata-prose,
+.hero .lead {
+  max-width: var(--prose-measure);
+  text-wrap: pretty;
 }
 
 /* Decorative background — scrolls naturally with the page content */

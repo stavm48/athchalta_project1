@@ -28,6 +28,7 @@
   --text-body: 1rem;
   --lh-heading: 1.2;
   --lh-body: 1.6;
+  --prose-measure: 47em;
 }
 
 *,
@@ -449,7 +450,8 @@ main,
 }
 
 .athalta-partners-text {
-  max-width: 65rem;
+  max-width: var(--prose-measure);
+  text-wrap: pretty;
   font-size: var(--text-lead);
   font-weight: 400;
   line-height: 1.75;

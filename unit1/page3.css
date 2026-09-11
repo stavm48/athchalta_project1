@@ -30,6 +30,7 @@
   --text-body: 1rem;
   --lh-heading: 1.2;
   --lh-body: 1.6;
+  --prose-measure: 47em;
 }
 
 *,
@@ -466,7 +467,8 @@ main,
 
 .aep-intro-text {
   width: 100%;
-  max-width: 71.25rem;
+  max-width: var(--prose-measure);
+  text-wrap: pretty;
   margin: 0;
   color: var(--navy);
   font-size: var(--text-lead);

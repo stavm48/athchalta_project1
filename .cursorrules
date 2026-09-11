@@ -51,3 +51,10 @@ Translate Figma pixel sizes into responsive `rem` units based on logical proport
 1. NEVER use `position: fixed` for background wrappers. 
 2. ALWAYS use `background-attachment: scroll;` (or let it default).
 3. Ensure the background spans the full document height so the user can scroll to the bottom of the image (e.g., applying it to the `body` or a full-height wrapper with `background-size: 100% auto;` or `cover;`).
+
+10. OPENING PROSE LINE LENGTH (~20 WORDS):
+* Outside interactive components (sticky notes, carousel cards, partner cards, quotes inside an activity, buttons), opening paragraphs, lead text, and instructional body copy MUST wrap so that no line holds more than about 20 Hebrew words.
+* Constrain those paragraphs with `max-width: 47em` (relative to that paragraph’s `font-size`), keep `text-align: right` in RTL, and do not stretch them to the full content width.
+* NEVER leave a single word alone on its own line (no orphans). If the last line would be one word, keep the last two (or more) words together with a non-breaking space (`&nbsp;`), `<span style="white-space: nowrap">`, or by allowing that line to exceed the 20-word cap. The no-orphan rule wins over the 20-word limit.
+* Use `text-wrap: pretty;` on opening prose as a baseline, and still bind the last words when a leftover single word remains.
+* Do NOT apply this measure to text inside interactive widgets.

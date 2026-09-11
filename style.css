@@ -25,6 +25,7 @@
   --text-body: 1rem;
   --lh-heading: 1.2;
   --lh-body: 1.6;
+  --prose-measure: 47em;
 }
 
 *,
@@ -282,7 +283,8 @@ main,
 }
 
 .hero .lead {
-  max-width: 43rem;
+  max-width: var(--prose-measure);
+  text-wrap: pretty;
   letter-spacing: -0.02em;
 }
 

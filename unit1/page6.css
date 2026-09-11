@@ -1,0 +1,352 @@
+/* ===================================================================
+   Unit 1 — Page 6: מטרת חממות וסדנאות התוכנית
+   Global tokens, header, footer, and sequential nav from theme.css.
+   =================================================================== */
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+.ag-intro {
+  width: 100%;
+  margin: 0 0 2rem;
+}
+
+.ag-main-heading,
+.ag-section-heading {
+  width: 100%;
+  margin: 0 0 0.5rem;
+  color: var(--teal);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.ag-section-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.ag-intro-text,
+.ag-purpose-text,
+.ag-goal-text {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.ag-intro-text strong {
+  font-weight: 700;
+}
+
+.ag-goals {
+  width: 100%;
+  margin: 0 0 2.25rem;
+}
+
+.ag-goals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  direction: rtl;
+}
+
+.ag-goal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+.ag-goal-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+.ag-goal-title {
+  display: inline;
+  margin: 0;
+  padding: 0.12rem 0.4rem;
+  border-radius: 0.35rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: right;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.ag-goal-1 .ag-goal-title {
+  background: #ddf2da;
+}
+
+.ag-goal-2 .ag-goal-title {
+  background: #f8ddd8;
+}
+
+.ag-goal-3 .ag-goal-title {
+  background: #def1fb;
+}
+
+.ag-goal-4 .ag-goal-title {
+  background: #f2d2e0;
+}
+
+.ag-goal-text {
+  max-width: none;
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  direction: rtl;
+  text-align: right;
+}
+
+.ag-goal-icon {
+  display: block;
+  width: 6.5rem;
+  height: auto;
+  max-width: 6.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.ag-goal-4 .ag-goal-icon {
+  width: 8.25rem;
+  max-width: 8.25rem;
+}
+
+.ag-goal-2 .ag-goal-icon {
+  width: 7.35rem;
+  max-width: 7.35rem;
+}
+
+.ag-purpose {
+  width: 100%;
+  margin: 0 0 1.25rem;
+}
+
+.ag-purpose-text + .ag-purpose-text {
+  margin-top: 0.5rem;
+}
+
+.ag-foundations {
+  width: 100%;
+  margin: 0 0 1.5rem;
+  overflow: visible;
+}
+
+.ag-foundations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 11.25rem);
+  grid-template-areas:
+    "one two three"
+    "four five six";
+  gap: 3.75rem 3.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin-block: 1.25rem 0;
+  margin-inline-start: 0;
+  margin-inline-end: auto;
+  padding: 0.75rem 0 0;
+  list-style: none;
+  direction: rtl;
+  overflow: visible;
+}
+
+.ag-foundation-1 {
+  grid-area: one;
+  background: #add594;
+}
+
+.ag-foundation-2 {
+  grid-area: two;
+  background: #f79897;
+}
+
+.ag-foundation-3 {
+  grid-area: three;
+  background: #eabfd9;
+}
+
+.ag-foundation-4 {
+  grid-area: four;
+  background: #ffee81;
+}
+
+.ag-foundation-5 {
+  grid-area: five;
+  background: #b8e4ee;
+}
+
+.ag-foundation-6 {
+  grid-area: six;
+  background: #f59ec4;
+}
+
+.ag-foundation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 10.5rem;
+  padding: 1.25rem 0;
+  border-radius: 0.625rem;
+  overflow: visible;
+  direction: rtl;
+  text-align: center;
+}
+
+.ag-foundation-num {
+  position: absolute;
+  top: -1.05rem;
+  left: -0.55rem;
+  right: auto;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  direction: ltr;
+  text-align: center;
+}
+
+.ag-foundation-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 11rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  text-align: center;
+}
+
+@media (max-width: 56rem) {
+  .ag-goals-grid {
+    gap: 1.25rem 1.5rem;
+  }
+
+  .ag-goal-icon {
+    width: 5.25rem;
+    max-width: 5.25rem;
+  }
+
+  .ag-goal-4 .ag-goal-icon {
+    width: 6.75rem;
+    max-width: 6.75rem;
+  }
+
+  .ag-goal-2 .ag-goal-icon {
+    width: 6rem;
+    max-width: 6rem;
+  }
+
+  .ag-foundations-grid {
+    gap: 2.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-unit-title {
+    font-size: 2rem;
+  }
+
+  .ag-main-heading {
+    font-size: 1.35rem;
+  }
+
+  .ag-goals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ag-foundations-grid {
+    grid-template-columns: repeat(2, 11.25rem);
+    grid-template-areas:
+      "one two"
+      "three four"
+      "five six";
+    width: max-content;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 30rem) {
+  .ata-unit-page {
+    padding: 1.75rem 1rem 3rem;
+  }
+
+  .ag-foundations-grid {
+    grid-template-columns: 11.25rem;
+    grid-template-areas:
+      "one"
+      "two"
+      "three"
+      "four"
+      "five"
+      "six";
+    width: max-content;
+    max-width: 100%;
+  }
+
+  .ag-foundation {
+    min-height: 8.5rem;
+  }
+
+  .ag-foundation-num {
+    font-size: 1.75rem;
+  }
+
+  .ag-foundation-label {
+    font-size: 1.05rem;
+  }
+}
