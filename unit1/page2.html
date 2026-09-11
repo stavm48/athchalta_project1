@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>יחידה 1 | השותפים בתוכנית</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/unit1/page2.css" />
+  </head>
+  <body>
+    <div id="global-header"></div>
+
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <main class="ata-unit-page">
+      <h1 class="ata-unit-title">
+        <span class="ata-unit-title-index">יחידה 1</span>
+        <span class="ata-unit-title-divider" aria-hidden="true">|</span>
+        <span class="ata-unit-title-name">הכירו את תוכנית אתחלתא</span>
+      </h1>
+
+      <section class="athalta-partners-intro">
+        <h2 class="athalta-partners-title">השותפים בתוכנית</h2>
+        <p class="athalta-partners-text">
+          תוכנית אתחלתא פועלת מתוך שותפות בין משרד החינוך, קרן משפחת ליאון ומכון
+          מופ״ת, במטרה ללוות את מחנכות הכיתה בתחילת דרכן.
+        </p>
+      </section>
+
+      <section
+        class="athalta-overview"
+        id="athalta-overview"
+        aria-label="תרשים שותפי תוכנית אתחלתא"
+      >
+        <div class="athalta-click-row">
+          <img
+            class="athalta-click-icon"
+            src="/assets/general/clickIcon.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <p class="athalta-click-text">
+            לחצו על כל שותף כדי להבין את תרומתו לתוכנית.
+          </p>
+        </div>
+
+        <div class="athalta-network">
+          <div class="athalta-main-structure">
+            <img
+              src="/assets/home/athalta.png"
+              alt="לוגו אתחלתא וממנו יוצאים שלושה קווים ורודים המחברים בין שלושת השותפים בתוכנית."
+            />
+          </div>
+
+          <div class="athalta-partners">
+            <div class="athalta-partner-col">
+              <span class="athalta-pipe" aria-hidden="true">
+                <span class="athalta-pipe-cap"></span>
+                <span class="athalta-pipe-line"></span>
+              </span>
+              <button
+                class="athalta-main-partner"
+                type="button"
+                data-partner="education"
+                aria-label="משרד החינוך – הצגת תרומתו לתוכנית"
+              >
+                <span class="athalta-main-circle">
+                  <img
+                    class="athalta-main-logo athalta-main-logo-education"
+                    src="/assets/general/hinuchLogo.png"
+                    alt="לוגו משרד החינוך – סמל מדינת ישראל ובו מנורה וענפי זית."
+                  />
+                  <span class="athalta-main-name">משרד החינוך</span>
+                </span>
+              </button>
+            </div>
+
+            <div class="athalta-partner-col">
+              <span class="athalta-pipe" aria-hidden="true">
+                <span class="athalta-pipe-cap"></span>
+                <span class="athalta-pipe-line"></span>
+              </span>
+              <button
+                class="athalta-main-partner"
+                type="button"
+                data-partner="leon"
+                aria-label="קרן משפחת ליאון – הצגת תרומתה לתוכנית"
+              >
+                <span class="athalta-main-circle">
+                  <img
+                    class="athalta-main-logo athalta-main-logo-leon"
+                    src="/assets/general/leonFamilyLogo.png"
+                    alt="לוגו קרן משפחת ליאון – השינוי מתחיל במחנכות, לצד עץ כתום עם שורשים."
+                  />
+                  <span class="athalta-main-name">קרן משפחת ליאון</span>
+                </span>
+              </button>
+            </div>
+
+            <div class="athalta-partner-col">
+              <span class="athalta-pipe" aria-hidden="true">
+                <span class="athalta-pipe-cap"></span>
+                <span class="athalta-pipe-line"></span>
+              </span>
+              <button
+                class="athalta-main-partner"
+                type="button"
+                data-partner="mofet"
+                aria-label="מכון מופ״ת – הצגת תרומתו לתוכנית"
+              >
+                <span class="athalta-main-circle">
+                  <img
+                    class="athalta-main-logo athalta-main-logo-mofet"
+                    src="/assets/general/mofetLogo.png"
+                    alt="לוגו מכון מופ״ת – בית ספר למחקר ולפיתוח תוכניות בהכשרת עובדי חינוך והוראה במכללות."
+                  />
+                  <span class="athalta-main-name">מכון מופ״ת</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="athalta-detail" id="athalta-detail" hidden>
+        <div class="athalta-card-selector">
+          <button
+            class="athalta-mini-button"
+            type="button"
+            data-partner="education"
+            aria-label="מעבר לכרטיס משרד החינוך"
+            aria-pressed="false"
+          >
+            <span class="athalta-mini-circle">
+              <img
+                class="athalta-mini-logo"
+                src="/assets/general/hinuchLogo.png"
+                alt=""
+              />
+              <span class="athalta-mini-name">משרד החינוך</span>
+            </span>
+          </button>
+          <button
+            class="athalta-mini-button"
+            type="button"
+            data-partner="leon"
+            aria-label="מעבר לכרטיס קרן משפחת ליאון"
+            aria-pressed="false"
+          >
+            <span class="athalta-mini-circle">
+              <img
+                class="athalta-mini-logo"
+                src="/assets/general/leonFamilyLogo.png"
+                alt=""
+              />
+              <span class="athalta-mini-name">קרן משפחת ליאון</span>
+            </span>
+          </button>
+          <button
+            class="athalta-mini-button"
+            type="button"
+            data-partner="mofet"
+            aria-label="מעבר לכרטיס מכון מופ״ת"
+            aria-pressed="false"
+          >
+            <span class="athalta-mini-circle">
+              <img
+                class="athalta-mini-logo"
+                src="/assets/general/mofetLogo.png"
+                alt=""
+              />
+              <span class="athalta-mini-name">מכון מופ״ת</span>
+            </span>
+          </button>
+        </div>
+
+        <div class="athalta-detail-card-shell">
+          <button
+            class="athalta-close-card"
+            type="button"
+            aria-label="סגירת הכרטיס וחזרה לתרשים השותפים"
+          >
+            ×
+          </button>
+
+          <article
+            class="athalta-partner-card"
+            tabindex="-1"
+            hidden
+            data-card="education"
+          >
+            <header class="athalta-card-header">
+              <h3>משרד החינוך</h3>
+              <p>
+                מוביל את המדיניות והמעטפת הארצית לשלב הכניסה להוראה, ומחבר את
+                התוכנית למערכת החינוך והשדה.
+              </p>
+            </header>
+            <h4 class="athalta-card-section-title">תרומתו לתוכנית:</h4>
+            <div class="athalta-contributions">
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/hinuch1.png"
+                  alt="מצפן, המסמל הכוונה, מדיניות וקביעת כיוון."
+                />
+                מדיניות והכוונה
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/hinuch3.png"
+                  alt="שתי חוליות שרשרת מחוברות, המסמלות חיבור וקשר למערכת החינוך."
+                />
+                חיבור למערכת החינוך
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/hinuch2.png"
+                  alt="יד המחזיקה נבט צעיר, המסמלת ליווי, צמיחה ומומחיות בתהליך הכניסה להוראה."
+                />
+                מומחיות בתהליך הכניסה להוראה
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/hinuch4.png"
+                  alt="שתי בועות שיח חופפות, המסמלות תקשורת וקשר בין האקדמיה לשדה."
+                />
+                קשרי אקדמיה-שדה
+              </div>
+            </div>
+            <h4 class="athalta-card-section-title athalta-role-title">
+              בעלי/ות התפקידים:
+            </h4>
+            <div class="athalta-role-list athalta-role-list-one">
+              <p>מנהלת אגף כניסה להוראה וקשרי אקדמיה־שדה</p>
+              <p>
+                גב' דורית לחיאני | ממונה על החטיבות הצעירות ומנהל בית ספרי, האגף
+                לחינוך יסודי
+              </p>
+              <p>גב' מרים פרי | מדריכה ארצית, האגף לחינוך יסודי</p>
+            </div>
+          </article>
+
+          <article
+            class="athalta-partner-card"
+            tabindex="-1"
+            hidden
+            data-card="leon"
+          >
+            <header class="athalta-card-header">
+              <h3>קרן משפחת ליאון</h3>
+              <p>
+                מקדמת את פיתוח התוכנית מתוך תפיסה של חיזוק מחנכות הכיתה, שוויון
+                הזדמנויות, פיתוח ידע וחדשנות.
+              </p>
+            </header>
+            <h4 class="athalta-card-section-title">תרומתה לתוכנית:</h4>
+            <div class="athalta-contributions">
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/leon1.png"
+                  alt="נורה דולקת, המסמלת רעיונות, חדשנות ופיתוח כלים."
+                />
+                פיתוח כלים וחדשנות
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/leon3.png"
+                  alt="תרשים עלייה לימין המתחיל בקטן ומסתיים בגדול ומסומן באמצעות חץ ורוד."
+                />
+                משאבים
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/leon2.png"
+                  alt="ספר פתוח, המסמל פיתוח, הרחבה ושיתוף של ידע מקצועי."
+                />
+                פיתוח ידע
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/leon4.png"
+                  alt="שתי ידיים לוחצות זו את זו, המסמלות שותפות ושיתוף פעולה."
+                />
+                שותפויות
+              </div>
+            </div>
+            <h4 class="athalta-card-section-title athalta-role-title">
+              בעלי/ות התפקידים:
+            </h4>
+            <div class="athalta-role-list">
+              <p>גב׳ מיכל ליאון | מנכ״ל קרן משפחת ליאון</p>
+              <p>גב׳ מיטל בראון מנדלביץ׳ | סמנכ״ל אסטרטגיה</p>
+              <p>גב׳ מור לב־ארי | רכזת אדמיניסטרטיבית</p>
+              <p>מר אהרון קצב | סמנכ״ל פדגוגיה</p>
+              <p>גב׳ אריאלה וולה לניאדו | מנהלת תחום הידע והדיגיטל</p>
+            </div>
+          </article>
+
+          <article
+            class="athalta-partner-card"
+            tabindex="-1"
+            hidden
+            data-card="mofet"
+          >
+            <header class="athalta-card-header">
+              <h3>מכון מופ״ת</h3>
+              <p>
+                מוביל את המעטפת המקצועית והארגונית של התוכנית, את הקשר עם יחידות
+                הכניסה להוראה ואת הפיתוח המקצועי.
+              </p>
+            </header>
+            <h4 class="athalta-card-section-title">תרומתו לתוכנית:</h4>
+            <div class="athalta-contributions">
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/mofet1.png"
+                  alt="כובע בוגרים אקדמי, המסמל ליווי מקצועי והתפתחות מקצועית."
+                />
+                ליווי מקצועי
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/mofet3.png"
+                  alt="מבנה מוסד לימודים עם דגל, המסמל חיבור למוסדות האקדמיים."
+                />
+                חיבור למוסדות האקדמיים
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/mofet2.png"
+                  alt="שני חלקי פאזל המתחברים זה לזה, המסמלים פיתוח ותכנון תהליכי למידה."
+                />
+                פיתוח למידה
+              </div>
+              <div class="athalta-contribution">
+                <img
+                  src="/assets/unit1/mofet4.png"
+                  alt="גלגל שיניים, המסמל תשתית ארגונית ותהליכי עבודה."
+                />
+                תשתית ארגונית
+              </div>
+            </div>
+            <h4 class="athalta-card-section-title athalta-role-title">
+              בעלי/ות התפקידים:
+            </h4>
+            <div class="athalta-role-list">
+              <p>פרופ׳ חן שכטר | מנהל מכון מופ״ת</p>
+              <p>מר אורן סלע | סמנכ״ל כספים</p>
+              <p>גב׳ מור צפריר | חברת צוות מו״פ, תוכנית אתחלתא</p>
+              <p>ד״ר דורון לדרר | אחראית על הקשר עם יחידות הפיתוח</p>
+              <p>גב׳ שרון וסרמן | מנהלת תוכנית אתחלתא</p>
+              <p>גב׳ נתלי נחום | רכזת תוכנית אתחלתא</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
+        <a class="ata-nav-prev" href="/unit1/index.html">
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="ata-nav-prev-text">חזרה לפרק הקודם</span>
+        </a>
+
+        <a class="ata-nav-next" href="/unit1/page3.html">
+          <span class="ata-nav-next-text">המשך לפרק הבא</span>
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 6l-6 6 6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </nav>
+    </main>
+
+    <div id="global-footer"></div>
+
+    <script src="/navigation/script.js"></script>
+    <script src="/unit1/page2.js"></script>
+    <script src="/components.js"></script>
+  </body>
+</html>

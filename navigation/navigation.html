@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מפת הדרך שלך | אתחלתא</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&family=Rubik:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="../index.html">
+          <img src="../assets/home/athalta.png" alt="אתחלתא" width="164" height="50" />
+        </a>
+
+        <input id="nav-toggle" class="nav-toggle" type="checkbox" />
+        <label class="nav-toggle-btn" for="nav-toggle" aria-label="פתיחת תפריט">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <nav class="main-nav" aria-label="ניווט ראשי">
+          <a href="../index.html">ראשי</a>
+          <a href="navigation.html" class="active-nav-link" aria-current="page">הסביבה שלי</a>
+          <a href="../index.html#learning">כניסה לתפקיד</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="../index.html#contact" aria-label="דואר">
+            <img src="../assets/icon-mail.png" alt="" width="28" height="29" />
+          </a>
+          <a href="../index.html#contact" aria-label="הודעות">
+            <img src="../assets/icon-message.png" alt="" width="21" height="20" />
+          </a>
+          <a href="../index.html#contact" aria-label="התראות">
+            <img src="../assets/icon-bell.png" alt="" width="27" height="26" />
+          </a>
+          <button class="icon-btn" type="button" aria-label="חיפוש">
+            <img src="../assets/icon-search.png" alt="" width="30" height="30" />
+          </button>
+          <button class="user-btn" type="button" aria-label="פרופיל">
+            <img src="../assets/icon-user.png" alt="" width="38" height="38" />
+            <span class="user-caret" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="ata-onboarding-nav">
+      <h1 class="page-title">מפת הדרך שלך</h1>
+
+      <p class="lead ata-nav-intro">בחרו את יחידת הלמידה הרצויה.</p>
+      <p id="ata-units-accessibility-help" class="ata-nav-sr-only">
+        לפניכם שבע יחידות למידה. בכל כרטיס מופיעים מספר היחידה ושמה, סטטוס
+        ההתקדמות בה, והקישור מעבר ליחידה מוביל לעמוד הראשי של אותה יחידה.
+      </p>
+
+      <div
+        class="ata-units-grid"
+        role="list"
+        aria-label="יחידות הלמידה"
+        aria-describedby="ata-units-accessibility-help"
+      >
+        <!-- יחידה 1 -->
+        <article
+          class="ata-unit-card ata-unit-1"
+          role="listitem"
+          data-unit-id="1"
+          aria-labelledby="ata-unit-1-title"
+        >
+          <div class="ata-unit-heading-row">
+            <div class="ata-unit-number">יחידה 1</div>
+            <img
+              class="ata-unit-icon"
+              role="presentation"
+              src="../assets/navigate/navGreen.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <h3 id="ata-unit-1-title" class="ata-unit-title">
+            רקע על תוכנית אתחלתא
+          </h3>
+          <p class="ata-unit-status is-pending" data-status-badge>
+            טרם בוצעה
+          </p>
+          <a
+            class="ata-unit-link"
+            href="../unit1/index.html"
+            aria-label="מעבר ליחידה 1: רקע על תוכנית אתחלתא"
+          >
+            <span class="ata-unit-link-text">מעבר ליחידה</span>
+            <span class="ata-unit-arrow" aria-hidden="true">
+              <img src="../assets/general/arrow.png" alt="" />
+            </span>
+          </a>
+        </article>
+
+        <!-- יחידה 2 -->
+        <article
+          class="ata-unit-card ata-unit-2"
+          role="listitem"
+          data-unit-id="2"
+          aria-labelledby="ata-unit-2-title"
+        >
+          <div class="ata-unit-heading-row">
+            <div class="ata-unit-number">יחידה 2</div>
+            <img
+              class="ata-unit-icon"
+              role="presentation"
+              src="../assets/navigate/navYellow.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <h3 id="ata-unit-2-title" class="ata-unit-title">
+            בעלי/ות התפקידים בתוכנית ומבנה מסגרות הליווי
+          </h3>
+          <p class="ata-unit-status is-pending" data-status-badge>
+            טרם בוצעה
+          </p>
+          <a
+            class="ata-unit-link"
+            href="./unit2/index.html"
+            aria-label="מעבר ליחידה 2: בעלי ובעלות התפקידים בתוכנית ומבנה מסגרות הליווי"
+          >
+            <span class="ata-unit-link-text">מעבר ליחידה</span>
+            <span class="ata-unit-arrow" aria-hidden="true">
+              <img src="../assets/general/arrow.png" alt="" />
+            </span>
+          </a>
+        </article>
+
+        <!-- יחידה 3 -->
+        <article
+          class="ata-unit-card ata-unit-3"
+          role="listitem"
+          data-unit-id="3"
+          aria-labelledby="ata-unit-3-title"
+        >
+          <div class="ata-unit-heading-row">
+            <div class="ata-unit-number">יחידה 3</div>
+            <img
+              class="ata-unit-icon"
+              role="presentation"
+              src="../assets/navigate/navOrange.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <h3 id="ata-unit-3-title" class="ata-unit-title">
+            הקמה וניהול חממות וסדנאות אתחלתא
+          </h3>
+          <p class="ata-unit-status is-pending" data-status-badge>
+            טרם בוצעה
+          </p>
+          <a
+            class="ata-unit-link"
+            href="./unit3/index.html"
+            aria-label="מעבר ליחידה 3: הקמה וניהול חממות וסדנאות אתחלתא"
+          >
+            <span class="ata-unit-link-text">מעבר ליחידה</span>
+            <span class="ata-unit-arrow" aria-hidden="true">
+              <img src="../assets/general/arrow.png" alt="" />
+            </span>
+          </a>
+        </article>
+
+        <!-- יחידה 4 -->
+        <article
+          class="ata-unit-card ata-unit-4"
+          role="listitem"
+          data-unit-id="4"
+          aria-labelledby="ata-unit-4-title"
+        >
+          <div class="ata-unit-heading-row">
+            <div class="ata-unit-number">יחידה 4</div>
+            <img
+              class="ata-unit-icon"
+              role="presentation"
+              src="../assets/navigate/navPink.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <h3 id="ata-unit-4-title" class="ata-unit-title">
+            תכנון שנתי ותכנים להנחיה
+          </h3>
+          <p class="ata-unit-status is-pending" data-status-badge>
+            טרם בוצעה
+          </p>
+          <a
+            class="ata-unit-link"
+            href="./unit4/index.html"
+            aria-label="מעבר ליחידה 4: תכנון שנתי ותכנים להנחיה"
+          >
+            <span class="ata-unit-link-text">מעבר ליחידה</span>
+            <span class="ata-unit-arrow" aria-hidden="true">
+              <img src="../assets/general/arrow.png" alt="" />
+            </span>
+          </a>
+        </article>
+
+        <!-- יחידה 5 -->
+        <article
+          class="ata-unit-card ata-unit-5"
+          role="listitem"
+          data-unit-id="5"
+          aria-labelledby="ata-unit-5-title"
+        >
+          <div class="ata-unit-heading-row">
+            <div class="ata-unit-number">יחידה 5</div>
+            <img
+              class="ata-unit-icon"
+              role="presentation"
+              src="../assets/navigate/navBlue.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <h3 id="ata-unit-5-title" class="ata-unit-title">
+            מפת הדרכים: אבני דרך וסדירויות
+          </h3>
+          <p class="ata-unit-status is-pending" data-status-badge>
+            טרם בוצעה
+          </p>
+          <a
+            class="ata-unit-link"
+            href="./unit5/index.html"
+            aria-label="מעבר ליחידה 5: מפת הדרכים, אבני דרך וסדירויות"
+          >
+            <span class="ata-unit-link-text">מעבר ליחידה</span>
+            <span class="ata-unit-arrow" aria-hidden="true">
+              <img src="../assets/general/arrow.png" alt="" />
+            </span>
+          </a>
+        </article>
+
+        <!-- יחידה 6 -->
+        <article
+          class="ata-unit-card ata-unit-6"
+          role="listitem"
+          data-unit-id="6"
+          aria-labelledby="ata-unit-6-title"
+        >
+          <div class="ata-unit-heading-row">
+            <div class="ata-unit-number">יחידה 6</div>
+            <img
+              class="ata-unit-icon"
+              role="presentation"
+              src="../assets/navigate/navPurple.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <h3 id="ata-unit-6-title" class="ata-unit-title">תקציב ודיווח</h3>
+          <p class="ata-unit-status is-pending" data-status-badge>
+            טרם בוצעה
+          </p>
+          <a
+            class="ata-unit-link"
+            href="./unit6/index.html"
+            aria-label="מעבר ליחידה 6: תקציב ודיווח"
+          >
+            <span class="ata-unit-link-text">מעבר ליחידה</span>
+            <span class="ata-unit-arrow" aria-hidden="true">
+              <img src="../assets/general/arrow.png" alt="" />
+            </span>
+          </a>
+        </article>
+
+        <!-- יחידה 7 -->
+        <article
+          class="ata-unit-card ata-unit-7"
+          role="listitem"
+          data-unit-id="7"
+          aria-labelledby="ata-unit-7-title"
+        >
+          <div class="ata-unit-heading-row">
+            <div class="ata-unit-number">יחידה 7</div>
+            <img
+              class="ata-unit-icon"
+              role="presentation"
+              src="../assets/navigate/darkPingNav.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+          <h3 id="ata-unit-7-title" class="ata-unit-title">
+            שאלות נפוצות ולוח מפגשים
+          </h3>
+          <p class="ata-unit-status is-pending" data-status-badge>
+            טרם בוצעה
+          </p>
+          <a
+            class="ata-unit-link"
+            href="./unit7/index.html"
+            aria-label="מעבר ליחידה 7: שאלות נפוצות ולוח מפגשים"
+          >
+            <span class="ata-unit-link-text">מעבר ליחידה</span>
+            <span class="ata-unit-arrow" aria-hidden="true">
+              <img src="../assets/general/arrow.png" alt="" />
+            </span>
+          </a>
+        </article>
+      </div>
+
+      <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
+        <a class="ata-nav-prev" href="../index.html">
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="ata-nav-prev-text">ראשי</span>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../assets/home/athalta.png" alt="אתחלתא" />
+          <p class="footer-tagline">אתחלתא | חממה למחנכות ומחנכי כיתה חדשים</p>
+          <p class="footer-support">
+            לשאלות, בירורים או צורך בתמיכה, מוזמנים ומוזמנות לפנות אלינו:
+          </p>
+          <a class="footer-email" href="mailto:athalta@macam.ac.il">
+            <img src="../assets/icon-mail-dark.png" alt="" width="18" height="14" />
+            athalta@macam.ac.il
+          </a>
+        </div>
+
+        <nav class="footer-nav" aria-label="ניווט תחתון">
+          <a href="../index.html">ראשי</a>
+          <a href="navigation.html" class="active-nav-link" aria-current="page">הסביבה שלי</a>
+          <a href="../index.html#learning">כניסה לתפקיד</a>
+        </nav>
+
+        <div class="footer-partners">
+          <img class="logo-mofet" src="../assets/general/mofetLogo.png" alt="לוגו מכון מופת" />
+          <img class="logo-leon" src="../assets/general/leonFamilyLogo.png" alt="לוגו קרן משפחת ליאון" />
+          <img class="logo-hinuch" src="../assets/general/hinuchLogo.png" alt="לוגו משרד החינוך" />
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

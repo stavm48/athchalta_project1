@@ -1,0 +1,53 @@
+# Global Rules for Figma to Responsive Web Translation
+
+Whenever you are asked to convert Figma CSS into web code, you MUST apply logical, responsive web development practices and NEVER blindly copy fixed dimensions or absolute positions.
+
+1. TYPOGRAPHY SCALING (rem):
+Translate Figma pixel sizes into responsive `rem` units based on logical proportions:
+* Titles (50px+ in Figma) -> Use ~3rem for desktop, ~2rem for mobile (`h1`).
+* Section Headings (32px-45px in Figma) -> Use ~2rem to 2.5rem (`h2`).
+* Subheadings/Lead text (24px-30px in Figma) -> Use ~1.25rem to 1.5rem (`h3` or `.lead`).
+* Body/Buttons/Nav (16px-22px in Figma) -> Use 1rem.
+
+2. BUTTONS, TAGS & CONTAINERS:
+* NEVER use fixed `width` or `height` for buttons, badges, or text containers.
+* Use `padding` (e.g., `padding: 0.5rem 1.5rem;`) and `display: inline-flex` to allow elements to size naturally around their content.
+* If multiple badges/tags appear together, apply a consistent `min-width` so they look uniform, rather than fixing their exact width.
+* Preserve `border-radius` and `background-color` values from Figma.
+
+3. LAYOUT & POSITIONING:
+* IGNORE all `position: absolute`, `left`, `top`, `bottom`, `right` properties from Figma.
+* IGNORE desktop-sized fixed widths (e.g., `width: 1440px`).
+* Structure the layout using modern CSS Flexbox and CSS Grid.
+* Ensure all sections are responsive with media queries for mobile viewing.
+
+4. RTL DIRECTION:
+* This project is in Hebrew. Always structure the HTML with `<html lang="he" dir="rtl">`.
+* Ensure Flexbox behaviors, margins, and text alignments naturally fit right-to-left reading.
+
+5. E-LEARNING & PROGRESS TRACKING:
+* Whenever the user asks to save progress, track completion, or remember where a user stopped, exclusively use vanilla JavaScript `localStorage`.
+* Do NOT suggest backend databases, APIs, or user authentication systems, as this is a static site without logged-in users.
+
+6. MEDIA & EXTERNAL EMBEDS:
+* For Vimeo videos, always generate responsive iframe wrappers using CSS `aspect-ratio: 16/9` to ensure they scale correctly on mobile.
+* For interactive elements like Storyline or H5P, generate standard `iframe` tags within styled container `div`s, setting `width: 100%` and removing default borders.
+
+7. UI/UX MICRO-INTERACTIONS:
+* Automatically add smooth CSS transitions (`transition: all 0.3s ease;`) to all interactive elements (buttons, cards, links) for hover states.
+* Ensure all clickable elements receive `cursor: pointer`.
+* Provide accessible `:focus-visible` outlines for keyboard navigation.
+
+8. CODE GENERATION RULES:
+* Stick to vanilla HTML, CSS, and JS. Do not import React, Vue, Tailwind, or Bootstrap.
+* Keep the CSS architecture modular: define colors and typography variables in `:root` at the top, followed by layout, and then component-specific classes.
+
+9. IMAGES, ICONS & TRANSPARENCY:
+* Transparency: NEVER apply `background` or `background-color` to `<img>` tags or their immediate wrapper `div`s (like `.icon-container`). Figma frames often export with default solid backgrounds (e.g., grey/white); ignore these and ensure image backgrounds remain transparent.
+* Proportions & Aspect Ratio: Never distort images. Always use `height: auto;` and `max-width: 100%;` to maintain original proportions.
+* Flexbox Squashing: If an image or icon is placed inside a Flexbox container, always apply `flex-shrink: 0;` to the image so it doesn't get stretched or squashed by other elements. Use `object-fit: contain;` if a fixed bounding box is absolutely necessary.
+
+* SCROLLING BACKGROUNDS: When applying a background image to the page, it MUST scroll naturally with the content. 
+1. NEVER use `position: fixed` for background wrappers. 
+2. ALWAYS use `background-attachment: scroll;` (or let it default).
+3. Ensure the background spans the full document height so the user can scroll to the bottom of the image (e.g., applying it to the `body` or a full-height wrapper with `background-size: 100% auto;` or `cover;`).
