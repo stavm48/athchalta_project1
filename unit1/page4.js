@@ -4,7 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(3, "challenges");
+  window.athaltaProgress.markPageAsViewed(1, "challenges");
 }
 
 (function () {

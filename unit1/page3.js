@@ -4,7 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(2, "entry_process");
+  window.athaltaProgress.markPageAsViewed(1, "entry_process");
 }
 
 (function () {

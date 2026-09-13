@@ -4,5 +4,5 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "reflection");
+  window.athaltaProgress.markPageAsViewed(1, "reflection");
 }

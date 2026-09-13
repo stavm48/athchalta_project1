@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>יחידה 2 | קהל היעד ומסגרות התוכנית</title>
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="./page2.css" />
+  </head>
+  <body>
+    <div id="global-header"></div>
+
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <main class="ata-unit-page">
+      <h1 class="ata-unit-title">
+        <span class="ata-unit-title-index">יחידה 2</span>
+        <span class="ata-unit-title-divider" aria-hidden="true">|</span>
+        <span class="ata-unit-title-name"
+          >בעלי/ות התפקידים בתוכנית ומבנה מסגרות הליווי</span
+        >
+      </h1>
+
+      <div id="athalta-audience-page">
+        <section class="ata-audience-section" aria-labelledby="ata-audience-heading">
+          <h2 id="ata-audience-heading" class="ata-page-heading">
+            קהל היעד ומסגרות התוכנית
+          </h2>
+          <h3 class="ata-subheading">קהל היעד</h3>
+          <p class="ata-prose">
+            קהל היעד של חממות וסדנאות אתחלתא הוא מחנכות כיתה בשלב הכניסה
+            להוראה. חממות וסדנאות אתחלתא למחנכות כיתה חדשות, בדומה לכלל החממות
+            והסדנאות הפועלות במסגרת שלב הכניסה להוראה, יכולות לתת מענה
+            לשתי&nbsp;אוכלוסיות.
+          </p>
+          <p class="ata-instruction">
+            <img
+              class="ata-click-icon"
+              src="/assets/general/clickIcon.png"
+              alt=""
+              aria-hidden="true"
+            />
+            לחצו על הציר או על העציצים כדי&nbsp;להכירן.
+          </p>
+
+          <div class="ata-interactive">
+            <div
+              id="ata-track"
+              class="ata-track is-intern"
+              role="group"
+              aria-label="בחירת קהל היעד"
+            >
+              <div class="ata-track-fill" aria-hidden="true"></div>
+              <button
+                id="ata-knob"
+                class="ata-knob"
+                type="button"
+                role="slider"
+                aria-label="בחירת קהל היעד"
+                aria-valuemin="0"
+                aria-valuemax="1"
+                aria-valuenow="0"
+                aria-valuetext="מחנכת כיתה מתמחה"
+              >
+                <span class="ata-sr-only">לחצו למעבר בין מתמחה למורה חדשה</span>
+              </button>
+            </div>
+
+            <div class="ata-plants-row">
+              <button
+                id="ata-plant-teacher-btn"
+                class="ata-plant-side"
+                type="button"
+                data-audience="teacher"
+                aria-pressed="false"
+                aria-label="מורה חדשה, שנה א׳"
+              >
+                <img
+                  id="ata-plant-teacher"
+                  class="ata-plant-image"
+                  src="/assets/unit2/teacher-plant.png"
+                  alt=""
+                  aria-hidden="true"
+                  width="720"
+                  height="720"
+                />
+              </button>
+              <button
+                id="ata-plant-intern-btn"
+                class="ata-plant-side is-active"
+                type="button"
+                data-audience="intern"
+                aria-pressed="true"
+                aria-label="מחנכת כיתה מתמחה"
+              >
+                <img
+                  id="ata-plant-intern"
+                  class="ata-plant-image"
+                  src="/assets/unit2/intern-plant.png"
+                  alt=""
+                  aria-hidden="true"
+                  width="720"
+                  height="720"
+                />
+              </button>
+            </div>
+
+            <div
+              id="ata-info-card"
+              class="ata-info-card is-intern"
+              aria-live="polite"
+            >
+              <div id="ata-card-title" class="ata-card-title">
+                מחנכת כיתה - מתמחה
+              </div>
+              <div id="ata-card-body" class="ata-card-body">
+                מחויבות להשתתף בסדנת התמחות בהיקף של 60 ש"ש לצורך עמידה בתנאי
+                שנת ההתמחות וקבלת רישיון הוראה. כך, השתתפות בחממת מחנכות כיתה
+                היא למעשה השתתפות בסדנת התמחות.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="ata-notes">
+          <div class="ata-note-row">
+            <img
+              class="ata-note-icon ata-note-icon-circles"
+              src="/assets/unit2/connected-circles.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <p class="ata-note-text">
+              מחנכות יכולות להשתתף בחממה לאורך שנתיים, להתחיל כמתמחות ולהמשיך
+              בשנת המורה&nbsp;החדש.
+            </p>
+          </div>
+          <div class="ata-note-row">
+            <img
+              class="ata-note-icon"
+              src="/assets/unit2/pink-tag.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <p class="ata-note-text">
+              אין לצרף לחממות ולסדנאות אתחלתא מתמחות ומורות חדשות שאינן מחנכות
+              כיתה. במידת הצורך ובמקרים חריגים בהחלט, יינתן לכך אישור מיוחד
+              על-ידי מנהלת תוכנית&nbsp;אתחלתא.
+            </p>
+          </div>
+        </div>
+
+        <section
+          class="ata-frameworks-section"
+          aria-labelledby="ata-frameworks-heading"
+        >
+          <h3 id="ata-frameworks-heading" class="ata-subheading">
+            מסגרות הליווי
+          </h3>
+          <p class="ata-prose ata-frameworks-lead">
+            ישנן שתי אפשרויות למסגרות ליווי בתוכנית&nbsp;אתחלתא:
+          </p>
+
+          <div class="ata-framework-cards">
+            <article class="ata-framework-card ata-framework-pink">
+              <header class="ata-framework-header">
+                <h4 class="ata-framework-title">חממת אתחלתא</h4>
+              </header>
+              <div class="ata-framework-body">
+                <div class="ata-framework-row">
+                  <span class="ata-framework-icon-slot">
+                    <img
+                      class="ata-framework-icon"
+                      src="/assets/unit2/location-pin-pink.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <p class="ata-framework-text">
+                    <strong>המיקום:</strong> מתקיימת ברשות המקומית, בסמוך לבתי
+                    הספר ובמרכזי הפסג״ה.
+                  </p>
+                </div>
+                <div class="ata-framework-row">
+                  <span class="ata-framework-icon-slot">
+                    <img
+                      class="ata-framework-icon"
+                      src="/assets/unit2/pink-group-members.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <p class="ata-framework-text">
+                    <strong>הרכב הקבוצה:</strong> גמיש. ניתן להקים קבוצה
+                    הומוגנית הכוללת קהל יעד אחד, או קבוצה הטרוגנית המשלבת מתמחות
+                    ומורות שנה א׳.
+                  </p>
+                </div>
+                <div class="ata-framework-row">
+                  <span class="ata-framework-icon-slot">
+                    <img
+                      class="ata-framework-icon"
+                      src="/assets/unit2/pink-group-size.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <p class="ata-framework-text">
+                    <strong>גודל מומלץ:</strong> עד 25 משתתפות לליווי מיטבי.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="ata-framework-card ata-framework-blue">
+              <header class="ata-framework-header">
+                <h4 class="ata-framework-title">סדנת אתחלתא</h4>
+              </header>
+              <div class="ata-framework-body">
+                <div class="ata-framework-row">
+                  <span class="ata-framework-icon-slot">
+                    <img
+                      class="ata-framework-icon"
+                      src="/assets/unit2/location-pin-blue.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <p class="ata-framework-text">
+                    <strong>המיקום:</strong> מתקיימת במוסד האקדמי.
+                  </p>
+                </div>
+                <div class="ata-framework-row">
+                  <span class="ata-framework-icon-slot">
+                    <img
+                      class="ata-framework-icon"
+                      src="/assets/unit2/blue-group-members.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <p class="ata-framework-text">
+                    <strong>הרכב הקבוצה:</strong> הומוגנית בלבד. מיועדת למתמחות
+                    בלבד בהיקף של 60 ש״ש, או למורות חדשות בלבד בהיקף של 30 ש״ש.
+                  </p>
+                </div>
+                <div class="ata-framework-row">
+                  <span class="ata-framework-icon-slot">
+                    <img
+                      class="ata-framework-icon"
+                      src="/assets/unit2/blue-group-size.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <p class="ata-framework-text">
+                    <strong>גודל מומלץ:</strong> עד 25 משתתפות לליווי מיטבי.
+                  </p>
+                </div>
+                <div class="ata-framework-row">
+                  <span class="ata-framework-icon-slot">
+                    <img
+                      class="ata-framework-icon"
+                      src="/assets/unit2/exclamation-mark.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <p class="ata-framework-text">
+                    <strong>שימו לב:</strong> לא ניתן לקיים סדנה הטרוגנית הכוללת
+                    מתמחות ומורות חדשות יחד בקמפוס המוסד האקדמי.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
+        <a class="ata-nav-prev" href="./page1.html">
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="ata-nav-prev-text"
+            >בעלי/ות התפקידים בתוכנית</span
+          >
+        </a>
+
+        <a class="ata-nav-next" href="../unit3/page1.html">
+          <span class="ata-nav-next-text">הקמת חממות אתחלתא</span>
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 6l-6 6 6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </nav>
+    </main>
+
+    <div id="global-footer"></div>
+
+    <script src="/navigation/script.js"></script>
+    <script src="./page2.js"></script>
+    <script src="../components.js"></script>
+  </body>
+</html>

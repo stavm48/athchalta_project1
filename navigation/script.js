@@ -24,9 +24,10 @@
    *   markPageAsViewed("1", "index");
    *
    * Optionally pass the full list of required page ids for the unit as a
-   * third argument; the unit is only flagged "completed" once every
-   * required page has been viewed. If omitted, the unit is marked
-   * completed as soon as any page in it has been viewed.
+   * third argument; the unit is flagged "completed" once every required
+   * page has been viewed. If omitted, the page is recorded but the unit
+   * is not auto-completed — use markUnitAsCompleted from the unit's
+   * final page instead.
    *
    * @param {string|number} unitId
    * @param {string} pageId
@@ -46,7 +47,8 @@
     }
 
     var isUnitComplete =
-      !requiredPageIds ||
+      Array.isArray(requiredPageIds) &&
+      requiredPageIds.length > 0 &&
       requiredPageIds.every(function (id) {
         return viewedPages.indexOf(id) !== -1;
       });
@@ -54,6 +56,20 @@
     if (isUnitComplete) {
       localStorage.setItem(STORAGE_PREFIX + unitId, "completed");
     }
+  }
+
+  /**
+   * Mark an entire unit as completed.
+   * Call this from the unit's final page once the learner has reached it.
+   *
+   * @param {string|number} unitId
+   */
+  function markUnitAsCompleted(unitId) {
+    if (!unitId) {
+      return;
+    }
+
+    localStorage.setItem(STORAGE_PREFIX + unitId, "completed");
   }
 
   /**
@@ -102,6 +118,7 @@
   // markPageAsViewed without duplicating this file's internals.
   window.athaltaProgress = {
     markPageAsViewed: markPageAsViewed,
+    markUnitAsCompleted: markUnitAsCompleted,
     isUnitCompleted: isUnitCompleted,
     refreshUnitBadges: refreshUnitBadges,
   };

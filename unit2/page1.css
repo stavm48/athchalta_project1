@@ -1,0 +1,440 @@
+/* ===================================================================
+   Unit 2 — Page 1: בעלות התפקידים בתוכנית
+   Global tokens, header, footer, and sequential nav from theme.css.
+   =================================================================== */
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+#athalta-unit2-page {
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+}
+
+.athalta-intro-section {
+  width: 100%;
+  margin: 0 0 2.5rem;
+}
+
+.athalta-intro-title {
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  color: var(--teal);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.athalta-intro-text,
+.athalta-body-text,
+.athalta-list-intro {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0;
+  color: var(--navy);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.athalta-intro-text strong,
+.athalta-body-text strong {
+  font-weight: 700;
+}
+
+.athalta-instruction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 1rem 0 0;
+  margin-inline-end: auto;
+  color: var(--teal);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  direction: rtl;
+  text-align: right;
+}
+
+.athalta-click-icon {
+  display: block;
+  width: 3.125rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.athalta-roles-container {
+  width: 100%;
+  margin: 0 0 1.5rem;
+  direction: rtl;
+  text-align: right;
+}
+
+.athalta-timeline-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  width: 100%;
+  margin: 0 0 2.75rem;
+  direction: rtl;
+}
+
+.athalta-timeline {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.athalta-step {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.25rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.athalta-step:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.3rem;
+}
+
+.athalta-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  min-width: 2.5rem;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.athalta-circle svg {
+  display: block;
+  width: 1rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.athalta-divider {
+  display: block;
+  width: 4rem;
+  height: 0;
+  margin: 0 0.5rem;
+  border-top: 0.1875rem solid var(--rose);
+  flex-shrink: 0;
+}
+
+.athalta-step-text {
+  display: none;
+  margin-inline-start: 0.75rem;
+  color: var(--rose);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  direction: rtl;
+  text-align: right;
+}
+
+.is-pending .athalta-circle,
+.is-completed .athalta-circle {
+  background: #ccebec;
+  color: var(--navy);
+}
+
+.is-active .athalta-circle {
+  background: var(--rose);
+  color: var(--white);
+}
+
+.is-active .athalta-step-text {
+  display: block;
+}
+
+.athalta-inner-dot {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #feece9;
+}
+
+.athalta-role-stage {
+  width: 100%;
+}
+
+.athalta-content-wrapper {
+  width: 100%;
+  min-width: 0;
+}
+
+.athalta-role-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.35rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.athalta-role-nav-icon {
+  display: block;
+  width: 2.25rem;
+  max-width: 2.25rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.athalta-role-nav-icon-prev {
+  transform: scaleX(-1);
+}
+
+.athalta-role-nav:hover:not(:disabled) .athalta-role-nav-icon {
+  transform: translateX(-0.18rem);
+}
+
+.athalta-role-nav-prev:hover:not(:disabled) .athalta-role-nav-icon-prev {
+  transform: scaleX(-1) translateX(-0.18rem);
+}
+
+.athalta-role-nav:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+.athalta-role-nav:disabled {
+  opacity: 0.32;
+  cursor: default;
+  pointer-events: none;
+}
+
+.athalta-content-section {
+  display: none;
+  opacity: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+.athalta-content-section.active-content {
+  display: block;
+  opacity: 1;
+  animation: athaltaUnit2FadeIn 0.4s ease;
+}
+
+.athalta-title {
+  display: inline;
+  margin: 0 0 1.25rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.7rem;
+  background: #ccebec;
+  color: var(--navy);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  direction: rtl;
+  text-align: right;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.athalta-content-section.active-content .athalta-title {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.athalta-list-intro {
+  margin-top: 0.75rem;
+}
+
+.athalta-role-list {
+  max-width: var(--prose-measure);
+  margin: 0.6rem 0 1rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 0;
+  color: var(--navy);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  direction: rtl;
+  text-align: right;
+}
+
+.athalta-role-list li {
+  margin-bottom: 0.25rem;
+}
+
+.athalta-body-text + .athalta-body-text {
+  margin-top: 0.75rem;
+}
+
+@keyframes athaltaUnit2FadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.625rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 64rem) {
+  .athalta-intro-title {
+    font-size: 2rem;
+  }
+
+  .athalta-intro-text,
+  .athalta-body-text,
+  .athalta-list-intro,
+  .athalta-role-list {
+    font-size: 1.05rem;
+  }
+
+  .athalta-title {
+    font-size: 1.75rem;
+  }
+
+  .athalta-step-text {
+    font-size: 1.25rem;
+    margin-inline-start: 0.5rem;
+  }
+
+  .athalta-divider {
+    width: 2.5rem;
+    margin: 0 0.35rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-unit-title {
+    font-size: 2rem;
+  }
+
+  .athalta-intro-title {
+    font-size: 1.75rem;
+  }
+
+  .athalta-intro-text,
+  .athalta-body-text,
+  .athalta-instruction,
+  .athalta-list-intro,
+  .athalta-role-list {
+    font-size: 1rem;
+  }
+
+  .athalta-title {
+    font-size: 1.5rem;
+  }
+
+  .athalta-timeline-row {
+    margin-bottom: 1.75rem;
+    gap: 0.4rem 0.65rem;
+  }
+
+  .athalta-timeline {
+    margin-bottom: 0;
+  }
+
+  .athalta-divider {
+    width: 1.25rem;
+    margin: 0 0.25rem;
+  }
+
+  .athalta-step-text {
+    font-size: 1rem;
+    margin-inline-start: 0.4rem;
+  }
+
+  .athalta-circle {
+    width: 2.125rem;
+    min-width: 2.125rem;
+    font-size: 0.875rem;
+  }
+
+  .athalta-role-nav {
+    padding: 0.3rem;
+  }
+
+  .athalta-role-nav-icon {
+    width: 2rem;
+    max-width: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .athalta-step,
+  .athalta-circle,
+  .athalta-role-nav,
+  .athalta-role-nav-icon,
+  .athalta-content-section.active-content {
+    transition: none;
+    animation: none;
+  }
+}

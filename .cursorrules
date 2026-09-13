@@ -58,3 +58,9 @@ Translate Figma pixel sizes into responsive `rem` units based on logical proport
 * NEVER leave a single word alone on its own line (no orphans). If the last line would be one word, keep the last two (or more) words together with a non-breaking space (`&nbsp;`), `<span style="white-space: nowrap">`, or by allowing that line to exceed the 20-word cap. The no-orphan rule wins over the 20-word limit.
 * Use `text-wrap: pretty;` on opening prose as a baseline, and still bind the last words when a leftover single word remains.
 * Do NOT apply this measure to text inside interactive widgets.
+
+11. CONTEXTUAL BACK NAVIGATION:
+* In the bottom sequential navigation (`.ata-sequential-nav` or equivalent), the back/previous link text must NEVER be generic. Do not use labels such as "עמוד קודם", "חזרה", "חזרה לעמוד הקודם", or any other unspecified "back" wording.
+* The back link MUST explicitly name the preceding page by its full title or subtitle (the page’s main content heading, typically the `h2` / unit section title — not a vague paraphrase). Prefix with "חזרה ל" when it reads naturally in Hebrew, e.g. "חזרה למטרות החממות והסדנאות".
+* Before writing or changing a back link, open the previous page in the sequence, read its exact heading, and use that wording. If the previous page heading is later renamed, update the following page’s back link to match.
+* Apply this on every new page and whenever editing existing sequential nav.

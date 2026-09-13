@@ -1,0 +1,320 @@
+/* ===================================================================
+   Unit 3 — Page 2: הקמת סדנאות אתחלתא
+   Global tokens, header, footer, and sequential nav from theme.css.
+   =================================================================== */
+
+:root {
+  --aw-peach: #feece9;
+  --aw-peach-hover: #fff3f0;
+  --aw-coral: #f59a97;
+}
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+#athalta-workshops-page {
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+}
+
+.aw-opening {
+  width: 100%;
+  margin: 0 0 2rem;
+}
+
+.aw-main-heading {
+  width: 100%;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  color: var(--teal);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.aw-subheading,
+.aw-accordion-heading {
+  width: 100%;
+  margin: 0 0 0.5rem;
+  color: var(--teal);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.aw-accordion-heading {
+  max-width: var(--prose-measure);
+  margin: 0 0 0.75rem;
+}
+
+.aw-intro {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0 0 0.75rem;
+  color: var(--navy);
+  font-size: var(--text-lead);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.aw-intro:last-child {
+  margin-bottom: 0;
+}
+
+.aw-instruction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 1.25rem;
+  margin-inline-end: auto;
+  color: var(--teal);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  direction: rtl;
+  text-align: right;
+}
+
+.aw-click-icon {
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.aw-process {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.15rem;
+  width: 100%;
+  margin: 2rem 0 3.5rem;
+  padding: 0;
+  list-style: none;
+  direction: rtl;
+}
+
+.aw-process-step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.aw-process-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.4rem 1rem;
+  border: 0.125rem solid var(--aw-coral);
+  border-radius: 999px;
+  background: var(--aw-peach);
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.aw-process-step:not(:last-child)::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 1.65rem;
+  height: 0.72rem;
+  margin-inline: 0.45rem;
+  background: var(--aw-coral);
+  clip-path: polygon(
+    100% 32%,
+    38% 32%,
+    38% 0,
+    0 50%,
+    38% 100%,
+    38% 68%,
+    100% 68%
+  );
+}
+
+#athalta-workshops-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+.aw-accordion-item {
+  width: 100%;
+  border-radius: 0.25rem;
+  background: var(--aw-peach);
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.aw-accordion-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 1rem;
+  border: 0.3rem solid var(--aw-coral);
+  border-radius: 0.25rem;
+  background: var(--aw-peach);
+  color: var(--navy);
+  cursor: pointer;
+  appearance: none;
+  direction: rtl;
+  text-align: right;
+  box-sizing: border-box;
+  transition: background 0.3s ease, border-radius 0.3s ease;
+}
+
+.aw-accordion-item.is-open .aw-accordion-button {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.aw-accordion-button:hover {
+  background: var(--aw-peach-hover);
+}
+
+.aw-accordion-button:focus-visible {
+  outline: 0.2rem solid var(--navy);
+  outline-offset: 0.15rem;
+}
+
+.aw-accordion-label {
+  display: block;
+  flex: 1;
+  color: var(--navy);
+  font-size: var(--text-lead);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-align: right;
+  transition: font-weight 0.3s ease;
+}
+
+.aw-accordion-item.is-open .aw-accordion-label {
+  font-weight: 700;
+}
+
+.aw-accordion-arrow {
+  display: block;
+  flex-shrink: 0;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: 0;
+  border-right: 0.25rem solid var(--aw-coral);
+  border-bottom: 0.25rem solid var(--aw-coral);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, margin 0.3s ease;
+}
+
+.aw-accordion-item.is-open .aw-accordion-arrow {
+  margin-top: 0.4rem;
+  transform: rotate(-135deg);
+}
+
+.aw-accordion-panel {
+  width: 100%;
+  margin: -0.3rem 0 0;
+  padding: 1rem;
+  border: 0.3rem solid var(--aw-coral);
+  border-radius: 0 0 0.25rem 0.25rem;
+  background: var(--white);
+  color: var(--navy);
+  font-size: var(--text-lead);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  text-align: right;
+  direction: rtl;
+  box-sizing: border-box;
+}
+
+.aw-accordion-panel[hidden] {
+  display: none;
+}
+
+@media (max-width: 52rem) {
+  .aw-process {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .aw-process-step {
+    flex-direction: column;
+  }
+
+  .aw-process-step:not(:last-child)::after {
+    width: 0.72rem;
+    height: 1.65rem;
+    margin: 0.45rem 0;
+    clip-path: polygon(
+      32% 0,
+      32% 62%,
+      0 62%,
+      50% 100%,
+      100% 62%,
+      68% 62%,
+      68% 0
+    );
+  }
+}

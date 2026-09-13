@@ -510,7 +510,7 @@ main,
   position: relative;
   width: 100%;
   max-width: 100%;
-  height: 56.5rem;
+  height: 59rem;
   margin-top: 0.25rem;
   overflow: visible;
 }
@@ -536,7 +536,7 @@ main,
 }
 
 .aep-note-wrap-3 {
-  top: 31.5rem;
+  top: 34rem;
   right: 0;
 }
 
@@ -746,7 +746,7 @@ main,
 }
 
 .aep-arrow-2 {
-  top: 30.75rem;
+  top: 33.25rem;
   right: 42%;
   width: 12%;
 }
@@ -789,7 +789,7 @@ main,
 
 @media (max-width: 1150px) and (min-width: 661px) {
   .aep-stage {
-    height: 50rem;
+    height: 52.5rem;
   }
 
   .aep-note-wrap {
@@ -804,7 +804,7 @@ main,
   }
 
   .aep-note-wrap-3 {
-    top: 28rem;
+    top: 30.5rem;
     right: 0;
   }
 
@@ -814,7 +814,7 @@ main,
   }
 
   .aep-arrow-2 {
-    top: 27rem;
+    top: 29.5rem;
     right: 42%;
   }
 

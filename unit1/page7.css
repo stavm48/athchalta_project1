@@ -1,0 +1,745 @@
+/* ===================================================================
+   Unit 1 — Page 7: יסודות אתחלתא
+   Global tokens, header, footer, and sequential nav from theme.css.
+   =================================================================== */
+
+:root {
+  --af-peach: #feece9;
+  --af-purple: #fef2f6;
+  --af-pale-pink: #fff1f6;
+  --af-pink: #fdecf4;
+  --af-green-wash: #ecf7ea;
+  --af-blue-wash: #f0f8fc;
+  --af-yellow-wash: #fdfad9;
+  --af-card-fill: #ccebec;
+  --af-f1: #add594;
+  --af-f2: #f69997;
+  --af-f3: #ebc0da;
+  --af-f4: #ffee81;
+  --af-f5: #b9e4ed;
+  --af-f6: #f59ec4;
+}
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+#athalta-foundations-page {
+  position: relative;
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+  overflow: visible;
+}
+
+.af-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.af-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.af-opening {
+  width: 100%;
+  margin: 0 0 2rem;
+}
+
+.af-main-heading {
+  width: 100%;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  color: var(--teal);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.af-subheading {
+  width: 100%;
+  margin: 0 0 0.35rem;
+  color: var(--teal);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.af-opening-text {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0;
+  color: var(--navy);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.af-opening-text strong {
+  font-weight: 700;
+}
+
+.af-instruction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 1rem 0 0;
+  margin-inline-end: auto;
+  color: var(--teal);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  direction: rtl;
+  text-align: right;
+}
+
+.af-click-icon {
+  display: block;
+  width: 3.125rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.af-cards-section {
+  width: 100%;
+  margin: 2rem 0 0;
+}
+
+.af-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 2rem;
+  align-items: stretch;
+  direction: rtl;
+}
+
+.af-card {
+  perspective: 70rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+  direction: rtl;
+}
+
+.af-card-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto;
+  flex: 1 1 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  cursor: pointer;
+  transition: transform 0.7s ease, box-shadow 0.3s ease;
+}
+
+.af-card.is-flipped .af-card-inner {
+  transform: rotateY(-180deg);
+}
+
+.af-card-face {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 1.35rem 1.25rem 1.6rem;
+  background: var(--af-card-fill);
+  border: 0.3125rem solid var(--teal);
+  border-radius: 0.625rem;
+  box-shadow: var(--shadow);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.af-card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.af-card-back {
+  z-index: 1;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  background: var(--white);
+  transform: rotateY(-180deg);
+}
+
+.af-card-title {
+  display: block;
+  width: 100%;
+  color: var(--navy);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.45;
+  direction: rtl;
+  text-align: center;
+}
+
+.af-card-back .af-card-title {
+  display: inline-block;
+  align-self: start;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  margin-right: 0;
+  padding: 0.25rem 0.7rem;
+  background: var(--af-card-fill);
+  border-radius: 0.55rem;
+  text-align: right;
+}
+
+.af-card-body {
+  display: block;
+  width: 100%;
+  color: var(--navy);
+  font-size: 1rem;
+  line-height: 1.65;
+  direction: rtl;
+  text-align: right;
+}
+
+.af-card-body strong {
+  font-weight: 700;
+}
+
+.af-card-inner:focus-visible {
+  outline: 0.25rem solid var(--coral);
+  outline-offset: 0.25rem;
+  border-radius: 0.625rem;
+}
+
+.af-foundations-section {
+  width: 100%;
+  margin: 3.5rem 0 0;
+}
+
+.af-foundation-shell {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+  overflow: visible;
+}
+
+.af-details-stage {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.af-foundation-details {
+  display: none;
+  position: relative;
+  width: 100%;
+  max-width: 62.5rem;
+  margin: 0 auto;
+  padding: 1.5rem 3.25rem 1.75rem 1.75rem;
+  background: var(--white);
+  border: 0.3125rem solid var(--af-active, var(--af-f1));
+  border-radius: 0.625rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.18);
+  overflow: visible;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  direction: rtl;
+  text-align: right;
+  transition: opacity 0.32s ease, transform 0.32s ease, visibility 0.32s ease;
+}
+
+.af-details-close {
+  position: absolute;
+  top: 0.45rem;
+  left: 0.55rem;
+  right: auto;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.1rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--navy);
+  font-size: 2.35rem;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.af-details-close:hover,
+.af-details-close:focus-visible {
+  background: transparent;
+  color: var(--af-active, var(--teal));
+}
+
+.af-details-close:focus-visible {
+  outline: 0.2rem solid var(--navy);
+  outline-offset: 0.15rem;
+}
+
+.af-foundation-details.is-mounted {
+  display: block;
+}
+
+.af-foundation-details.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.af-details-header {
+  margin-bottom: 1rem;
+}
+
+.af-details-title {
+  display: inline-block;
+  margin: 0 0 0.4rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 0.7rem;
+  color: var(--navy);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  direction: rtl;
+  text-align: right;
+}
+
+.af-details-subtitle,
+.af-details-label,
+.af-details-text,
+.af-details-list {
+  margin: 0;
+  color: var(--navy);
+  font-size: 1.125rem;
+  line-height: 1.55;
+  direction: rtl;
+  text-align: right;
+}
+
+.af-details-block {
+  margin-top: 0.85rem;
+}
+
+.af-details-label {
+  margin-bottom: 0.15rem;
+  font-weight: 700;
+}
+
+.af-details-list {
+  margin: 0.25rem 0 0;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 0;
+}
+
+.af-details-list li {
+  margin-bottom: 0.25rem;
+}
+
+.af-route-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  overflow: visible;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.af-route-svg.is-visible {
+  opacity: 1;
+}
+
+.af-map-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 62.5rem;
+  margin: 2rem auto 0;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.af-map-wrap.is-revealed {
+  animation: afFadeInUp 0.95s ease forwards;
+}
+
+@keyframes afFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.af-foundation-shell.is-active .af-map-wrap {
+  margin-top: 5.5rem;
+}
+
+.af-foundations-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(6.5rem, 7.25rem));
+  direction: ltr;
+  width: 100%;
+  column-gap: 0.75rem;
+  row-gap: 0.75rem;
+}
+
+.af-map-cell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.af-light-peach {
+  background: var(--af-peach);
+}
+
+.af-light-purple {
+  background: var(--af-purple);
+}
+
+.af-light-pale-pink {
+  background: var(--af-pale-pink);
+}
+
+.af-light-pink {
+  background: var(--af-pink);
+}
+
+.af-light-green {
+  background: var(--af-green-wash);
+}
+
+.af-light-blue {
+  background: var(--af-blue-wash);
+}
+
+.af-light-yellow {
+  background: var(--af-yellow-wash);
+}
+
+.af-col-1 {
+  grid-column: 1;
+}
+
+.af-col-2 {
+  grid-column: 2;
+}
+
+.af-col-3 {
+  grid-column: 3;
+}
+
+.af-col-4 {
+  grid-column: 4;
+}
+
+.af-col-5 {
+  grid-column: 5;
+}
+
+.af-col-6 {
+  grid-column: 6;
+}
+
+.af-col-7 {
+  grid-column: 7;
+}
+
+.af-col-8 {
+  grid-column: 8;
+}
+
+.af-row-1 {
+  grid-row: 1;
+}
+
+.af-row-2 {
+  grid-row: 2;
+}
+
+.af-row-3 {
+  grid-row: 3;
+}
+
+.af-row-4 {
+  grid-row: 4;
+}
+
+.af-row-5 {
+  grid-row: 5;
+}
+
+.af-foundation-button {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  padding: 0.75rem 0.5rem 0.6rem;
+  border: 0;
+  border-radius: 0;
+  color: var(--navy);
+  font-family: var(--font);
+  direction: rtl;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.3s ease;
+}
+
+.af-foundation-button:hover {
+  box-shadow: 0 0.45rem 0.9rem rgba(31, 61, 100, 0.15);
+}
+
+.af-foundation-button.is-selected {
+  box-shadow:
+    inset 0 0 0 0.25rem rgba(31, 61, 100, 0.13),
+    0 0.45rem 0.9rem rgba(31, 61, 100, 0.12);
+}
+
+.af-foundation-button:focus-visible {
+  outline: 0.25rem solid var(--navy);
+  outline-offset: 0.2rem;
+}
+
+.af-foundation-1 {
+  background: var(--af-f1);
+}
+
+.af-foundation-2 {
+  background: var(--af-f2);
+}
+
+.af-foundation-3 {
+  background: var(--af-f3);
+}
+
+.af-foundation-4 {
+  background: var(--af-f4);
+}
+
+.af-foundation-5 {
+  background: var(--af-f5);
+}
+
+.af-foundation-6 {
+  background: var(--af-f6);
+}
+
+.af-foundation-number {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.4rem;
+  color: var(--navy);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  direction: ltr;
+}
+
+.af-instruction.af-map-instruction {
+  margin: 0 0 1.25rem;
+}
+
+.af-foundation-check {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.4rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.af-foundation-button.is-visited .af-foundation-check {
+  display: inline-flex;
+}
+
+.af-foundation-check svg {
+  display: block;
+  width: 0.95rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.af-foundation-name {
+  width: 100%;
+  color: var(--navy);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media (max-width: 63.75rem) {
+  .af-cards-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .af-foundations-map {
+    grid-template-rows: repeat(5, minmax(5.75rem, 6.25rem));
+  }
+
+  .af-foundation-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-unit-title {
+    font-size: 2rem;
+  }
+
+  .af-main-heading {
+    font-size: 1.75rem;
+  }
+
+  .af-subheading {
+    font-size: 1.5rem;
+  }
+
+  .af-opening-text,
+  .af-instruction {
+    font-size: 1rem;
+  }
+
+  .af-cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .af-card-title {
+    font-size: 1.125rem;
+  }
+
+  .af-details-title {
+    font-size: 1.5rem;
+  }
+
+  .af-route-svg,
+  .af-map-cell {
+    display: none;
+  }
+
+  .af-foundation-shell.is-active .af-map-wrap {
+    margin-top: 1.5rem;
+  }
+
+  .af-foundations-map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: minmax(6.5rem, auto);
+    direction: rtl;
+    gap: 0.65rem;
+  }
+
+  .af-foundation-button {
+    grid-column: auto;
+    grid-row: auto;
+    border-radius: 0.5rem;
+    min-height: 6.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .af-card-inner,
+  .af-foundation-button,
+  .af-foundation-details,
+  .af-details-close,
+  .af-map-wrap {
+    transition: none;
+  }
+
+  .af-card.is-flipped .af-card-inner {
+    transform: none;
+  }
+
+  .af-card.is-flipped .af-card-front {
+    visibility: hidden;
+  }
+
+  .af-card.is-flipped .af-card-back {
+    transform: none;
+  }
+
+  .af-map-wrap,
+  .af-map-wrap.is-revealed {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
