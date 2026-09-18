@@ -44,7 +44,7 @@
   width: 100%;
   margin: 0 0 0.5rem;
   color: var(--teal);
-  font-size: 1.5rem;
+  font-size: var(--text-h2);
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: -0.02em;
@@ -53,7 +53,7 @@
 }
 
 .ag-section-heading {
-  font-size: 1.25rem;
+  font-size: var(--text-h3);
   font-weight: 600;
 }
 
@@ -363,14 +363,6 @@
 }
 
 @media (max-width: 47.9375rem) {
-  .ata-unit-title {
-    font-size: 2rem;
-  }
-
-  .ag-main-heading {
-    font-size: 1.35rem;
-  }
-
   .ag-goals-grid {
     grid-template-columns: 1fr;
     width: 100%;

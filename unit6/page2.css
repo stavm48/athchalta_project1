@@ -1,0 +1,548 @@
+/* ===================================================================
+   Unit 6 — Page 2: רכיבי התקציב התוספתי
+   Moodle copy and structure, mapped onto project type and layout rules.
+   =================================================================== */
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+#athalta-budget-components {
+  --u6c-main: var(--coral);
+  --u6c-light: #feece9;
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+}
+
+.u6c-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.u6c-copy {
+  width: 100%;
+  margin: 0;
+}
+
+.u6c-section-title {
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  color: var(--teal);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.u6c-intro {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.u6c-intro strong,
+.u6c-expanded-intro strong,
+.u6c-report-text strong {
+  font-weight: 700;
+}
+
+.u6c-instruction-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 1.25rem 0 0;
+  margin-inline-end: auto;
+}
+
+.u6c-click-icon {
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u6c-instruction {
+  margin: 0;
+  color: var(--teal);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: var(--lh-body);
+  text-align: right;
+}
+
+.u6c-main-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
+  width: 100%;
+  margin: 5.5rem 0 2rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.u6c-main-grid[hidden] {
+  display: none !important;
+}
+
+.u6c-main-card {
+  --u6c-main: var(--coral);
+  --u6c-light: #feece9;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  margin: 0;
+  padding: 0 1.5rem 1.35rem;
+  background: var(--white);
+  border: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  color: var(--navy);
+  text-align: right;
+}
+
+.u6c-main-card.people {
+  --u6c-main: var(--coral);
+  --u6c-light: #feece9;
+}
+
+.u6c-main-card.activity {
+  --u6c-main: var(--green);
+  --u6c-light: #ecf7ea;
+}
+
+.u6c-main-card.overhead {
+  --u6c-main: var(--pink-soft);
+  --u6c-light: var(--pink-wash);
+}
+
+.u6c-component-image {
+  display: block;
+  width: min(14.5rem, 100%);
+  height: auto;
+  margin: -5.25rem auto 0.65rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u6c-main-title {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem;
+  padding: 0.2rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--u6c-main);
+  color: var(--navy);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.u6c-main-description {
+  flex: 1 1 auto;
+  width: 100%;
+  margin: 0 0 1.1rem;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.u6c-more {
+  align-self: flex-start;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--u6c-light);
+  box-shadow: var(--shadow);
+  color: var(--navy);
+  cursor: pointer;
+  appearance: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.u6c-more:hover {
+  filter: brightness(0.98);
+}
+
+.u6c-more:focus {
+  outline: none;
+}
+
+.u6c-more:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.2rem;
+}
+
+.u6c-more-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.u6c-more-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.7rem;
+  background: var(--u6c-main);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  flex-shrink: 0;
+  color: var(--navy);
+}
+
+.u6c-more-arrow-img {
+  display: block;
+  width: 1.35rem;
+  height: auto;
+  flex-shrink: 0;
+  color: var(--navy);
+  pointer-events: none;
+}
+
+.u6c-expanded {
+  position: relative;
+  width: 100%;
+  margin: 1.5rem 0 2rem;
+  padding: 1.35rem 1.75rem 1.75rem 1.75rem;
+  padding-inline-end: 3.25rem;
+  background: var(--white);
+  border: 0.45rem solid var(--u6c-main);
+  border-radius: 0.625rem;
+  box-shadow: var(--shadow);
+  color: var(--navy);
+  text-align: right;
+  scroll-margin-top: 1.5rem;
+}
+
+.u6c-expanded[hidden] {
+  display: none !important;
+}
+
+.u6c-expanded.people {
+  --u6c-main: var(--coral);
+  --u6c-light: #feece9;
+}
+
+.u6c-expanded.activity {
+  --u6c-main: var(--green);
+  --u6c-light: #ecf7ea;
+}
+
+.u6c-expanded.overhead {
+  --u6c-main: var(--pink-soft);
+  --u6c-light: #fef2f6;
+}
+
+.u6c-close {
+  position: absolute;
+  top: 0.45rem;
+  left: 0.55rem;
+  right: auto;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.15rem 0.4rem;
+  border: 0;
+  background: transparent;
+  color: var(--navy);
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.3s ease;
+}
+
+.u6c-close:hover {
+  color: var(--teal);
+}
+
+.u6c-close:focus {
+  outline: none;
+}
+
+.u6c-close:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.2rem;
+  border-radius: 0.25rem;
+}
+
+.u6c-expanded-title {
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0;
+  color: var(--navy);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.u6c-expanded-title span {
+  display: inline;
+  padding: 0.15rem 0.85rem;
+  background: var(--u6c-main);
+  border-radius: var(--radius-md);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.u6c-expanded-intro {
+  width: 100%;
+  max-width: var(--prose-measure);
+}
+
+.u6c-expanded-intro p {
+  width: 100%;
+  margin: 0 0 0.9rem;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.u6c-expanded-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.u6c-subcards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin: 1.75rem 0 0;
+}
+
+.u6c-subcards.people-subcards {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.u6c-subcard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  margin: 0;
+  padding: 1.15rem 1.35rem 1.35rem;
+  background: var(--u6c-light);
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.35rem 1.1rem rgba(31, 61, 100, 0.08);
+  color: var(--navy);
+  text-align: right;
+  scroll-margin-top: 1.5rem;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.u6c-subcard:focus {
+  outline: none;
+}
+
+.u6c-subcard:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.2rem;
+}
+
+.u6c-sub-icon {
+  display: block;
+  width: 2.75rem;
+  height: auto;
+  margin: 0 0 0.55rem;
+  align-self: flex-start;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u6c-subcard.simulation .u6c-sub-icon {
+  width: 3rem;
+}
+
+.u6c-sub-title {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 0.45rem;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.u6c-sub-text {
+  width: 100%;
+  margin: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.u6c-report-note {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  margin: 1.75rem 0 0;
+}
+
+.u6c-exclamation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+  margin: 0;
+  border: 0.3rem solid var(--u6c-main);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--u6c-main);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.u6c-report-text {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0.15rem 0 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.u6c-expanded:focus {
+  outline: none;
+}
+
+.u6c-expanded:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.25rem;
+}
+
+@media (max-width: 62.5rem) {
+  .u6c-main-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 5.5rem;
+    max-width: 32rem;
+    margin-top: 5rem;
+    margin-inline: auto;
+  }
+
+  .u6c-subcards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-unit-title {
+    font-size: 2rem;
+  }
+
+  .u6c-section-title {
+    font-size: 1.5rem;
+  }
+
+  .u6c-main-grid {
+    gap: 4.75rem;
+  }
+
+  .u6c-component-image {
+    width: min(11.5rem, 80%);
+    margin-top: -4.25rem;
+  }
+
+  .u6c-expanded {
+    padding: 1.25rem 1.1rem 1.35rem;
+    padding-inline-end: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .u6c-more,
+  .u6c-close,
+  .u6c-subcard {
+    transition: none;
+  }
+}

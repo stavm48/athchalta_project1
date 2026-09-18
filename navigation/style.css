@@ -17,12 +17,13 @@
   --font: "Rubik", "Heebo", "Assistant", sans-serif;
   --font-email: "Plus Jakarta Sans", "Rubik", sans-serif;
   --content: 73.75rem; /* ~1180px */
-  --text-h1: 3rem;
-  --text-h3: 1.25rem;
-  --text-lead: 1.125rem;
+  --text-h1: 2.625rem;
+  --text-h2: 1.875rem;
+  --text-h3: 1.3125rem;
+  --text-lead: 1rem;
   --text-body: 1rem;
   --lh-heading: 1.2;
-  --lh-body: 1.6;
+  --lh-body: 1.7;
 }
 
 *,
@@ -438,6 +439,23 @@ p {
   margin: 0;
 }
 
+h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: var(--lh-heading);
+}
+
+p {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+}
+
 /* Accessible, visually hidden helper text */
 .ata-nav-sr-only {
   position: absolute;
@@ -714,7 +732,8 @@ p {
 /* Tablet */
 @media (max-width: 59.375rem) {
   :root {
-    --text-h3: 1.125rem;
+    --text-h2: 1.75rem;
+    --text-h3: 1.25rem;
   }
 
   .ata-units-grid {
@@ -736,7 +755,8 @@ p {
 @media (max-width: 40.625rem) {
   :root {
     --text-h1: 2rem;
-    --text-h3: 1rem;
+    --text-h2: 1.5rem;
+    --text-h3: 1.25rem;
     --text-lead: 1rem;
   }
 

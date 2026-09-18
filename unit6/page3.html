@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>יחידה 6 | דיווח תקציב שנתי</title>
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="./page3.css" />
+  </head>
+  <body>
+    <div id="global-header"></div>
+
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <main class="ata-unit-page">
+      <h1 class="ata-unit-title">
+        <span class="ata-unit-title-index">יחידה 6</span>
+        <span class="ata-unit-title-divider" aria-hidden="true">|</span>
+        <span class="ata-unit-title-name">תקציב ודיווח</span>
+      </h1>
+
+      <div id="athalta-budget-report">
+        <section class="u6r-copy" aria-labelledby="u6r-main-heading">
+          <h2 id="u6r-main-heading" class="u6r-section-title">
+            דיווח תקציב שנתי
+          </h2>
+          <p class="u6r-intro">
+            ישנן מספר תחנות לאורך השנה בהן נדרש לבצע פעולות הנוגעות לתקציב
+            השנתי במסגרת התוכנית, לרבות&nbsp;דיווח.
+          </p>
+          <div class="u6r-instruction-row">
+            <img
+              class="u6r-click-icon"
+              src="/assets/general/clickIcon.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <p class="u6r-instruction">
+              לחצו על התחנות לפירוט הפעולות הנדרשות לביצוע בהתאם לתקופת הזמן
+              בשנה. לחיצה על × סוגרת את כרטיס&nbsp;ההסבר.
+            </p>
+          </div>
+          <p id="u6r-help" class="u6r-sr-only">
+            לפניכם ארבע תחנות דיווח תקציב לאורך השנה. ניתן לפתוח כל תחנה
+            באמצעות Enter או רווח. לאחר פתיחת תחנה הפוקוס יעבור לכרטיס ההסבר.
+            ניתן לסגור את כרטיס ההסבר באמצעות כפתור הסגירה או Escape. חצי
+            שמאלה וימינה מעבירים בין כפתורי התחנות.
+          </p>
+        </section>
+
+        <section
+          class="u6r-timeline"
+          aria-label="תחנות דיווח התקציב השנתי"
+          aria-describedby="u6r-help"
+        >
+          <div class="u6r-spine" aria-hidden="true">
+            <img
+              class="u6r-pipes"
+              src="../assets/unit6/pipes6p3.png"
+              alt=""
+            />
+            <span class="u6r-month u6r-month-pin" data-u6r-month="advance"
+              >אוקטובר</span
+            >
+            <span class="u6r-month u6r-month-pin" data-u6r-month="half-two"
+              >יולי - אוגוסט</span
+            >
+            <span class="u6r-month u6r-month-pin" data-u6r-month="half-one"
+              >פברואר-מרץ</span
+            >
+            <span class="u6r-month u6r-month-pin" data-u6r-month="balance"
+              >אוגוסט-ספטמבר</span
+            >
+          </div>
+
+          <div class="u6r-station u6r-top advance" data-u6r-station="advance">
+            <div class="u6r-station-content">
+              <button
+                id="u6r-trigger-advance"
+                class="u6r-trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="u6r-detail-advance"
+              >
+                מקדמה
+              </button>
+              <div
+                id="u6r-detail-advance"
+                class="u6r-detail"
+                hidden
+                tabindex="-1"
+                role="region"
+                aria-labelledby="u6r-trigger-advance"
+              >
+                <button
+                  class="u6r-close"
+                  type="button"
+                  data-u6r-close
+                  aria-label="סגירת המידע"
+                >
+                  ×
+                </button>
+                <h3 class="u6r-detail-title">מקדמה</h3>
+                <div class="u6r-actions">
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/pinkCheck.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    שליחת דרישת תשלום למקדמה (מחצית מסכום התקציב התוספתי) עם
+                    חתימת החוזה.
+                  </p>
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/pinkCheck.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    קבלת תשלום המקדמה ממכון מופ"ת ותוכנית אתחלתא.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <span class="u6r-month u6r-month-local">אוקטובר</span>
+          </div>
+
+          <div
+            class="u6r-station u6r-bottom half-one"
+            data-u6r-station="half-one"
+          >
+            <span class="u6r-month u6r-month-local">פברואר-מרץ</span>
+            <div class="u6r-station-content">
+              <button
+                id="u6r-trigger-half-one"
+                class="u6r-trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="u6r-detail-half-one"
+              >
+                דיווח חציון ראשון
+              </button>
+              <div
+                id="u6r-detail-half-one"
+                class="u6r-detail"
+                hidden
+                tabindex="-1"
+                role="region"
+                aria-labelledby="u6r-trigger-half-one"
+              >
+                <button
+                  class="u6r-close"
+                  type="button"
+                  data-u6r-close
+                  aria-label="סגירת המידע"
+                >
+                  ×
+                </button>
+                <h3 class="u6r-detail-title">דיווח חציון ראשון</h3>
+                <div class="u6r-actions">
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/orangCheck.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    הגשת דיווח הוצאות לחציון הראשון בצירוף דיווח תוכן.
+                  </p>
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/orangCheck.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    צירוף פירוט הוצאות מלא, כולל חשבוניות וכרטסת הנהלת
+                    חשבונות.
+                  </p>
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/orangCheck.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    אישור הדיווחים על ידי מכון מופ"ת ותוכנית אתחלתא (בהתאם
+                    לפעילות).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="u6r-station u6r-top half-two"
+            data-u6r-station="half-two"
+          >
+            <div class="u6r-station-content">
+              <button
+                id="u6r-trigger-half-two"
+                class="u6r-trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="u6r-detail-half-two"
+              >
+                דיווח חציון שני
+              </button>
+              <div
+                id="u6r-detail-half-two"
+                class="u6r-detail"
+                hidden
+                tabindex="-1"
+                role="region"
+                aria-labelledby="u6r-trigger-half-two"
+              >
+                <button
+                  class="u6r-close"
+                  type="button"
+                  data-u6r-close
+                  aria-label="סגירת המידע"
+                >
+                  ×
+                </button>
+                <h3 class="u6r-detail-title">דיווח חציון שני</h3>
+                <div class="u6r-actions">
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/checkYellow.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    הגשת דיווח הוצאות לחציון השני בצירוף דיווח תוכן.
+                  </p>
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/checkYellow.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    צירוף פירוט הוצאות מלא, כולל חשבוניות וכרטסת הנהלת
+                    חשבונות.
+                  </p>
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/checkYellow.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    אישור הדיווחים על ידי מכון מופ"ת ותוכנית אתחלתא (בהתאם
+                    לפעילות).
+                  </p>
+                </div>
+              </div>
+            </div>
+            <span class="u6r-month u6r-month-local">יולי - אוגוסט</span>
+          </div>
+
+          <div
+            class="u6r-station u6r-bottom balance"
+            data-u6r-station="balance"
+          >
+            <span class="u6r-month u6r-month-local">אוגוסט-ספטמבר</span>
+            <div class="u6r-station-content">
+              <button
+                id="u6r-trigger-balance"
+                class="u6r-trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="u6r-detail-balance"
+              >
+                יתרת התקציב
+              </button>
+              <div
+                id="u6r-detail-balance"
+                class="u6r-detail"
+                hidden
+                tabindex="-1"
+                role="region"
+                aria-labelledby="u6r-trigger-balance"
+              >
+                <button
+                  class="u6r-close"
+                  type="button"
+                  data-u6r-close
+                  aria-label="סגירת המידע"
+                >
+                  ×
+                </button>
+                <h3 class="u6r-detail-title">יתרת התקציב</h3>
+                <div class="u6r-actions">
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/greenCheck.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    שליחת דרישת תשלום למחצית השנייה של התקציב (או בהתאם למימוש
+                    בפועל).
+                  </p>
+                  <p class="u6r-action">
+                    <img
+                      class="u6r-check"
+                      src="../assets/unit6/greenCheck.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    קבלת תשלום היתרה ממכון מופ"ת ותוכנית אתחלתא.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div
+          id="u6r-status"
+          class="u6r-sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+      </div>
+
+      <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
+        <a class="ata-nav-prev" href="./page2.html">
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="ata-nav-prev-text">חזרה לרכיבי התקציב התוספתי</span>
+        </a>
+
+        <a class="ata-nav-next" href="../unit7/page1.html">
+          <span class="ata-nav-next-text">שאלות נפוצות ולוח מפגשים</span>
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 6l-6 6 6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </nav>
+    </main>
+
+    <div id="global-footer"></div>
+
+    <script src="/navigation/script.js"></script>
+    <script src="./page3.js"></script>
+    <script src="../components.js"></script>
+  </body>
+</html>

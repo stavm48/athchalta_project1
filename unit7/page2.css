@@ -1,0 +1,387 @@
+/* ===================================================================
+   Unit 7 — Page 2: מתווה מפגשים תשפ״ז
+   Global tokens, header, footer, and sequential nav from theme.css.
+   =================================================================== */
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+#athalta-unit7-meetings {
+  --u7m-header: #feece9;
+  --u7m-cell: #fff8f5;
+  --u7m-zoom: #44a9e6;
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+  overflow: visible;
+}
+
+.u7m-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.u7m-section-title {
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  color: var(--teal);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.u7m-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  width: 100%;
+  margin: 0 0 1.5rem;
+}
+
+.u7m-filter {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.35rem 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 600;
+  line-height: var(--lh-body);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.u7m-filter-input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.u7m-filter-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  border: 0.125rem solid var(--teal);
+  border-radius: 0.25rem;
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+.u7m-filter-input:checked + .u7m-filter-box {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.u7m-filter-input:checked + .u7m-filter-box::after {
+  content: "";
+  width: 0.35rem;
+  height: 0.65rem;
+  border: solid var(--white);
+  border-width: 0 0.15rem 0.15rem 0;
+  transform: rotate(45deg) translateY(-0.1rem);
+}
+
+.u7m-filter-input:focus-visible + .u7m-filter-box {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.2rem;
+}
+
+.u7m-table-scroll {
+  width: 100%;
+  margin: 0;
+  padding: 0.2rem 0.15rem 1.15rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  direction: rtl;
+  scrollbar-width: thin;
+}
+
+.u7m-table-scroll:focus {
+  outline: none;
+}
+
+.u7m-table-scroll:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.2rem;
+}
+
+.u7m-schedule-table {
+  width: 100%;
+  min-width: 72rem;
+  table-layout: fixed;
+  margin: 0;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0.625rem 0.875rem;
+  background: transparent;
+}
+
+.u7m-schedule-table thead th {
+  margin: 0;
+  padding: 0.5rem 0.35rem;
+  border: 0;
+  border-radius: 0.8rem 0.8rem 0 0;
+  background: var(--u7m-header);
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.u7m-schedule-table thead th.u7m-role-head {
+  width: 7.5rem;
+  color: transparent;
+  background: transparent;
+}
+
+.u7m-schedule-table td,
+.u7m-role {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: stretch;
+}
+
+.u7m-role {
+  width: 7.5rem;
+  padding: 1.25rem 0.6rem;
+  background: var(--u7m-header);
+  border-radius: 0 0.875rem 0.875rem 0;
+  color: var(--navy);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.u7m-role-title {
+  display: block;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.u7m-role-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-top: 1.25rem;
+}
+
+.u7m-cell,
+.u7m-empty {
+  background: var(--u7m-cell);
+}
+
+.u7m-event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 18rem;
+  height: 100%;
+  margin: 0;
+  padding: 0.9rem 0.45rem 0.85rem;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  text-align: center;
+}
+
+.u7m-event strong {
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.u7m-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 100%;
+  height: 100%;
+}
+
+.u7m-stack .u7m-event {
+  flex: 1 1 auto;
+  min-height: 10.5rem;
+}
+
+.u7m-blue {
+  background: #f0f8fc;
+}
+
+.u7m-yellow {
+  background: #fdfad9;
+}
+
+.u7m-green {
+  background: #ecf7ea;
+}
+
+.u7m-pink {
+  background: #fdecf4;
+}
+
+.u7m-zoom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0 1rem;
+  color: var(--u7m-zoom);
+  font-size: var(--text-body);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.u7m-small-text {
+  display: block;
+  margin: 0.2rem 0 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  text-align: center;
+}
+
+.u7m-custom-icon-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.u7m-custom-icon-placeholder img {
+  display: block;
+  width: 1.5rem;
+  height: auto;
+  max-height: 1.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u7m-event > .u7m-custom-icon-placeholder {
+  margin-top: auto;
+  margin-bottom: 1.15rem;
+}
+
+.u7m-date {
+  display: block;
+  margin-top: auto;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.45;
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.u7m-time {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.u7m-or {
+  display: block;
+  margin: 0.25rem 0;
+  font-weight: 700;
+}
+
+.u7m-retreat-title {
+  font-weight: 700;
+}
+
+.u7m-schedule-table tbody tr[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-unit-title {
+    font-size: 2rem;
+  }
+
+  .u7m-section-title {
+    font-size: 1.5rem;
+  }
+
+  .u7m-schedule-table {
+    min-width: 64rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .u7m-filter,
+  .u7m-filter-box {
+    transition: none;
+  }
+}

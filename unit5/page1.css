@@ -1,0 +1,423 @@
+/* ===================================================================
+   Unit 5 — Page 1: אבני הדרך בתוכנית
+   Global tokens, header, footer, and sequential nav from theme.css.
+   =================================================================== */
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+#athalta-unit5-roadmap {
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+}
+
+.u5-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.u5-opening {
+  width: 100%;
+  margin: 0 0 1.5rem;
+}
+
+.u5-main-heading {
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  color: var(--teal);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.u5-intro {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0 0 1.25rem;
+  margin-inline-end: auto;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.u5-roadmap-heading {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0 0 0.75rem;
+  margin-inline-end: auto;
+  padding: 0;
+  color: var(--teal);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: 1.4;
+  direction: rtl;
+  text-align: right;Refresh unit5/page3.html and try both tabs, then an accordion.
+}
+
+.u5-instruction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  margin-inline-end: auto;
+  color: var(--teal);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: var(--lh-body);
+  direction: rtl;
+  text-align: right;
+  cursor: default;
+}
+
+.u5-click-icon {
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u5-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(12rem, 1fr));
+  column-gap: 1rem;
+  width: 100%;
+  max-width: 58rem;
+  margin: 1.75rem 0 0;
+  margin-inline-end: auto;
+  padding: 0;
+  direction: rtl;
+}
+
+.u5-timeline-line {
+  position: absolute;
+  top: 0.72rem;
+  right: 4%;
+  left: 4%;
+  height: 0.3rem;
+  background: #ccebec;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.u5-timeline-line::before,
+.u5-timeline-line::after {
+  content: "";
+  position: absolute;
+  top: -0.55rem;
+  width: 0.25rem;
+  height: 1.4rem;
+  background: #ccebec;
+  border-radius: 999px;
+}
+
+.u5-timeline-line::before {
+  right: 0;
+}
+
+.u5-timeline-line::after {
+  left: 0;
+}
+
+.u5-step {
+  --u5-main: var(--teal);
+  --u5-light: #ecf7ea;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.3s ease;
+}
+
+.u5-step::before {
+  content: "";
+  display: block;
+  width: 1.875rem;
+  height: 1.875rem;
+  flex-shrink: 0;
+  margin: 0 auto;
+  border: 0.3rem solid var(--u5-main);
+  border-radius: 50%;
+  background: var(--u5-light);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.u5-step.is-active::before {
+  background: var(--u5-main);
+}
+
+.u5-green {
+  --u5-main: #a9d48f;
+  --u5-light: #ecf7ea;
+}
+
+.u5-pink {
+  --u5-main: #f59dc5;
+  --u5-light: #fdecf4;
+}
+
+.u5-purple {
+  --u5-main: #ebc0db;
+  --u5-light: #fef2f6;
+}
+
+.u5-yellow {
+  --u5-main: #ffee81;
+  --u5-light: #fdfad9;
+}
+
+.u5-date {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  margin: 1rem 0 0;
+  padding: 0.55rem 0.85rem;
+  border: 0.3rem solid var(--u5-main);
+  border-radius: 0.625rem;
+  background: var(--u5-light);
+  box-shadow: var(--shadow);
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.u5-step.is-active .u5-date {
+  background: var(--u5-main);
+}
+
+.u5-step:hover::before,
+.u5-step:hover .u5-date {
+  transform: translateY(-0.15rem);
+}
+
+.u5-step:focus {
+  outline: none;
+}
+
+.u5-step:focus-visible .u5-date {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.3rem;
+}
+
+.u5-card-panel {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 58rem;
+  margin: -1.35rem 0 0;
+  margin-inline-end: auto;
+  scroll-margin-top: 1.5rem;
+  scroll-margin-bottom: 1.5rem;
+  direction: rtl;
+  text-align: right;
+}
+
+.u5-card-panel[hidden] {
+  display: none;
+}
+
+.u5-card-shell {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 31rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.u5-card-image {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.u5-card-copy {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.55rem;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+  padding: 38% 14% 18%;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+}
+
+.u5-card-title {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: var(--navy);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: 1.5;
+  direction: rtl;
+  text-align: right;
+}
+
+.u5-card-title span {
+  display: inline;
+  padding: 0.2rem 0.65rem;
+  border-radius: 0.5rem;
+  background: var(--u5-highlight, #add38b);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.u5-card-text {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.u5-card-emphasis {
+  font-weight: 700;
+}
+
+.u5-card-link {
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.u5-card-link:hover {
+  color: var(--teal);
+}
+
+.u5-card-link:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.25rem;
+  border-radius: 0.2rem;
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-unit-title {
+    font-size: 2rem;
+  }
+
+  .u5-main-heading {
+    font-size: 1.5rem;
+  }
+
+  .u5-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+  }
+
+  .u5-timeline-line {
+    display: none;
+  }
+
+  .u5-card-shell {
+    max-width: 23.5rem;
+  }
+
+  .u5-card-copy {
+    padding: 38% 12% 16%;
+  }
+
+  .u5-card-panel {
+    margin-top: 0.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .u5-step,
+  .u5-step::before,
+  .u5-date,
+  .u5-card-link {
+    transition: none;
+  }
+}

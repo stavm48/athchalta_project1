@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>יחידה 6 | מקורות ומבנה התקציב</title>
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="./page1.css" />
+  </head>
+  <body>
+    <div id="global-header"></div>
+
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <main class="ata-unit-page">
+      <h1 class="ata-unit-title">
+        <span class="ata-unit-title-index">יחידה 6</span>
+        <span class="ata-unit-title-divider" aria-hidden="true">|</span>
+        <span class="ata-unit-title-name">תקציב ודיווח</span>
+      </h1>
+
+      <div id="athalta-budget">
+        <section class="u6-opening" aria-labelledby="u6-main-heading">
+          <h2 id="u6-main-heading" class="u6-main-heading">
+            מקורות ומבנה התקציב
+          </h2>
+          <p class="u6-intro">
+            תקציב חממות וסדנאות אתחלתא נשען על שני מקורות תקציביים מרכזיים,
+            שכל אחד מהם ממלא תפקיד אחר בהפעלת&nbsp;התוכנית:
+          </p>
+
+          <div class="u6-source">
+            <img
+              class="u6-source-icon"
+              src="../assets/unit6/wallet.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <p class="u6-source-text">
+              המקור התקציבי הראשון הוא
+              <strong>משרד החינוך</strong>, האחראי על תקצוב רכיבי ההנחיה של
+              החממה או הסדנה, וכן על רכיב ריכוז החממות והסדנאות. תקציב זה ניתן
+              בדומה לתקצוב חממות וסדנאות אחרות הפועלות בשגרה במסגרת יחידות
+              הכניסה להוראה במוסדות האקדמיים. לכן,
+              <strong
+                >מוסדות אקדמיים השותפים בתוכנית אתחלתא נדרשים להגיש את בקשות
+                התקצוב עבור רכיבים אלה יחד עם הבקשות לתקצוב כלל החממות
+                והסדנאות שהם מפעילים.</strong
+              >
+              הגשת הבקשות נעשית בהתאם לדרישות, לתנאים וללוחות הזמנים שמפרסם
+              מדי שנה אגף כניסה להוראה וקשרי אקדמיה&nbsp;שדה.
+            </p>
+          </div>
+
+          <div class="u6-source">
+            <img
+              class="u6-source-icon"
+              src="../assets/unit6/wallet.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <p class="u6-source-text">
+              המקור התקציבי השני הוא
+              <strong>תוכנית אתחלתא</strong>, הפועלת במכון מופ"ת בתמיכת קרן
+              משפחת ליאון. התקציב אותו התוכנית מספקת הינו
+              <strong>תקציב תוספתי</strong>, הניתן למוסדות האקדמיים במסגרת
+              השותפות בתוכנית. התקציב מועבר ממכון מופ"ת אל המוסדות האקדמיים
+              בהתאם להסכם שנחתם בין הצדדים מדי שנה, ובכפוף לעמידה בתנאים שנקבעו
+              בו. תנאים אלה כוללים, בין היתר, את מבנה התקציב, רכיבי התקציב
+              והסכומים שיועברו למוסד האקדמי במסגרת&nbsp;התוכנית.
+            </p>
+          </div>
+        </section>
+
+        <p class="u6-instruction">
+          <img
+            class="u6-click-icon"
+            src="/assets/general/clickIcon.png"
+            alt=""
+            aria-hidden="true"
+          />
+          עברו בלחיצה בין שלוש האבחנות&nbsp;להצגתן.
+        </p>
+        <p id="u6-keyboard-help" class="u6-sr-only">
+          שלוש האבחנות נמצאות על גלגל התקציב. Tab, חץ למטה או שמאלה בוחרים
+          את האבחנה הבאה ומציגים את המידע שלה. חץ למעלה או ימינה בוחרים את
+          האבחנה הקודמת. Escape, כפתור הסגירה או לחיצה חוזרת על האבחנה סוגרים
+          אותו.
+        </p>
+
+        <div class="u6-stage">
+          <div class="u6-wheel-layout">
+            <div
+              class="u6-wheel"
+              role="group"
+              aria-label="מבנה התקציב התוספתי"
+              aria-describedby="u6-keyboard-help"
+            >
+              <div
+                class="u6-slice u6-slice-yellow is-full"
+                data-u6-source="yellow"
+              >
+                <img
+                  class="u6-slice-image"
+                  src="../assets/unit6/YellowPiece.png"
+                  alt=""
+                  data-full="../assets/unit6/YellowPiece.png"
+                  data-empty="../assets/unit6/yellowLightPiece.png"
+                />
+                <span class="u6-slice-copy">
+                  <img
+                    class="u6-slice-icon"
+                    src="../assets/unit6/peopleYellow.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <span class="u6-slice-label"
+                    >הרכב החממה<br />או הסדנה</span
+                  >
+                </span>
+                <button
+                  id="u6-slice-yellow"
+                  class="u6-slice-hit"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="u6-detail-card"
+                  aria-label="הרכב החממה או הסדנה"
+                ></button>
+              </div>
+              <div
+                class="u6-slice u6-slice-blue is-full"
+                data-u6-source="blue"
+              >
+                <img
+                  class="u6-slice-image"
+                  src="../assets/unit6/bluePiece.png"
+                  alt=""
+                  data-full="../assets/unit6/bluePiece.png"
+                  data-empty="../assets/unit6/LightBluePiece.png"
+                />
+                <span class="u6-slice-copy">
+                  <img
+                    class="u6-slice-icon"
+                    src="../assets/unit6/amountBlie.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <span class="u6-slice-label"
+                    >כמות החממות<br />והסדנאות</span
+                  >
+                </span>
+                <button
+                  id="u6-slice-blue"
+                  class="u6-slice-hit"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="u6-detail-card"
+                  aria-label="כמות החממות והסדנאות"
+                ></button>
+              </div>
+              <div
+                class="u6-slice u6-slice-pink is-full"
+                data-u6-source="pink"
+              >
+                <img
+                  class="u6-slice-image"
+                  src="../assets/unit6/piecePink.png"
+                  alt=""
+                  data-full="../assets/unit6/piecePink.png"
+                  data-empty="../assets/unit6/pinkLightPiece.png"
+                />
+                <span class="u6-slice-copy">
+                  <img
+                    class="u6-slice-icon"
+                    src="../assets/unit6/IriyaPink.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <span class="u6-slice-label">סוג המסגרת</span>
+                </span>
+                <button
+                  id="u6-slice-pink"
+                  class="u6-slice-hit"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="u6-detail-card"
+                  aria-label="סוג המסגרת"
+                ></button>
+              </div>
+              <p class="u6-wheel-core">
+                מבנה התקציב<br />
+                התוספתי
+              </p>
+            </div>
+          </div>
+
+          <div class="u6-cards">
+            <div
+              id="u6-detail-card"
+              class="u6-card u6-detail"
+              role="region"
+              hidden
+              aria-hidden="true"
+            >
+              <div class="u6-card-inner">
+                <button
+                  class="u6-card-close u6-close"
+                  type="button"
+                  data-u6-close
+                  aria-label="סגירת המידע"
+                >
+                  ×
+                </button>
+                <h3 id="u6-card-title" class="u6-card-title u6-detail-title"></h3>
+                <div id="u6-card-body" class="u6-card-body"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="u6-status"
+          class="u6-sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+      </div>
+
+      <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
+        <a class="ata-nav-prev" href="../unit5/page3.html">
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="ata-nav-prev-text"
+            >חזרה למפגשים וסדירויות בתוכנית</span
+          >
+        </a>
+
+        <a class="ata-nav-next" href="./page2.html">
+          <span class="ata-nav-next-text">רכיבי התקציב התוספתי</span>
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 6l-6 6 6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </nav>
+    </main>
+
+    <div id="global-footer"></div>
+
+    <script src="/navigation/script.js"></script>
+    <script src="./page1.js"></script>
+    <script src="../components.js"></script>
+  </body>
+</html>

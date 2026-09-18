@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>יחידה 7 | שאלות נפוצות ולוח מפגשים</title>
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="./page1.css" />
+  </head>
+  <body>
+    <div id="global-header"></div>
+
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <main class="ata-unit-page">
+      <h1 class="ata-unit-title">
+        <span class="ata-unit-title-index">יחידה 7</span>
+        <span class="ata-unit-title-divider" aria-hidden="true">|</span>
+        <span class="ata-unit-title-name">שאלות נפוצות ולוח מפגשים</span>
+      </h1>
+
+      <div id="athalta-unit7-faq">
+        <svg
+          class="u7-pipe"
+          viewBox="0 0 245 118"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <rect x="0" y="38" width="170" height="14" rx="8" fill="#ECF7EA" />
+          <rect x="157" y="38" width="14" height="59" rx="8" fill="#ECF7EA" />
+          <rect x="157" y="83" width="47" height="14" rx="8" fill="#ECF7EA" />
+          <rect x="193" y="74" width="14" height="31" rx="8" fill="#ECF7EA" />
+        </svg>
+
+        <section class="u7-intro" aria-labelledby="u7-faq-title">
+          <h2 id="u7-faq-title" class="u7-faq-title">שאלות נפוצות (FAQ)</h2>
+          <p class="u7-intro-text">
+            במקטע זה תוכלו למצוא תשובות לשאלות נפוצות הנוגעות לתוכנית אתחלתא.
+            לחצו על תחום הידע עליו תרצו להרחיב ועברו בין השאלות&nbsp;השונות.
+          </p>
+          <div class="u7-instruction">
+            <img
+              class="u7-click-icon"
+              src="/assets/general/clickIcon.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <p class="u7-instruction-text">
+              עברו בלחיצה בין תחומי הידע&nbsp;והשאלות.
+            </p>
+          </div>
+          <p id="u7-help" class="u7-sr-only">
+            בחרו תחום ידע כדי להציג את השאלות שבו. לחיצה על שאלה פותחת את
+            התשובה. מקש Tab עובר קודם בין השאלות של התחום הפתוח, ורק אחרי השאלה
+            האחרונה ממשיך לתחום הבא. Escape סוגר את התשובה, ואם אין תשובה פתוחה
+            — את תחום הידע. חצי המקלדת מעבירים בין התחומים ובין השאלות.
+          </p>
+        </section>
+
+        <section
+          class="u7-faq-layout"
+          aria-label="שאלות נפוצות על תוכנית אתחלתא"
+          aria-describedby="u7-help"
+        >
+          <div class="u7-topics" role="group" aria-label="תחומי ידע">
+            <button
+              class="u7-topic"
+              type="button"
+              data-u7-topic="intro"
+              aria-expanded="false"
+              aria-controls="u7-question-panel"
+            >
+              <span>היכרות עם אתחלתא</span>
+            </button>
+            <button
+              class="u7-topic"
+              type="button"
+              data-u7-topic="guidance"
+              aria-expanded="false"
+              aria-controls="u7-question-panel"
+            >
+              <span>הנחיה בתוכנית אתחלתא</span>
+            </button>
+            <button
+              class="u7-topic"
+              type="button"
+              data-u7-topic="participants"
+              aria-expanded="false"
+              aria-controls="u7-question-panel"
+            >
+              <span>מחנכות המשתתפות בחממה/סדנה</span>
+            </button>
+            <button
+              class="u7-topic"
+              type="button"
+              data-u7-topic="syllabus"
+              aria-expanded="false"
+              aria-controls="u7-question-panel"
+            >
+              <span>סילבוס ובניית המפגשים</span>
+            </button>
+            <button
+              class="u7-topic"
+              type="button"
+              data-u7-topic="partners"
+              aria-expanded="false"
+              aria-controls="u7-question-panel"
+            >
+              <span>שותפויות</span>
+            </button>
+            <button
+              class="u7-topic"
+              type="button"
+              data-u7-topic="budget"
+              aria-expanded="false"
+              aria-controls="u7-question-panel"
+            >
+              <span>תקציב תוספתי</span>
+            </button>
+          </div>
+
+          <div
+            id="u7-question-panel"
+            class="u7-question-panel"
+            hidden
+            aria-live="polite"
+          >
+            <div
+              id="u7-questions"
+              class="u7-questions"
+              role="group"
+              aria-label="שאלות בתחום שנבחר"
+            ></div>
+            <div
+              id="u7-answer"
+              class="u7-answer"
+              tabindex="-1"
+              role="region"
+              hidden
+              aria-live="polite"
+            ></div>
+          </div>
+        </section>
+
+        <section class="u7-contact" aria-labelledby="u7-contact-title">
+          <h2 id="u7-contact-title" class="u7-contact-title">צרו קשר</h2>
+          <p class="u7-contact-text">
+            לשאלות, בירורים או צורך בתמיכה, מוזמנים ומוזמנות לפנות אלינו בכתובת
+            הדוא"ל:
+            <a class="u7-email" href="mailto:athalta@macam.ac.il"
+              >athalta@macam.ac.il</a
+            >
+          </p>
+        </section>
+      </div>
+
+      <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
+        <a class="ata-nav-prev" href="../unit6/page3.html">
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="ata-nav-prev-text">חזרה לדיווח תקציב שנתי</span>
+        </a>
+
+        <a class="ata-nav-next" href="./page2.html">
+          <span class="ata-nav-next-text">מתווה מפגשים תשפ״ז</span>
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 6l-6 6 6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </nav>
+    </main>
+
+    <div id="global-footer"></div>
+
+    <script src="/navigation/script.js"></script>
+    <script src="./page1.js"></script>
+    <script src="../components.js"></script>
+  </body>
+</html>

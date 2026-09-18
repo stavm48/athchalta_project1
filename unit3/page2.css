@@ -88,9 +88,9 @@
   max-width: var(--prose-measure);
   margin: 0 0 0.75rem;
   color: var(--navy);
-  font-size: var(--text-lead);
+  font-size: var(--text-body);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: var(--lh-body);
   letter-spacing: -0.02em;
   direction: rtl;
   text-align: right;
@@ -111,9 +111,9 @@
   margin: 0 0 1.25rem;
   margin-inline-end: auto;
   color: var(--teal);
-  font-size: 1rem;
+  font-size: var(--text-body);
   font-weight: 700;
-  line-height: 1.5;
+  line-height: var(--lh-body);
   direction: rtl;
   text-align: right;
 }
@@ -159,7 +159,7 @@
   border-radius: 999px;
   background: var(--aw-peach);
   color: var(--navy);
-  font-size: 1rem;
+  font-size: var(--text-body);
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: -0.02em;
@@ -242,9 +242,9 @@
   display: block;
   flex: 1;
   color: var(--navy);
-  font-size: var(--text-lead);
+  font-size: var(--text-body);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: var(--lh-body);
   letter-spacing: -0.02em;
   text-align: right;
   transition: font-weight 0.3s ease;
@@ -279,9 +279,9 @@
   border-radius: 0 0 0.25rem 0.25rem;
   background: var(--white);
   color: var(--navy);
-  font-size: var(--text-lead);
+  font-size: var(--text-body);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: var(--lh-body);
   letter-spacing: -0.02em;
   text-align: right;
   direction: rtl;

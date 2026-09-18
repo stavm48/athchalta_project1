@@ -380,6 +380,57 @@
               </div>
             </div>
           </section>
+
+          <section
+            class="af-reflection"
+            aria-labelledby="af-reflection-heading"
+          >
+            <div class="af-reflection-header">
+              <span class="af-reflection-icon" aria-hidden="true">
+                <img
+                  src="/assets/navigate/pencil.png"
+                  alt=""
+                  width="32"
+                  height="32"
+                />
+              </span>
+              <h3 id="af-reflection-heading" class="af-subheading">
+                רפלקציה אישית
+              </h3>
+            </div>
+            <p id="af-reflection-prompt" class="af-reflection-prompt">
+              איזה מיסודות אתחלתא היית רוצה שיבוא לידי ביטוי במיוחד בהנחייה שלך
+              השנה? איך היית רוצה שזה
+              <span class="af-nowrap">ייראה בפועל? (רשות)</span>
+            </p>
+            <label class="af-sr-only" for="af-reflection-text">
+              הרפלקציה האישית שלי
+            </label>
+            <textarea
+              id="af-reflection-text"
+              class="af-reflection-textarea"
+              name="personal-reflection"
+              rows="6"
+              dir="rtl"
+              aria-describedby="af-reflection-prompt"
+              placeholder="כתבו כאן את הרפלקציה האישית שלכם…"
+            ></textarea>
+            <div class="af-reflection-actions">
+              <button
+                id="af-reflection-action"
+                class="af-reflection-action"
+                type="button"
+              >
+                שמירת הרפלקציה
+              </button>
+              <p
+                id="af-reflection-status"
+                class="af-reflection-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+          </section>
         </div>
       </div>
 

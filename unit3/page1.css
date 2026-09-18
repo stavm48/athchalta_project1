@@ -58,7 +58,7 @@
   color: var(--teal);
   font-size: var(--text-h2);
   font-weight: 700;
-  line-height: var(--lh-heading);
+  line-height: 1.3;
   letter-spacing: -0.02em;
   direction: rtl;
   text-align: right;
@@ -68,7 +68,7 @@
   width: 100%;
   margin: 0 0 0.35rem;
   color: var(--teal);
-  font-size: 2rem;
+  font-size: var(--text-h3);
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.02em;
@@ -81,7 +81,7 @@
   max-width: var(--prose-measure);
   margin: 0;
   color: var(--navy);
-  font-size: var(--text-lead);
+  font-size: var(--text-body);
   font-weight: 400;
   line-height: var(--lh-body);
   letter-spacing: -0.02em;
@@ -102,7 +102,7 @@
   color: var(--teal);
   font-size: var(--text-body);
   font-weight: 700;
-  line-height: 1.5;
+  line-height: var(--lh-body);
   direction: rtl;
   text-align: right;
 }
@@ -382,8 +382,8 @@
   border-radius: 0.7rem;
   background: var(--agr-ice);
   color: var(--navy);
-  font-size: var(--text-h2);
-  font-weight: 600;
+  font-size: var(--text-h3);
+  font-weight: 700;
   line-height: 1.4;
   letter-spacing: -0.02em;
   text-align: right;
@@ -447,16 +447,8 @@ body.agr-modal-open {
 }
 
 @media (max-width: 70rem) {
-  .agr-subheading {
-    font-size: var(--text-h3);
-  }
-
   .agr-modal-dialog {
     padding: 1.5rem 1.25rem;
-  }
-
-  .agr-modal-title {
-    font-size: var(--text-h3);
   }
 }
 

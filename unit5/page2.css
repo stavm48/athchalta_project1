@@ -1,0 +1,416 @@
+/* ===================================================================
+   Unit 5 — Page 2: נקודות ציון במהלך שנת הפעילות
+   Global tokens, header, footer, and sequential nav from theme.css.
+   =================================================================== */
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+#athalta-year-milestones {
+  --u5m-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --u5m-border: 5px;
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+}
+
+.u5m-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.u5m-opening {
+  width: 100%;
+  margin: 0 0 1.5rem;
+}
+
+.u5m-main-heading {
+  width: 100%;
+  margin: 0 0 0.35rem;
+  padding: 0;
+  color: var(--teal);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.u5m-subtitle {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0 0 0.75rem;
+  padding: 0;
+  color: var(--teal);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: 1.4;
+  direction: rtl;
+  text-align: right;
+}
+
+.u5m-instruction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  margin-inline-end: auto;
+  color: var(--teal);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: var(--lh-body);
+  direction: rtl;
+  text-align: right;
+  cursor: default;
+}
+
+.u5m-click-icon {
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u5m-milestones {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  gap: 1.5rem;
+  direction: rtl;
+  overflow: visible;
+}
+
+.u5m-item {
+  --u5m-main: var(--sky);
+  --u5m-light: #f0f8fc;
+  --u5m-panel: var(--sky);
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 3.85rem;
+  direction: rtl;
+  overflow: visible;
+  transition: flex 0.45s var(--u5m-ease);
+}
+
+.u5m-item.is-active {
+  flex: 1.7 1 0;
+  padding-bottom: 4.35rem;
+}
+
+.u5m-blue {
+  --u5m-main: #b9e4ed;
+  --u5m-light: #f0f8fc;
+  --u5m-panel: #b9e4ed;
+}
+
+.u5m-peach {
+  --u5m-main: #f59a97;
+  --u5m-light: #feece9;
+  --u5m-panel: #f59a97;
+}
+
+.u5m-pink {
+  --u5m-main: #f59dc5;
+  --u5m-light: #fdecf4;
+  --u5m-panel: #f98dbc;
+}
+
+.u5m-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 1.35rem 1.15rem 2.65rem;
+  border: var(--u5m-border) solid var(--u5m-main);
+  border-radius: 0.625rem;
+  background: var(--u5m-light);
+  box-shadow: var(--shadow);
+  color: var(--navy);
+  cursor: pointer;
+  appearance: none;
+  direction: rtl;
+  text-align: center;
+  overflow: visible;
+  transition: all 0.45s var(--u5m-ease);
+}
+
+.u5m-item.is-active .u5m-button {
+  padding-bottom: 2.95rem;
+}
+
+.u5m-button::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: calc(-1 * var(--u5m-border));
+  width: 2.95rem;
+  height: calc(var(--u5m-border) + 0.85rem);
+  transform: translateX(-50%);
+  background: var(--u5m-light);
+  pointer-events: none;
+  transition: width 0.45s var(--u5m-ease), height 0.45s var(--u5m-ease);
+}
+
+.u5m-item.is-active .u5m-button::after {
+  width: 3.65rem;
+  height: calc(var(--u5m-border) + 1rem);
+}
+
+.u5m-label {
+  position: relative;
+  z-index: 4;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-align: center;
+  transition: font-size 0.45s var(--u5m-ease);
+}
+
+.u5m-item.is-active .u5m-label {
+  font-size: var(--text-h3);
+}
+
+.u5m-label-inner {
+  display: inline;
+  padding: 0;
+  border-radius: 0.7rem;
+  background: transparent;
+  transition: background-color 0.45s var(--u5m-ease), padding 0.45s var(--u5m-ease);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.u5m-item.is-active .u5m-label-inner {
+  padding: 0.15rem 0.65rem;
+  background: var(--u5m-main);
+}
+
+.u5m-pin-fill {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: -0.78rem;
+  width: 1.95rem;
+  height: 1.95rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--u5m-light);
+  pointer-events: none;
+  transition: width 0.45s var(--u5m-ease), height 0.45s var(--u5m-ease),
+    bottom 0.45s var(--u5m-ease);
+}
+
+.u5m-item.is-active .u5m-pin-fill {
+  width: 2.4rem;
+  height: 2.4rem;
+  bottom: -0.72rem;
+}
+
+.u5m-pin {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: -2.85rem;
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+  object-fit: contain;
+  flex-shrink: 0;
+  pointer-events: none;
+  transition: width 0.45s var(--u5m-ease), height 0.45s var(--u5m-ease),
+    bottom 0.45s var(--u5m-ease);
+}
+
+.u5m-item.is-active .u5m-pin {
+  width: 5.6rem;
+  height: 5.6rem;
+  bottom: -3.3rem;
+}
+
+.u5m-button:hover {
+  transform: translateY(-0.12rem);
+}
+
+.u5m-button:focus {
+  outline: none;
+}
+
+.u5m-button:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.3rem;
+}
+
+.u5m-detail {
+  width: 100%;
+  max-height: 0;
+  margin: 0;
+  padding: 0 1.75rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(0.85rem);
+  background: var(--white);
+  border: 0 solid var(--u5m-panel);
+  border-radius: 0.625rem;
+  box-shadow: none;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.45s var(--u5m-ease), transform 0.45s var(--u5m-ease),
+    max-height 0.45s var(--u5m-ease), padding 0.45s var(--u5m-ease),
+    margin 0.45s var(--u5m-ease), border-width 0.45s var(--u5m-ease),
+    box-shadow 0.45s var(--u5m-ease), visibility 0.45s var(--u5m-ease);
+}
+
+.u5m-detail.is-open {
+  max-height: 24rem;
+  margin-top: 3.85rem;
+  padding: 1.75rem;
+  opacity: 1;
+  transform: translateY(0);
+  border-width: var(--u5m-border);
+  box-shadow: var(--shadow);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.u5m-item.is-active .u5m-detail.is-open {
+  margin-top: 4.35rem;
+}
+
+.u5m-detail p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+}
+
+.u5m-detail strong {
+  font-weight: 700;
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-unit-title {
+    font-size: 2rem;
+  }
+
+  .u5m-main-heading {
+    font-size: 1.5rem;
+  }
+
+  .u5m-milestones {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1.75rem;
+  }
+
+  .u5m-item,
+  .u5m-item.is-active {
+    flex: none;
+    width: 100%;
+    margin: 0 0 1.25rem;
+    padding-bottom: 4rem;
+  }
+
+  .u5m-item:last-child,
+  .u5m-item.is-active:last-child {
+    margin-bottom: 0;
+  }
+
+  .u5m-label,
+  .u5m-item.is-active .u5m-label {
+    font-size: 1.125rem;
+  }
+
+  .u5m-detail.is-open,
+  .u5m-item.is-active .u5m-detail.is-open {
+    margin-top: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .u5m-item,
+  .u5m-button,
+  .u5m-button::after,
+  .u5m-label,
+  .u5m-label-inner,
+  .u5m-pin,
+  .u5m-pin-fill,
+  .u5m-detail {
+    transition: none;
+  }
+
+  .u5m-button:hover {
+    transform: none;
+  }
+}

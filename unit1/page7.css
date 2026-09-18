@@ -86,7 +86,7 @@
   margin: 0 0 0.5rem;
   padding: 0;
   color: var(--teal);
-  font-size: 2.5rem;
+  font-size: var(--text-h2);
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -98,7 +98,7 @@
   width: 100%;
   margin: 0 0 0.35rem;
   color: var(--teal);
-  font-size: 2rem;
+  font-size: var(--text-h3);
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.02em;
@@ -111,7 +111,7 @@
   max-width: var(--prose-measure);
   margin: 0;
   color: var(--navy);
-  font-size: 1.125rem;
+  font-size: var(--text-body);
   font-weight: 400;
   line-height: 1.7;
   letter-spacing: -0.02em;
@@ -134,7 +134,7 @@
   margin: 1rem 0 0;
   margin-inline-end: auto;
   color: var(--teal);
-  font-size: 1.125rem;
+  font-size: var(--text-body);
   font-weight: 700;
   line-height: 1.5;
   direction: rtl;
@@ -228,7 +228,7 @@
   display: block;
   width: 100%;
   color: var(--navy);
-  font-size: 1.2rem;
+  font-size: var(--text-h3);
   font-weight: 700;
   line-height: 1.45;
   direction: rtl;
@@ -360,7 +360,7 @@
   padding: 0.2rem 0.65rem;
   border-radius: 0.7rem;
   color: var(--navy);
-  font-size: 2rem;
+  font-size: var(--text-h3);
   font-weight: 700;
   line-height: 1.4;
   direction: rtl;
@@ -373,7 +373,7 @@
 .af-details-list {
   margin: 0;
   color: var(--navy);
-  font-size: 1.125rem;
+  font-size: var(--text-body);
   line-height: 1.55;
   direction: rtl;
   text-align: right;
@@ -640,10 +640,170 @@
 .af-foundation-name {
   width: 100%;
   color: var(--navy);
-  font-size: 1.125rem;
+  font-size: var(--text-body);
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
+}
+
+.af-reflection {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 47em;
+  margin: 3.5rem 0 0;
+  margin-inline-end: auto;
+  padding: 0;
+  background: transparent;
+  color: var(--navy);
+  direction: rtl;
+  text-align: right;
+}
+
+.af-reflection-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0 0 0.65rem;
+}
+
+.af-reflection-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  background: transparent;
+}
+
+.af-reflection-icon img {
+  display: block;
+  width: 2rem;
+  height: auto;
+  max-width: 100%;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.af-reflection-header .af-subheading {
+  margin: 0;
+  color: var(--teal);
+}
+
+.af-reflection-prompt {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0 0 1.15rem;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.af-nowrap {
+  white-space: nowrap;
+}
+
+.af-reflection-textarea {
+  display: block;
+  width: 100%;
+  min-height: 9rem;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 0.125rem solid #c9dce6;
+  border-radius: 0.75rem;
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  resize: vertical;
+  direction: rtl;
+  text-align: right;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+.af-reflection-textarea::placeholder {
+  color: #7a93a8;
+}
+
+.af-reflection:not(.is-saved) .af-reflection-textarea:hover {
+  border-color: var(--teal);
+}
+
+.af-reflection-textarea:focus {
+  outline: none;
+}
+
+.af-reflection:not(.is-saved) .af-reflection-textarea:focus-visible {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 0.2rem rgba(73, 187, 189, 0.28);
+}
+
+.af-reflection.is-saved .af-reflection-textarea {
+  border-color: #d7e6ee;
+  background: #f7fbfc;
+  resize: none;
+  cursor: default;
+}
+
+.af-reflection-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.af-reflection-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.55rem 1.5rem;
+  border: 0;
+  border-radius: 0.7rem;
+  background: var(--teal);
+  color: var(--navy);
+  font-family: var(--font);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.af-reflection-action:hover {
+  filter: brightness(0.96);
+  box-shadow: 0 0.25rem 0.5rem rgba(31, 61, 100, 0.12);
+}
+
+.af-reflection-action:focus-visible {
+  outline: 0.2rem solid var(--navy);
+  outline-offset: 0.2rem;
+}
+
+.af-reflection.is-saved .af-reflection-action {
+  background: var(--white);
+  box-shadow: inset 0 0 0 0.125rem var(--teal);
+}
+
+.af-reflection-status {
+  margin: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: 1.4;
+  min-height: 1.4em;
 }
 
 @media (max-width: 63.75rem) {
@@ -661,21 +821,9 @@
 }
 
 @media (max-width: 47.9375rem) {
-  .ata-unit-title {
-    font-size: 2rem;
-  }
-
-  .af-main-heading {
-    font-size: 1.75rem;
-  }
-
-  .af-subheading {
-    font-size: 1.5rem;
-  }
-
   .af-opening-text,
   .af-instruction {
-    font-size: 1rem;
+    font-size: var(--text-body);
   }
 
   .af-cards-wrapper {
@@ -683,11 +831,7 @@
   }
 
   .af-card-title {
-    font-size: 1.125rem;
-  }
-
-  .af-details-title {
-    font-size: 1.5rem;
+    font-size: var(--text-h3);
   }
 
   .af-route-svg,
@@ -720,7 +864,9 @@
   .af-foundation-button,
   .af-foundation-details,
   .af-details-close,
-  .af-map-wrap {
+  .af-map-wrap,
+  .af-reflection-textarea,
+  .af-reflection-action {
     transition: none;
   }
 

@@ -21,13 +21,13 @@
   --font: "Rubik", "Heebo", "Assistant", sans-serif;
   --font-email: "Plus Jakarta Sans", "Rubik", sans-serif;
   --content: 75rem;
-  --text-h1: 3rem;
-  --text-h2: 2.25rem;
-  --text-h3: 1.5rem;
-  --text-lead: 1.25rem;
+  --text-h1: 2.625rem;
+  --text-h2: 1.875rem;
+  --text-h3: 1.3125rem;
+  --text-lead: 1rem;
   --text-body: 1rem;
   --lh-heading: 1.2;
-  --lh-body: 1.6;
+  --lh-body: 1.7;
   --prose-measure: 47em;
 }
 
@@ -96,6 +96,26 @@ h1,
 h2,
 h3 {
   line-height: var(--lh-heading);
+}
+
+h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--text-h2);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+}
+
+p {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
 }
 
 .page-bg {
@@ -441,7 +461,7 @@ main,
   width: 100%;
   margin: 0;
   padding: 0;
-  font-size: 2.5rem;
+  font-size: var(--text-h2);
   font-weight: 700;
   line-height: 1.5;
   color: var(--teal);
@@ -763,7 +783,7 @@ main,
 
 .athalta-card-header h3 {
   margin: 0 0 0.35rem;
-  font-size: 2rem;
+  font-size: var(--text-h3);
   font-weight: 600;
   line-height: 1.5;
   color: var(--navy);
@@ -876,9 +896,9 @@ main,
 @media (max-width: 47.9375rem) {
   :root {
     --text-h1: 2rem;
-    --text-h2: 1.75rem;
+    --text-h2: 1.5rem;
     --text-h3: 1.25rem;
-    --text-lead: 1.125rem;
+    --text-lead: 1rem;
   }
 
   .header-inner {
@@ -968,7 +988,7 @@ main,
   }
 
   .athalta-partners-title {
-    font-size: 1.75rem;
+    font-size: var(--text-h2);
   }
 
   .athalta-click-row {
@@ -1022,7 +1042,7 @@ main,
   }
 
   .athalta-card-header h3 {
-    font-size: 1.5rem;
+    font-size: var(--text-h3);
   }
 
   .athalta-contributions,

@@ -2,12 +2,15 @@
 
 Whenever you are asked to convert Figma CSS into web code, you MUST apply logical, responsive web development practices and NEVER blindly copy fixed dimensions or absolute positions.
 
-1. TYPOGRAPHY SCALING (rem):
-Translate Figma pixel sizes into responsive `rem` units based on logical proportions:
-* Titles (50px+ in Figma) -> Use ~3rem for desktop, ~2rem for mobile (`h1`).
-* Section Headings (32px-45px in Figma) -> Use ~2rem to 2.5rem (`h2`).
-* Subheadings/Lead text (24px-30px in Figma) -> Use ~1.25rem to 1.5rem (`h3` or `.lead`).
-* Body/Buttons/Nav (16px-22px in Figma) -> Use 1rem.
+1. TYPOGRAPHY SCALING (rem) — GLOBAL HIERARCHY:
+Translate Figma pixel sizes into responsive `rem` units. Do NOT copy oversized Figma type. All existing and future pages MUST use this harmonious scale relative to a **16px body** (`1rem` at the default root). Never use headings that dwarf the body text.
+
+* **Body text (טקסט רץ / `p`, instructional copy, lists):** Strictly **16px** (`1rem`). Line-height **1.6–1.75**. Buttons and nav labels also use `1rem` unless they sit inside a heading.
+* **Heading level 3 (`h3`):** **20px–22px** (`1.25rem`–`1.375rem`), font-weight **600 or 700**.
+* **Heading level 2 (`h2`):** **28px–32px** (`1.75rem`–`2rem`), font-weight **700**.
+* **Heading level 1 (`h1` / unit title):** **40px–44px** (`2.5rem`–`2.75rem`), font-weight **700**. On small viewports, scale down within this system (e.g. `h1` toward `2rem`, `h2` toward `1.5rem`) — never jump to a larger, disconnected size.
+
+Keep these values in `:root` typography tokens and reuse them. Ignore Figma type that is 50px+ or otherwise out of proportion; map it down onto this scale.
 
 2. BUTTONS, TAGS & CONTAINERS:
 * NEVER use fixed `width` or `height` for buttons, badges, or text containers.
@@ -45,6 +48,7 @@ Translate Figma pixel sizes into responsive `rem` units based on logical proport
 9. IMAGES, ICONS & TRANSPARENCY:
 * Transparency: NEVER apply `background` or `background-color` to `<img>` tags or their immediate wrapper `div`s (like `.icon-container`). Figma frames often export with default solid backgrounds (e.g., grey/white); ignore these and ensure image backgrounds remain transparent.
 * Proportions & Aspect Ratio: Never distort images. Always use `height: auto;` and `max-width: 100%;` to maintain original proportions.
+* Image resizing: Whenever you change an image’s displayed size (width, height, max-width, max-height, or a bounding box), you MUST keep its original aspect ratio. Scale uniformly. NEVER squash or stretch. Do not use `object-fit: fill`, mismatched width/height, or `background-size` values that change the ratio. Prefer `object-fit: contain` if a box is required. Apply this to `<img>`, CSS backgrounds, icons, and decorative graphics.
 * Flexbox Squashing: If an image or icon is placed inside a Flexbox container, always apply `flex-shrink: 0;` to the image so it doesn't get stretched or squashed by other elements. Use `object-fit: contain;` if a fixed bounding box is absolutely necessary.
 
 * SCROLLING BACKGROUNDS: When applying a background image to the page, it MUST scroll naturally with the content. 
