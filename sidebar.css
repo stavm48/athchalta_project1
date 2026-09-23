@@ -211,6 +211,35 @@
   list-style: none;
 }
 
+.athalta-sidebar-map {
+  width: 100%;
+}
+
+.athalta-sidebar-map-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.85rem 0.9rem;
+  border-radius: 0.7rem;
+  background: rgba(73, 187, 189, 0.12);
+  color: var(--sb-navy);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.athalta-sidebar-map-link:hover {
+  background: rgba(73, 187, 189, 0.2);
+}
+
+.athalta-sidebar-map-link.is-active {
+  background: rgba(73, 187, 189, 0.28);
+}
+
 .athalta-sidebar-unit {
   width: 100%;
   border: 0.125rem solid var(--sb-rose);

@@ -9,6 +9,33 @@
   var UNIT_COUNT = 7;
   var STORAGE_PREFIX = "athalta_unit_";
 
+  function sitePrefix() {
+    var el = document.currentScript;
+    var scripts;
+    var src = "";
+    var path;
+    if (!el) {
+      scripts = document.getElementsByTagName("script");
+      el = scripts[scripts.length - 1];
+    }
+    src = (el && el.getAttribute && el.getAttribute("src")) || "";
+    src = src.split("?")[0].replace(/\\/g, "/");
+    if (src && src.charAt(0) !== "/" && !/^https?:\/\//i.test(src)) {
+      return src.replace(/[^/]*$/, "") || "./";
+    }
+    path = (window.location.pathname || "").replace(/\\/g, "/");
+    if (/\/(unit[1-7]|navigation)\/[^/]*$/i.test(path)) {
+      return "../";
+    }
+    return "./";
+  }
+
+  var SITE_ROOT = sitePrefix();
+
+  function fromRoot(href) {
+    return SITE_ROOT + String(href || "").replace(/^\//, "");
+  }
+
   var UNITS = [
     {
       id: 1,
@@ -16,25 +43,25 @@
       title: "יחידה 1 | הכניסה לתפקיד והבסיס התפיסתי של אתחלתא",
       pages: [
         {
-          href: "/unit1/index.html",
+          href: "unit1/index.html",
           label: "הגדרת הצורך והקמת תוכנית אתחלתא"
         },
-        { href: "/unit1/page2.html", label: "השותפים בתוכנית" },
-        { href: "/unit1/page3.html", label: "שלבי הכניסה להוראה בישראל" },
+        { href: "unit1/page2.html", label: "השותפים בתוכנית" },
+        { href: "unit1/page3.html", label: "שלבי הכניסה להוראה בישראל" },
         {
-          href: "/unit1/page4.html",
+          href: "unit1/page4.html",
           label: "אתגרי כניסה לתפקיד חינוך הכיתה"
         },
         {
-          href: "/unit1/page5.html",
+          href: "unit1/page5.html",
           label: "רפלקציה על אתגרי הכניסה לתפקיד"
         },
         {
-          href: "/unit1/page6.html",
+          href: "unit1/page6.html",
           label: "מטרת חממות וסדנאות התוכנית"
         },
         {
-          href: "/unit1/page7.html",
+          href: "unit1/page7.html",
           label: "יסודות אתחלתא"
         }
       ]
@@ -44,8 +71,8 @@
       progressId: 2,
       title: "יחידה 2 | תפקיד המנחה ומבנה מסגרות הליווי",
       pages: [
-        { href: "/unit2/page1.html", label: "בעלות התפקידים בתוכנית" },
-        { href: "/unit2/page2.html", label: "קהל היעד ומסגרות התוכנית" }
+        { href: "unit2/page1.html", label: "בעלות התפקידים בתוכנית" },
+        { href: "unit2/page2.html", label: "קהל היעד ומסגרות התוכנית" }
       ]
     },
     {
@@ -53,8 +80,8 @@
       progressId: 3,
       title: "יחידה 3 | הקמה וניהול חממות וסדנאות אתחלתא",
       pages: [
-        { href: "/unit3/page1.html", label: "הקמת חממות אתחלתא" },
-        { href: "/unit3/page2.html", label: "הקמת סדנאות אתחלתא" }
+        { href: "unit3/page1.html", label: "הקמת חממות אתחלתא" },
+        { href: "unit3/page2.html", label: "הקמת סדנאות אתחלתא" }
       ]
     },
     {
@@ -63,43 +90,47 @@
       title: "יחידה 4 | תכנון שנתי ותכנים להנחייה",
       pages: [
         {
-          href: "/unit4/page1.html",
+          href: "unit4/page1.html",
           label: "עקרונות לכתיבת סילבוס למחנכות כיתה חדשות"
         },
         {
-          href: "/unit4/page2.html",
+          href: "unit4/page2.html",
           label: "ארבעת העקרונות לכתיבת סילבוס למחנכות כיתה חדשות"
         },
         {
-          href: "/unit4/page5-0.html",
+          href: "unit4/page5-0.html",
           label: "תכנים מוצעים - ביטוי עצמי ושייכות"
         },
         {
-          href: "/unit4/page5-1.html",
+          href: "unit4/page5-1.html",
           label: "תכנים מוצעים - מקצוענות וניהול עצמי"
         },
         {
-          href: "/unit4/page5-3.html",
+          href: "unit4/page5-2.html",
           label: "תכנים מוצעים - זהות"
         },
         {
-          href: "/unit4/page5-4.html",
+          href: "unit4/page5-3.html",
+          label: "תכנים מוצעים - זהות"
+        },
+        {
+          href: "unit4/page5-4.html",
           label: "תכנים מוצעים - מסוגלות עצמית"
         },
         {
-          href: "/unit4/page5-5.html",
+          href: "unit4/page5-5.html",
           label: "תכנים מוצעים - שותפויות"
         },
         {
-          href: "/unit4/page5-6.html",
+          href: "unit4/page5-6.html",
           label: "תכנים מוצעים - שליחות ומשמעות"
         },
         {
-          href: "/unit4/page6.html",
+          href: "unit4/page6.html",
           label: "לסיכום — מחברים את כל החלקים"
         },
         {
-          href: "/unit4/page7.html",
+          href: "unit4/page7.html",
           label: "קטלוג החומרים של אתחלתא"
         }
       ]
@@ -109,12 +140,12 @@
       progressId: 5,
       title: "יחידה 5 | מפת הדרכים: אבני דרך וסדירויות",
       pages: [
-        { href: "/unit5/page1.html", label: "אבני הדרך בתוכנית" },
+        { href: "unit5/page1.html", label: "אבני הדרך בתוכנית" },
         {
-          href: "/unit5/page2.html",
+          href: "unit5/page2.html",
           label: "נקודות ציון במהלך שנת הפעילות"
         },
-        { href: "/unit5/page3.html", label: "מפגשים וסדירויות בתוכנית" }
+        { href: "unit5/page3.html", label: "מפגשים וסדירויות בתוכנית" }
       ]
     },
     {
@@ -122,9 +153,9 @@
       progressId: 6,
       title: "יחידה 6 | תקציב ודיווח",
       pages: [
-        { href: "/unit6/page1.html", label: "מקורות ומבנה התקציב" },
-        { href: "/unit6/page2.html", label: "רכיבי התקציב התוספתי" },
-        { href: "/unit6/page3.html", label: "דיווח תקציב שנתי" }
+        { href: "unit6/page1.html", label: "מקורות ומבנה התקציב" },
+        { href: "unit6/page2.html", label: "רכיבי התקציב התוספתי" },
+        { href: "unit6/page3.html", label: "דיווח תקציב שנתי" }
       ]
     },
     {
@@ -132,8 +163,8 @@
       progressId: 7,
       title: "יחידה 7 | שאלות נפוצות ולוח מפגשים",
       pages: [
-        { href: "/unit7/page1.html", label: "שאלות נפוצות (FAQ)" },
-        { href: "/unit7/page2.html", label: "מתווה מפגשים תשפ״ז" }
+        { href: "unit7/page1.html", label: "שאלות נפוצות (FAQ)" },
+        { href: "unit7/page2.html", label: "מתווה מפגשים תשפ״ז" }
       ]
     }
   ];
@@ -179,11 +210,22 @@
     return path === target || path.endsWith(target);
   }
 
+  function isMapPage() {
+    var path = currentPath();
+    return (
+      path.indexOf("/navigation/navigation.html") !== -1 ||
+      /\/navigation\/?$/.test(path)
+    );
+  }
+
   function findActiveUnitId() {
     var path = currentPath();
     var i;
     var j;
     var pages;
+    if (isMapPage()) {
+      return 0;
+    }
     for (i = 0; i < UNITS.length; i += 1) {
       pages = UNITS[i].pages;
       for (j = 0; j < pages.length; j += 1) {
@@ -210,7 +252,27 @@
     if (path.indexOf("/unit2/") !== -1) {
       return 2;
     }
-    return 1;
+    if (path.indexOf("/unit1/") !== -1) {
+      return 1;
+    }
+    return 0;
+  }
+
+  function buildMapLink() {
+    var active = isMapPage();
+    return (
+      '<li class="athalta-sidebar-map">' +
+      '<a class="athalta-sidebar-map-link' +
+      (active ? " is-active" : "") +
+      '" href="' +
+      fromRoot("navigation/navigation.html") +
+      '"' +
+      (active ? ' aria-current="page"' : "") +
+      ">" +
+      "מפת הדרך שלך" +
+      "</a>" +
+      "</li>"
+    );
   }
 
   function isUnitCompleted(unitId) {
@@ -256,7 +318,7 @@
           '<a class="athalta-sidebar-link' +
           (active ? " is-active" : "") +
           '" href="' +
-          escapeHtml(page.href) +
+          escapeHtml(fromRoot(page.href)) +
           '"' +
           (active ? ' aria-current="page"' : "") +
           ">" +
@@ -352,6 +414,7 @@
       "</div>" +
       '<div class="athalta-sidebar-scroll">' +
       '<ul class="athalta-sidebar-list">' +
+      buildMapLink() +
       UNITS.map(function (unit) {
         return buildUnit(unit, openId);
       }).join("") +

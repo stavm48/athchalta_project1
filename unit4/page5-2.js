@@ -1,15 +1,15 @@
 /**
- * Unit 4 — Page 5.0: תכנים מוצעים — ביטוי עצמי ושייכות.
+ * Unit 4 — Page 5.2: תכנים מוצעים — זהות.
  * Marks this contents page as viewed and drives the idea carousel.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "contents-belonging");
-  window.athaltaProgress.markPageAsViewed("4-5-0", "belonging");
+  window.athaltaProgress.markPageAsViewed(4, "contents-identity");
+  window.athaltaProgress.markPageAsViewed("4-5-2", "identity");
 }
 
-(function initAthaltaUnit4BelongingContents() {
-  var root = document.getElementById("athalta-unit4-contents-belonging");
+(function initAthaltaUnit4IdentityContents() {
+  var root = document.getElementById("athalta-unit4-contents-identity");
 
   if (!root) {
     return;
@@ -21,17 +21,17 @@ if (window.athaltaProgress) {
 
   root.setAttribute("data-athalta-initialized", "true");
 
-  var carousel = root.querySelector(".u4c-carousel");
-  var slides = Array.prototype.slice.call(root.querySelectorAll(".u4c-slide"));
-  var dots = Array.prototype.slice.call(root.querySelectorAll(".u4c-dot"));
-  var previousButton = root.querySelector(".u4c-prev");
-  var nextButton = root.querySelector(".u4c-next");
-  var status = root.querySelector("#u4c-carousel-status");
+  var carousel = root.querySelector(".u4i-carousel");
+  var slides = Array.prototype.slice.call(root.querySelectorAll(".u4i-slide"));
+  var dots = Array.prototype.slice.call(root.querySelectorAll(".u4i-dot"));
+  var previousButton = root.querySelector(".u4i-prev");
+  var nextButton = root.querySelector(".u4i-next");
+  var status = root.querySelector("#u4i-carousel-status");
   var currentSlide = 0;
 
   function getSlideTitle(index) {
     var title = slides[index]
-      ? slides[index].querySelector(".u4c-card-title")
+      ? slides[index].querySelector(".u4i-card-title")
       : null;
 
     return title ? title.textContent.replace(/\s+/g, " ").trim() : "";
@@ -82,7 +82,7 @@ if (window.athaltaProgress) {
     }
 
     if (moveFocus) {
-      var title = slides[currentSlide].querySelector(".u4c-card-title");
+      var title = slides[currentSlide].querySelector(".u4i-card-title");
 
       if (title) {
         title.focus();
@@ -104,7 +104,7 @@ if (window.athaltaProgress) {
 
   dots.forEach(function (dot) {
     dot.addEventListener("click", function () {
-      var requestedSlide = parseInt(dot.getAttribute("data-u4c-dot"), 10);
+      var requestedSlide = parseInt(dot.getAttribute("data-u4i-dot"), 10);
 
       showSlide(requestedSlide, true);
     });

@@ -148,8 +148,8 @@ main,
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  justify-content: flex-start;
+  gap: 2.5rem;
   max-width: var(--content);
   margin: 0 auto;
   padding: 1.5rem 1.5rem;
@@ -167,7 +167,7 @@ main,
 .main-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2.5rem;
 }
 
@@ -511,10 +511,21 @@ main,
   font-size: var(--text-body);
   letter-spacing: -0.02em;
   direction: ltr;
+  color: var(--navy);
+  cursor: pointer;
 }
 
-.footer-email img {
-  width: 1.125rem;
+.footer-email svg,
+.footer-email img,
+.footer-email-icon {
+  width: 1.25rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.footer-email:hover,
+.footer-email:focus-visible {
+  color: var(--teal);
 }
 
 .footer-nav {

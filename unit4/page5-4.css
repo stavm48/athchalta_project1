@@ -4,9 +4,14 @@
    =================================================================== */
 
 :root {
+  --u4-yellow: #ffee81;
+  --foundation-yellow: #fdfad9;
   --u4e-yellow: #ffee81;
   --u4e-yellow-accent: #f0da55;
   --u4e-yellow-light: #fdfad9;
+  --u4-puzzle-stroke: var(--u4-yellow);
+  --u4-puzzle-title-bg: var(--foundation-yellow);
+  --u4-puzzle-banner-bg: var(--u4-yellow);
 }
 
 .ata-unit-page {
@@ -134,134 +139,6 @@
   max-width: none;
   color: var(--teal);
   font-weight: 700;
-}
-
-.u4e-puzzle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-  margin: 1.25rem 0 0;
-}
-
-.u4e-puzzle-banner {
-  z-index: 2;
-  display: inline-block;
-  box-sizing: border-box;
-  width: fit-content;
-  max-width: min(100%, 42rem);
-  margin: 0 auto 0.85rem;
-  padding: 0.45rem 1.5rem;
-  border: 0;
-  border-radius: 10px;
-  background-color: var(--u4e-yellow);
-  color: var(--navy);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.6;
-  letter-spacing: -0.02em;
-  direction: rtl;
-  text-align: right;
-  text-wrap: pretty;
-}
-
-.u4e-puzzle-board {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  width: 100%;
-  max-width: min(72rem, 100%);
-}
-
-.u4e-puzzle-image,
-.u4e-puzzle-copy {
-  grid-area: 1 / 1;
-}
-
-.u4e-puzzle-image {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  flex-shrink: 0;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-.u4e-puzzle-copy {
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  width: 100%;
-  padding-block: 5%;
-  padding-inline: 3.2%;
-  gap: 2.8%;
-  direction: rtl;
-}
-
-.u4e-puzzle-row {
-  display: grid;
-  flex: 1 1 0;
-  min-height: 0;
-  align-items: stretch;
-}
-
-.u4e-puzzle-row-top {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-}
-
-.u4e-puzzle-row-bottom {
-  grid-template-columns: 1fr 1fr;
-  width: 71%;
-  margin-inline: auto;
-}
-
-.u4e-cell {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  min-width: 0;
-  padding-block: 0.7rem 0.55rem;
-  padding-inline: 0.85rem;
-  color: var(--navy);
-  direction: rtl;
-  text-align: right !important;
-}
-
-.u4e-cell-center {
-  padding-inline: 0.85rem;
-}
-
-.u4e-cell-title {
-  display: inline-block;
-  align-self: flex-end;
-  width: auto;
-  max-width: 100%;
-  margin: 0 0 0.5rem;
-  padding: 4px 14px;
-  border-radius: 8px;
-  background: var(--u4e-yellow-light);
-  color: var(--navy);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.35;
-  direction: rtl;
-  text-align: right !important;
-}
-
-.u4e-cell-text {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  color: var(--navy);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  direction: rtl;
-  text-align: right !important;
 }
 
 .u4e-carousel,
@@ -603,38 +480,6 @@
 }
 
 @media (max-width: 47.9375rem) {
-  .u4e-puzzle-board {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .u4e-puzzle-image {
-    display: none;
-  }
-
-  .u4e-puzzle-copy {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    padding: 0;
-  }
-
-  .u4e-puzzle-row,
-  .u4e-puzzle-row-bottom {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-inline: 0;
-  }
-
-  .u4e-cell,
-  .u4e-cell-center {
-    padding: 1rem 1.1rem;
-    border: 0.2rem solid var(--u4e-yellow);
-    border-radius: 0.625rem;
-  }
-
   .u4e-carousel-wrapper {
     margin-inline: 3.25rem;
   }

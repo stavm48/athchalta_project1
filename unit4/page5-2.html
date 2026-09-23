@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>יחידה 4 | תכנים מוצעים — זהות</title>
+  </head>
+  <body>
+    <p>
+      <a href="./page5-3.html">המשך לעמוד זהות</a>
+    </p>
+    <script>
+      fetch("./page5-3.html")
+        .then(function (response) {
+          return response.text();
+        })
+        .then(function (html) {
+          html = html
+            .replace("./page5-3.css", "./page5-2.css")
+            .replace("./page5-3.js", "./page5-2.js")
+            .replace('href="./page5-2.html"', 'href="./page5-1.html"')
+            .replace("חזרה לזהות", "חזרה למקצוענות וניהול עצמי")
+            .replace('href="./page5-4.html"', 'href="./page5-3.html"')
+            .replace(
+              "היסוד הבא: מסוגלות עצמית",
+              "היסוד הבא: זהות"
+            );
+          document.open();
+          document.write(html);
+          document.close();
+        });
+    </script>
+  </body>
+</html>

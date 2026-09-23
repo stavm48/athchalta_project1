@@ -5,6 +5,7 @@
 
 if (window.athaltaProgress) {
   window.athaltaProgress.markPageAsViewed(4, "contents-partnerships");
+  window.athaltaProgress.markPageAsViewed("4-5-5", "partnerships");
 }
 
 (function initAthaltaUnit4PartnershipsContents() {
