@@ -26,13 +26,6 @@
     '<a href="/navigation/navigation.html" class="active-nav-link" aria-current="page">הסביבה שלי</a>' +
     '<a href="/index.html#learning">כניסה לתפקיד</a>' +
     "</nav>" +
-    '<div class="header-actions">' +
-    '<a href="/index.html#contact" aria-label="דואר"><img src="/assets/icon-mail.png" alt="" width="28" height="29" /></a>' +
-    '<a href="/index.html#contact" aria-label="הודעות"><img src="/assets/icon-message.png" alt="" width="21" height="20" /></a>' +
-    '<a href="/index.html#contact" aria-label="התראות"><img src="/assets/icon-bell.png" alt="" width="27" height="26" /></a>' +
-    '<button class="icon-btn" type="button" aria-label="חיפוש"><img src="/assets/icon-search.png" alt="" width="30" height="30" /></button>' +
-    '<button class="user-btn" type="button" aria-label="פרופיל"><img src="/assets/icon-user.png" alt="" width="38" height="38" /><span class="user-caret" aria-hidden="true"></span></button>' +
-    "</div>" +
     "</div>" +
     "</header>";
 
@@ -67,4 +60,23 @@
 
   inject("global-header", HEADER_HTML);
   inject("global-footer", FOOTER_HTML);
+
+  function loadSidebar() {
+    if (!document.querySelector('link[href$="sidebar.css"]')) {
+      var link = document.createElement("link");
+      link.id = "athalta-sidebar-css";
+      link.rel = "stylesheet";
+      link.href = "/sidebar.css";
+      document.head.appendChild(link);
+    }
+
+    if (window.athaltaSidebar || document.querySelector('script[src$="sidebar.js"]')) {
+      return;
+    }
+    var script = document.createElement("script");
+    script.src = "/sidebar.js";
+    document.body.appendChild(script);
+  }
+
+  loadSidebar();
 })();

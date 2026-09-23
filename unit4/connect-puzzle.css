@@ -1,0 +1,128 @@
+/**
+ * Shared Unit 4 connect-puzzle overlay.
+ * Keeps titles and body in an RTL safe area, clear of puzzle joints.
+ * Joint padding is desktop-only; stacked mobile cards keep even padding.
+ */
+
+@media (min-width: 48rem) {
+  .u4c-cell,
+  .u4p-cell,
+  .u4i-cell,
+  .u4e-cell,
+  .u4s-cell,
+  .u4m-cell,
+  .u4c-cell-title,
+  .u4p-cell-title,
+  .u4i-cell-title,
+  .u4e-cell-title,
+  .u4s-cell-title,
+  .u4m-cell-title,
+  .u4c-cell-text,
+  .u4p-cell-text,
+  .u4i-cell-text,
+  .u4e-cell-text,
+  .u4s-cell-text,
+  .u4m-cell-text {
+    box-sizing: border-box;
+    direction: rtl;
+    text-align: right !important;
+  }
+
+  .u4c-cell-text,
+  .u4p-cell-text,
+  .u4i-cell-text,
+  .u4e-cell-text,
+  .u4s-cell-text,
+  .u4m-cell-text {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .u4c-puzzle-copy,
+  .u4p-puzzle-copy {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  /* Right piece (RTL first): bump / hole on the physical left. */
+  .u4c-puzzle-copy > .u4c-cell:nth-child(1),
+  .u4p-puzzle-copy > .u4p-cell:nth-child(1),
+  .u4e-puzzle-row-top > .u4e-cell:nth-child(1) {
+    padding-top: 0.9rem;
+    padding-right: 1.15rem;
+    padding-bottom: 0.85rem;
+    padding-left: clamp(2.85rem, 20%, 4rem);
+  }
+
+  /* Middle piece: hole on the right, bump on the left. */
+  .u4c-puzzle-copy > .u4c-cell:nth-child(2),
+  .u4p-puzzle-copy > .u4p-cell:nth-child(2),
+  .u4e-puzzle-row-top > .u4e-cell:nth-child(2) {
+    padding-top: 0.9rem;
+    padding-right: clamp(2.6rem, 18%, 3.75rem);
+    padding-bottom: 0.85rem;
+    padding-left: clamp(2.6rem, 18%, 3.75rem);
+  }
+
+  /* Left piece (RTL last): hole / bump on the physical right. */
+  .u4c-puzzle-copy > .u4c-cell:nth-child(3),
+  .u4p-puzzle-copy > .u4p-cell:nth-child(3),
+  .u4e-puzzle-row-top > .u4e-cell:nth-child(3) {
+    padding-top: 0.9rem;
+    padding-right: clamp(2.85rem, 20%, 4rem);
+    padding-bottom: 0.85rem;
+    padding-left: 1.15rem;
+  }
+
+  /* Yellow puzzle bottom pair. */
+  .u4e-puzzle-row-bottom > .u4e-cell:nth-child(1) {
+    padding-top: 0.85rem;
+    padding-right: 1.15rem;
+    padding-bottom: 0.8rem;
+    padding-left: clamp(2.75rem, 18%, 3.75rem);
+  }
+
+  .u4e-puzzle-row-bottom > .u4e-cell:nth-child(2) {
+    padding-top: 0.85rem;
+    padding-right: clamp(2.75rem, 18%, 3.75rem);
+    padding-bottom: 0.8rem;
+    padding-left: 1.15rem;
+  }
+
+  /* 2x2 boards: child 1 top-right, 2 top-left, 3 bottom-right, 4 bottom-left. */
+  .u4i-puzzle-copy > .u4i-cell:nth-child(1),
+  .u4s-puzzle-copy > .u4s-cell:nth-child(1),
+  .u4m-puzzle-copy > .u4m-cell:nth-child(1) {
+    padding-top: 0.75rem;
+    padding-right: 1.05rem;
+    padding-bottom: clamp(1.85rem, 16%, 2.6rem);
+    padding-left: clamp(2.4rem, 18%, 3.5rem);
+  }
+
+  .u4i-puzzle-copy > .u4i-cell:nth-child(2),
+  .u4s-puzzle-copy > .u4s-cell:nth-child(2),
+  .u4m-puzzle-copy > .u4m-cell:nth-child(2) {
+    padding-top: 0.75rem;
+    padding-right: clamp(2.4rem, 18%, 3.5rem);
+    padding-bottom: clamp(1.85rem, 16%, 2.6rem);
+    padding-left: 1.05rem;
+  }
+
+  .u4i-puzzle-copy > .u4i-cell:nth-child(3),
+  .u4s-puzzle-copy > .u4s-cell:nth-child(3),
+  .u4m-puzzle-copy > .u4m-cell:nth-child(3) {
+    padding-top: clamp(1.85rem, 16%, 2.6rem);
+    padding-right: 1.05rem;
+    padding-bottom: 0.75rem;
+    padding-left: clamp(2.4rem, 18%, 3.5rem);
+  }
+
+  .u4i-puzzle-copy > .u4i-cell:nth-child(4),
+  .u4s-puzzle-copy > .u4s-cell:nth-child(4),
+  .u4m-puzzle-copy > .u4m-cell:nth-child(4) {
+    padding-top: clamp(1.85rem, 16%, 2.6rem);
+    padding-right: clamp(2.4rem, 18%, 3.5rem);
+    padding-bottom: 0.75rem;
+    padding-left: 1.05rem;
+  }
+}

@@ -1,0 +1,611 @@
+/* ===================================================================
+   Unit 4 — Page 5.0: תכנים מוצעים — ביטוי עצמי ושייכות
+   Global tokens, header, footer, and sequential nav from theme.css.
+   =================================================================== */
+
+:root {
+  --u4c-green: #a9d48f;
+  --u4c-green-accent: #93b97d;
+  --u4c-green-light: #ecf7ea;
+}
+
+.ata-unit-page {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  overflow-x: hidden;
+}
+
+.ata-unit-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.ata-unit-title-index,
+.ata-unit-title-name {
+  color: var(--teal);
+}
+
+.ata-unit-title-divider {
+  color: var(--rose);
+  padding: 0 0.625rem;
+}
+
+#athalta-unit4-contents-belonging {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  direction: rtl;
+  text-align: right;
+  color: var(--navy);
+}
+
+.u4c-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.u4c-opening,
+.u4c-foundation,
+.u4c-carousel-intro {
+  width: 100%;
+  margin: 0 0 2rem;
+}
+
+.u4c-foundation {
+  margin-bottom: 2.5rem;
+}
+
+.u4c-page-title,
+.u4c-section-heading,
+.u4c-carousel-heading {
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  color: var(--teal);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.u4c-page-title {
+  font-size: var(--text-h2);
+}
+
+.u4c-section-heading,
+.u4c-carousel-heading {
+  font-size: var(--text-h3);
+  font-weight: 600;
+}
+
+.u4c-intro,
+.u4c-running-text,
+.u4c-instruction-text {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: -0.02em;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.u4c-intro + .u4c-intro {
+  margin-top: 0.75rem;
+}
+
+.u4c-instruction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 0.85rem 0 0;
+  margin-inline-end: auto;
+}
+
+.u4c-click-icon {
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u4c-instruction-text {
+  max-width: none;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.u4c-puzzle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.25rem 0 0;
+}
+
+.u4c-puzzle-banner {
+  z-index: 2;
+  display: inline-block;
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: min(100%, 42rem);
+  margin: 0 auto 0.85rem;
+  padding: 0.45rem 1.5rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--u4c-green);
+  background-color: #a9d48f;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  direction: rtl;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.u4c-puzzle-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: min(72rem, 100%);
+}
+
+.u4c-puzzle-image,
+.u4c-puzzle-copy {
+  grid-area: 1 / 1;
+}
+
+.u4c-puzzle-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  flex-shrink: 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.u4c-puzzle-copy {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  padding-block: 8.5%;
+  padding-inline: 15%;
+  direction: rtl;
+}
+
+.u4c-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  min-width: 0;
+  padding-block: 0.85rem 0.7rem;
+  padding-inline: 0.9rem;
+  color: var(--navy);
+  direction: rtl;
+  text-align: right !important;
+}
+
+.u4c-cell-center {
+  padding-inline: 0.9rem;
+}
+
+.u4c-cell-title {
+  display: inline-block;
+  align-self: flex-end;
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 0.5rem;
+  padding: 4px 14px;
+  border-radius: 8px;
+  background: var(--u4c-green-light);
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  direction: rtl;
+  text-align: right !important;
+}
+
+.u4c-cell-text {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  direction: rtl;
+  text-align: right !important;
+}
+
+.u4c-carousel,
+.u4c-carousel-wrapper,
+.u4c-slides,
+.u4c-slide {
+  overflow: visible !important;
+}
+
+.u4c-carousel {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 56.25rem;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.u4c-carousel-wrapper,
+.u4c-slides {
+  max-width: 100%;
+}
+
+.u4c-carousel-wrapper {
+  position: relative;
+  width: auto;
+  margin-inline: 5.5rem;
+}
+
+.u4c-slides {
+  width: 100%;
+}
+
+.u4c-slide {
+  display: none;
+}
+
+.u4c-slide.is-active {
+  display: block;
+}
+
+.u4c-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2.35rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 56.25rem;
+  margin: 0 auto;
+  padding: 2rem 1.75rem 1.75rem;
+  border-radius: 0.625rem;
+  background: var(--white);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.08), var(--shadow);
+}
+
+.u4c-card-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.45rem 1.5rem;
+  border: 0.25rem solid var(--u4c-green);
+  border-radius: 0.625rem;
+  background: var(--u4c-green-light);
+  color: var(--navy);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.u4c-card-title:focus {
+  outline: none;
+}
+
+.u4c-card-title:focus-visible {
+  outline: 0.2rem solid var(--teal);
+  outline-offset: 0.2rem;
+}
+
+.u4c-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  padding: 0.85rem 1.5rem 1.25rem;
+  border: 0.25rem solid var(--u4c-green);
+  border-radius: 0.625rem;
+  background: var(--white);
+}
+
+.u4c-panel-icon {
+  display: block;
+  width: 3.75rem;
+  height: auto;
+  max-width: 100%;
+  margin: -2.55rem auto 0.1rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u4c-panel-label {
+  display: inline-flex;
+  align-self: flex-start;
+  margin: 0 0 1.35rem;
+  padding: 0.15rem 0.75rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--u4c-green);
+  background-color: #a9d48f;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.u4c-panel-text {
+  margin: 0;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.u4c-examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.u4c-examples-list li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.65rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.625rem;
+  background: var(--u4c-green-light);
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.u4c-examples-list li::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.55rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--u4c-green-accent);
+}
+
+.u4c-links-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.u4c-link-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 0.625rem;
+  background: var(--u4c-green-light);
+  box-shadow: var(--shadow);
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.u4c-link-chip:hover {
+  transform: translateY(-0.1rem);
+}
+
+.u4c-link-chip:focus-visible {
+  outline: 0.2rem solid var(--u4c-green-accent);
+  outline-offset: 0.2rem;
+}
+
+.u4c-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--u4c-green-accent);
+  box-shadow: var(--shadow);
+  color: var(--u4c-green-light);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.u4c-next {
+  left: calc(-3.5rem - 30px);
+  right: auto;
+}
+
+.u4c-prev {
+  right: calc(-3.5rem - 30px);
+  left: auto;
+}
+
+.u4c-nav svg {
+  display: block;
+  width: 1.25rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.u4c-nav:hover,
+.u4c-nav:focus-visible {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.u4c-nav:focus-visible {
+  outline: 0.2rem solid var(--navy);
+  outline-offset: 0.2rem;
+}
+
+.u4c-nav[hidden] {
+  display: none;
+}
+
+.u4c-dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  margin: 1.35rem 0 0;
+}
+
+.u4c-dot {
+  width: 2.15rem;
+  height: 0.55rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0.625rem;
+  background: rgba(147, 185, 125, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.u4c-dot.is-active {
+  background: var(--u4c-green-accent);
+}
+
+.u4c-dot:focus-visible {
+  outline: 0.2rem solid var(--navy);
+  outline-offset: 0.2rem;
+}
+
+@media (max-width: 47.9375rem) {
+  .u4c-puzzle-board {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .u4c-puzzle-image {
+    display: none;
+  }
+
+  .u4c-puzzle-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 0;
+  }
+
+  .u4c-cell,
+  .u4c-cell-center {
+    padding: 1rem 1.1rem;
+    border: 0.2rem solid var(--u4c-green);
+    border-radius: 0.625rem;
+  }
+
+  .u4c-puzzle-banner {
+    margin-bottom: 0.75rem;
+    text-align: right;
+  }
+
+  .u4c-carousel {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .u4c-carousel-wrapper {
+    margin-inline: 3.25rem;
+  }
+
+  .u4c-next {
+    left: calc(-2.75rem - 12px);
+  }
+
+  .u4c-prev {
+    right: calc(-2.75rem - 12px);
+  }
+
+  .u4c-card {
+    padding: 1.5rem 1rem 1.25rem;
+    gap: 2rem;
+  }
+
+  .u4c-nav {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .u4c-intro,
+  .u4c-running-text {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .u4c-link-chip,
+  .u4c-nav,
+  .u4c-dot {
+    transition: none;
+  }
+
+  .u4c-link-chip:hover,
+  .u4c-nav:hover,
+  .u4c-nav:focus-visible {
+    transform: none;
+  }
+}

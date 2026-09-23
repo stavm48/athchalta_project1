@@ -255,12 +255,13 @@
 }
 
 .asr-corkboard.has-open-note .asr-corkboard-stage {
+  inset: 8.5% 13% 9.5% 7%;
   display: grid;
-  grid-template-columns: 9.75rem minmax(0, 1fr);
+  grid-template-columns: 8.35rem minmax(0, 1fr);
   grid-template-rows: repeat(3, minmax(0, 1fr));
   justify-content: stretch;
   align-items: stretch;
-  column-gap: 1.75rem;
+  column-gap: 1.15rem;
   row-gap: 1.15rem;
   padding: 0;
   box-sizing: border-box;
@@ -357,7 +358,7 @@
   justify-self: center;
   align-self: center;
   width: 100%;
-  max-width: 9.75rem;
+  max-width: 8.35rem;
   height: auto;
   aspect-ratio: 1 / 1;
   --note-rotate: 0deg;

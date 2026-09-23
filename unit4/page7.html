@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>יחידה 4 | קטלוג החומרים של אתחלתא</title>
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="./page7.css" />
+  </head>
+  <body>
+    <div id="global-header"></div>
+
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <main class="ata-unit-page">
+      <h1 class="ata-unit-title">
+        <span class="ata-unit-title-index">יחידה 4</span>
+        <span class="ata-unit-title-divider" aria-hidden="true">|</span>
+        <span class="ata-unit-title-name">תכנון שנתי ותכנים להנחייה</span>
+      </h1>
+
+      <div class="athchalta-tools-catalog" dir="rtl" lang="he">
+        <section class="atc-page-header" aria-labelledby="atc-section-title">
+          <h2 id="atc-section-title" class="atc-section-title">
+            קטלוג החומרים של אתחלתא
+          </h2>
+          <p class="atc-intro">
+            כאן תוכלו למצוא חומרים, סדנאות, פרקטיקות ומשאבים שיסייעו לכן בתכנון
+            ובהנחיית תהליכי הלמידה. ניתן לחפש חומר לפי שמו או לסנן את הקטלוג לפי
+            סוג החומר, יסודות אתחלתא ומרכיבי&nbsp;התפקיד.
+          </p>
+        </section>
+
+        <section
+          class="atc-opening-video-section"
+          hidden
+          aria-labelledby="atc-opening-video-title"
+        >
+          <h3 id="atc-opening-video-title" class="atc-opening-video-title">
+            היכרות עם קטלוג החומרים
+          </h3>
+          <div class="atc-opening-video-frame">
+            <video class="atc-opening-video" preload="metadata" controls>
+              הדפדפן שלך אינו תומך בהצגת וידאו.
+            </video>
+          </div>
+        </section>
+
+        <section class="atc-toolbar" aria-label="חיפוש וסינון בקטלוג החומרים">
+          <div class="atc-control atc-search-control">
+            <label for="atc-search">חיפוש חומר</label>
+            <div class="atc-search-box">
+              <input
+                id="atc-search"
+                class="atc-search"
+                autocomplete="off"
+                type="search"
+                placeholder="חפשו לפי שם, קהל יעד או מילת מפתח"
+              />
+              <button
+                class="atc-search-clear"
+                title="ניקוי החיפוש"
+                hidden
+                type="button"
+                aria-label="ניקוי החיפוש"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="atc-control">
+            <label for="atc-category">סוג החומר</label>
+            <select id="atc-category" class="atc-category">
+              <option value="">כל סוגי החומרים</option>
+            </select>
+          </div>
+
+          <div class="atc-control">
+            <label for="atc-foundation">יסוד אתחלתא</label>
+            <select id="atc-foundation" class="atc-foundation">
+              <option value="">כל היסודות</option>
+            </select>
+          </div>
+
+          <div class="atc-control">
+            <label for="atc-role">מרכיבי תפקיד</label>
+            <select id="atc-role" class="atc-role">
+              <option value="">כל מרכיבי התפקיד</option>
+            </select>
+          </div>
+
+          <div class="atc-reset-wrap">
+            <button class="atc-reset" type="button">ניקוי סינון</button>
+          </div>
+        </section>
+
+        <div class="atc-results-row">
+          <p class="atc-results" aria-live="polite"></p>
+        </div>
+
+        <div class="atc-grid" role="list" aria-label="קטלוג חומרי אתחלתא"></div>
+
+        <div class="atc-empty" hidden>
+          <div class="atc-empty-icon" aria-hidden="true">?</div>
+          <h3>לא מצאנו חומר מתאים</h3>
+          <p>נסו לשנות את החיפוש או לנקות את הסינונים.</p>
+          <button class="atc-empty-reset" type="button">
+            הצגת כל החומרים
+          </button>
+        </div>
+
+        <div
+          class="atc-video-modal"
+          role="dialog"
+          hidden
+          aria-modal="true"
+          aria-labelledby="atc-video-modal-title"
+          aria-hidden="true"
+        >
+          <div class="atc-video-modal-backdrop"></div>
+          <div class="atc-video-modal-window">
+            <div class="atc-video-modal-header">
+              <h3 id="atc-video-modal-title" class="atc-video-modal-title">
+                סרטון הסבר
+              </h3>
+              <button
+                class="atc-video-close"
+                type="button"
+                aria-label="סגירת סרטון ההסבר"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="atc-video-modal-body">
+              <div class="atc-modal-media">
+                <video class="atc-modal-video" preload="metadata" controls hidden>
+                  הדפדפן שלך אינו תומך בהצגת וידאו.
+                </video>
+                <iframe
+                  class="atc-modal-iframe"
+                  hidden
+                  title="סרטון הסבר"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
+        <a class="ata-nav-prev" href="./page6.html">
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="ata-nav-prev-text">חזרה לסיכום — מחברים את כל החלקים</span>
+        </a>
+
+        <a class="ata-nav-next" href="../unit5/page1.html">
+          <span class="ata-nav-next-text">מעבר ליחידה 5: אבני הדרך בתוכנית</span>
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 6l-6 6 6 6"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </nav>
+    </main>
+
+    <div id="global-footer"></div>
+
+    <script src="/navigation/script.js"></script>
+    <script src="./page7.js"></script>
+    <script src="../components.js"></script>
+  </body>
+</html>
