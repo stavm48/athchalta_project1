@@ -4,8 +4,14 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "contents-belonging");
-  window.athaltaProgress.markPageAsViewed("4-5-0", "belonging");
+  if (document.querySelector(".as-video-card")) {
+    window.athaltaProgress.markPageAsViewed(4, "contents-intro");
+    window.athaltaProgress.markPageAsViewed("4-5-0", "intro");
+  }
+  if (document.querySelector(".u4c-carousel")) {
+    window.athaltaProgress.markPageAsViewed(4, "contents-belonging");
+    window.athaltaProgress.markPageAsViewed("4-5-01", "belonging");
+  }
 }
 
 (function initAthaltaUnit4BelongingContents() {
@@ -133,5 +139,7 @@ if (window.athaltaProgress) {
     });
   }
 
-  showSlide(0, false);
+  if (slides.length) {
+    showSlide(0, false);
+  }
 })();

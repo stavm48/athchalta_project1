@@ -99,15 +99,15 @@
         },
         {
           href: "unit4/page5-0.html",
+          label: "תכנים מוצעים - מבוא"
+        },
+        {
+          href: "unit4/page5-01.html",
           label: "תכנים מוצעים - ביטוי עצמי ושייכות"
         },
         {
           href: "unit4/page5-1.html",
           label: "תכנים מוצעים - מקצוענות וניהול עצמי"
-        },
-        {
-          href: "unit4/page5-2.html",
-          label: "תכנים מוצעים - זהות"
         },
         {
           href: "unit4/page5-3.html",
@@ -396,7 +396,7 @@
       '<button class="athalta-sidebar-open" type="button" aria-expanded="false" aria-controls="athalta-sidebar" id="athalta-sidebar-open" aria-label="פתיחת ניווט בין יחידות הסביבה">' +
       ICONS.menu +
       "</button>" +
-      '<nav class="athalta-sidebar" id="athalta-sidebar" aria-label="ניווט בין יחידות הסביבה">' +
+      '<nav class="athalta-sidebar" id="athalta-sidebar" aria-label="ניווט בין יחידות הסביבה" aria-hidden="true" tabindex="-1">' +
       '<div class="athalta-sidebar-header">' +
       '<h2 class="athalta-sidebar-title">ניווט בין יחידות הסביבה</h2>' +
       '<button class="athalta-sidebar-close" type="button" aria-label="סגירת התפריט">' +
@@ -453,14 +453,46 @@
       root.classList.toggle("is-open", open);
     }
     panel.classList.toggle("is-open", open);
+    panel.setAttribute("aria-hidden", open ? "false" : "true");
     btn.setAttribute("aria-expanded", open ? "true" : "false");
     if (open) {
       lastFocus = document.activeElement;
-      if (closeBtn) {
+      if (closeBtn && !panel.classList.contains("is-mobile-embedded")) {
         closeBtn.focus();
       }
-    } else if (lastFocus && document.contains(lastFocus)) {
+    } else if (lastFocus && document.contains(lastFocus) && !isCompactMenu()) {
       lastFocus.focus();
+    }
+  }
+
+  function isCompactMenu() {
+    return window.matchMedia("(max-width: 51.25rem)").matches;
+  }
+
+  function parkSidebar(embed) {
+    var panel = document.getElementById("athalta-sidebar");
+    var nav = document.querySelector(".main-nav");
+    var root = document.getElementById("athalta-sidebar-root");
+    if (!panel || !nav || !root) {
+      return;
+    }
+    if (embed) {
+      if (panel.parentElement !== nav) {
+        nav.appendChild(panel);
+      }
+      panel.classList.add("is-mobile-embedded");
+      return;
+    }
+    if (panel.classList.contains("is-mobile-embedded")) {
+      root.appendChild(panel);
+      panel.classList.remove("is-mobile-embedded");
+    }
+  }
+
+  function setNavToggle(checked) {
+    var navToggle = document.getElementById("nav-toggle");
+    if (navToggle) {
+      navToggle.checked = checked;
     }
   }
 
@@ -476,6 +508,14 @@
       item.classList.toggle("is-open", isThis);
       if (toggle) {
         toggle.setAttribute("aria-expanded", isThis ? "true" : "false");
+      }
+      if (isThis) {
+        var firstLink = item.querySelector(".athalta-sidebar-link");
+        if (firstLink) {
+          window.setTimeout(function () {
+            firstLink.focus();
+          }, 0);
+        }
       }
     });
   }
@@ -522,8 +562,34 @@
     if (closeBtn) {
       closeBtn.addEventListener("click", function () {
         setOpen(false);
+        if (isCompactMenu()) {
+          setNavToggle(false);
+          parkSidebar(false);
+        }
       });
     }
+
+    var navToggle = document.getElementById("nav-toggle");
+    if (navToggle) {
+      navToggle.addEventListener("change", function () {
+        if (!isCompactMenu()) {
+          return;
+        }
+        if (navToggle.checked) {
+          parkSidebar(true);
+          setOpen(true);
+        } else {
+          setOpen(false);
+          parkSidebar(false);
+        }
+      });
+    }
+
+    window.matchMedia("(max-width: 51.25rem)").addEventListener("change", function () {
+      setNavToggle(false);
+      setOpen(false);
+      parkSidebar(false);
+    });
 
     document.addEventListener("click", function (event) {
       var toggle = event.target.closest(".athalta-sidebar-unit-toggle");
@@ -538,8 +604,20 @@
 
     document.addEventListener("keydown", function (event) {
       var panel = document.getElementById("athalta-sidebar");
-      if (event.key === "Escape" && panel && panel.classList.contains("is-open")) {
+      var open = panel && panel.classList.contains("is-open");
+      if (!open) {
+        return;
+      }
+      if (event.key === "Escape") {
         setOpen(false);
+        if (isCompactMenu()) {
+          setNavToggle(false);
+          parkSidebar(false);
+        }
+        return;
+      }
+      if (event.key === "Tab" && window.athaltaA11y) {
+        window.athaltaA11y.trap(panel, event);
       }
     });
   }

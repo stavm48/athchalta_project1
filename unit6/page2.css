@@ -224,15 +224,6 @@
   filter: brightness(0.98);
 }
 
-.u6c-more:focus {
-  outline: none;
-}
-
-.u6c-more:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
-}
-
 .u6c-more-text {
   display: flex;
   align-items: center;
@@ -325,13 +316,7 @@
   color: var(--teal);
 }
 
-.u6c-close:focus {
-  outline: none;
-}
-
 .u6c-close:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
   border-radius: 0.25rem;
 }
 
@@ -403,15 +388,6 @@
   scroll-margin-top: 1.5rem;
   cursor: default;
   transition: all 0.3s ease;
-}
-
-.u6c-subcard:focus {
-  outline: none;
-}
-
-.u6c-subcard:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
 }
 
 .u6c-sub-icon {
@@ -490,15 +466,6 @@
   line-height: var(--lh-body);
   letter-spacing: -0.02em;
   text-align: right;
-}
-
-.u6c-expanded:focus {
-  outline: none;
-}
-
-.u6c-expanded:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.25rem;
 }
 
 @media (max-width: 62.5rem) {

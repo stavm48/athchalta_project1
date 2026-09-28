@@ -186,11 +186,6 @@
   transform: translateY(-50%) scale(1.06);
 }
 
-.ata-knob:focus-visible {
-  outline: 0.2rem solid var(--coral);
-  outline-offset: 0.25rem;
-}
-
 .ata-plants-row {
   display: flex;
   direction: ltr;
@@ -218,8 +213,6 @@
 }
 
 .ata-plant-side:focus-visible {
-  outline: 0.2rem solid var(--navy);
-  outline-offset: 0.2rem;
   border-radius: 0.75rem;
 }
 
@@ -381,6 +374,7 @@
   justify-content: center;
   min-height: 4.25rem;
   padding: 0.85rem 1.1rem;
+  border-radius: 1.15rem 1.15rem 0 0;
 }
 
 .ata-framework-pink .ata-framework-header {
@@ -464,7 +458,7 @@
   font-weight: 700;
 }
 
-@media (max-width: 56.25rem) {
+@media (max-width: 64rem) {
   .ata-framework-cards {
     flex-direction: column;
     gap: 1.25rem;

@@ -241,8 +241,6 @@
 .atc-foundation:focus,
 .atc-role:focus {
   border-color: var(--teal);
-  outline: 0.1875rem solid rgba(73, 187, 189, 0.16);
-  outline-offset: 0.0625rem;
 }
 
 .atc-reset-wrap {
@@ -535,16 +533,6 @@ button.atc-video-button:not(.atc-video-pending):hover {
   box-shadow: 0 0.25rem 0.5rem rgba(31, 61, 100, 0.17);
 }
 
-.atc-resource-link:focus-visible,
-.atc-video-button:focus-visible,
-.atc-search-clear:focus-visible,
-.atc-reset:focus-visible,
-.atc-empty-reset:focus-visible,
-.atc-video-close:focus-visible {
-  outline: 0.1875rem solid var(--navy);
-  outline-offset: 0.1875rem;
-}
-
 .atc-video-modal {
   position: fixed;
   inset: 0;
@@ -562,7 +550,20 @@ button.atc-video-button:not(.atc-video-pending):hover {
 .atc-video-modal-backdrop {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: rgba(31, 61, 100, 0.64);
+}
+
+@media (max-width: 768px) {
+  .atc-video-modal-window,
+  .atc-modal-media,
+  .atc-modal-iframe,
+  .atc-modal-video {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
 }
 
 .atc-video-modal-window {

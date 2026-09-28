@@ -209,15 +209,6 @@
   transform: none;
 }
 
-.u5s-audience-button:focus {
-  outline: none;
-}
-
-.u5s-audience-button:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.3rem;
-}
-
 .u5s-panel {
   position: relative;
   z-index: 1;
@@ -325,7 +316,7 @@
   direction: rtl;
   text-align: right;
   scroll-margin-top: 1.5rem;
-  transition: border-radius var(--u5s-duration) var(--u5s-ease);
+  transition: border-radius 0.3s ease;
 }
 
 .u5s-accordion-button[aria-expanded="true"] {
@@ -343,7 +334,7 @@
   border-left: 0.22rem solid var(--u5s-main);
   border-bottom: 0.22rem solid var(--u5s-main);
   transform: translateY(-65%) rotate(-45deg);
-  transition: transform var(--u5s-duration) var(--u5s-ease);
+  transition: transform 0.3s ease;
 }
 
 .u5s-accordion-button[aria-expanded="true"]::after {
@@ -354,23 +345,10 @@
   filter: brightness(0.98);
 }
 
-.u5s-accordion-button:focus {
-  outline: none;
-}
-
-.u5s-accordion-button:focus-visible,
-.u5s-accordion-content:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.25rem;
-}
-
 .u5s-accordion-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  align-content: start;
+  display: block;
   width: 100%;
   margin: -0.3rem 0 0;
-  transform-origin: top center;
   background: var(--white);
   border: 0.3rem solid var(--u5s-main);
   border-top-width: 0;
@@ -378,32 +356,25 @@
   direction: rtl;
   text-align: right;
   overflow: hidden;
+  box-sizing: border-box;
   scroll-margin-top: 1.5rem;
-  transition: grid-template-rows var(--u5s-duration) var(--u5s-ease);
 }
 
 .u5s-accordion-content[hidden] {
   display: none;
 }
 
-.u5s-accordion-content.is-open {
-  grid-template-rows: 1fr;
-}
-
 .u5s-accordion-inner {
   min-height: 0;
   overflow: hidden;
-  padding: 1.15rem 1.5rem 1.5rem;
-}
-
-.u5s-accordion-content:focus {
-  outline: none;
+  box-sizing: border-box;
 }
 
 .u5s-description {
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 1.15rem 1.5rem 1.5rem;
+  box-sizing: border-box;
   color: var(--navy);
   font-size: var(--text-body);
   font-weight: 400;
@@ -460,8 +431,7 @@
   .u5s-audience-button,
   .u5s-panel,
   .u5s-accordion-button,
-  .u5s-accordion-button::after,
-  .u5s-accordion-content {
+  .u5s-accordion-button::after {
     transition: none;
   }
 

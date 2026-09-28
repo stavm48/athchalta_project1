@@ -212,11 +212,6 @@
   background: var(--u7-topic-light);
 }
 
-.u7-topic:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
-}
-
 .u7-topic[data-u7-topic="intro"] {
   --u7-topic-main: var(--u7-intro-main);
   --u7-topic-light: var(--u7-intro-light);
@@ -305,11 +300,6 @@
   border-color: var(--u7-active-main);
 }
 
-.u7-question:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
-}
-
 .u7-answer {
   position: relative;
   display: inline-block;
@@ -389,11 +379,6 @@
   color: var(--teal);
   text-decoration: underline;
   text-underline-offset: 0.25rem;
-}
-
-.u7-email:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
 }
 
 @media (max-width: 47.9375rem) {

@@ -84,10 +84,14 @@ if (window.athaltaProgress) {
     render();
 
     modal.hidden = false;
+    modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("agr-modal-open");
 
+    var dialog = modal.querySelector(".agr-modal-dialog");
     var closeButton = modal.querySelector(".agr-modal-close");
-    if (closeButton) {
+    if (window.athaltaA11y) {
+      window.athaltaA11y.focusFirst(dialog, closeButton);
+    } else if (closeButton) {
       closeButton.focus();
     }
   }
@@ -96,6 +100,7 @@ if (window.athaltaProgress) {
     ignoreStepClick = true;
     modals.forEach(function (modal) {
       modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
     });
     document.body.classList.remove("agr-modal-open");
     activeStep = null;
@@ -131,13 +136,21 @@ if (window.athaltaProgress) {
   });
 
   document.addEventListener("keydown", function (event) {
+    var openModal = modals.filter(function (modal) {
+      return !modal.hidden;
+    })[0];
+    if (!openModal) {
+      return;
+    }
     if (event.key === "Escape") {
-      var anyOpen = modals.some(function (modal) {
-        return !modal.hidden;
-      });
-      if (anyOpen) {
-        closeModals();
-      }
+      closeModals();
+      return;
+    }
+    if (event.key === "Tab" && window.athaltaA11y) {
+      window.athaltaA11y.trap(
+        openModal.querySelector(".agr-modal-dialog") || openModal,
+        event
+      );
     }
   });
 

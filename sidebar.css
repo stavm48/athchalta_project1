@@ -13,6 +13,8 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   padding: 0.55rem 0.65rem;
   border: 0;
   border-radius: 0.7rem 0 0 0.7rem;
@@ -31,14 +33,6 @@
 .athalta-sidebar-open:hover {
   transform: translateX(-2px);
   box-shadow: 0 0.35rem 0.75rem rgba(31, 61, 100, 0.16);
-}
-
-.athalta-sidebar-open:focus-visible,
-.athalta-sidebar-close:focus-visible,
-.athalta-sidebar-unit-toggle:focus-visible,
-.athalta-sidebar-link:focus-visible {
-  outline: 0.1875rem solid var(--navy, #1f3d64);
-  outline-offset: 0.2rem;
 }
 
 .athalta-sidebar-open svg,
@@ -109,6 +103,8 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   padding: 0.5rem 0.6rem;
   border: 0;
   border-radius: 0.7rem;
@@ -419,14 +415,74 @@
 
 @media (max-width: 56.25rem) {
   .athalta-sidebar {
-    top: 0.75rem;
-    right: 0.75rem;
-    width: min(24.5rem, calc(100vw - 1.5rem));
-    max-height: calc(100vh - 1.5rem);
+    top: 0;
+    right: 0;
+    width: min(24.5rem, 100vw);
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
   }
 
   .athalta-sidebar-title {
-    font-size: 1.375rem;
+    font-size: clamp(1.25rem, 1rem + 1.2vw, 1.375rem);
+  }
+
+  .athalta-sidebar-scroll {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 768px) {
+  .athalta-sidebar-unit-title,
+  .athalta-sidebar-link,
+  .athalta-sidebar-link span {
+    white-space: normal;
+    overflow-wrap: break-word;
+    line-height: 1.45;
+  }
+
+  .athalta-sidebar-unit-title,
+  .athalta-sidebar-link span:last-child {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 51.25rem) {
+  .athalta-sidebar-open {
+    display: none;
+  }
+
+  .main-nav .athalta-sidebar.is-mobile-embedded,
+  .main-nav .athalta-sidebar.is-mobile-embedded.is-open {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    margin: 0.75rem 0 0;
+    padding: 0.25rem 0 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .main-nav .athalta-sidebar.is-mobile-embedded .athalta-sidebar-header {
+    display: none;
+  }
+
+  .main-nav .athalta-sidebar.is-mobile-embedded .athalta-sidebar-scroll {
+    max-height: none;
+    overflow: visible;
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -441,4 +497,14 @@
   .athalta-sidebar-segment {
     transition: none;
   }
+}
+
+/* Keyboard focus: one turquoise ring on every interactive control. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #49BBBD;
+  outline-offset: 2px;
 }

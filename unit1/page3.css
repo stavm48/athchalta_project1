@@ -23,9 +23,10 @@
   --font: "Rubik", sans-serif;
   --font-email: "Plus Jakarta Sans", "Rubik", sans-serif;
   --content: 75rem;
-  --text-h1: 2.625rem;
-  --text-h2: 1.875rem;
-  --text-h3: 1.3125rem;
+  --text-h1: clamp(2rem, 1.15rem + 2.6vw, 2.625rem);
+  --text-h2: clamp(1.5rem, 1.05rem + 1.6vw, 1.875rem);
+  --text-h3: clamp(1.25rem, 1.05rem + 0.55vw, 1.3125rem);
+  --text-h4: clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
   --text-lead: 1rem;
   --text-body: 1rem;
   --lh-heading: 1.2;
@@ -77,13 +78,6 @@ a,
 button {
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-a:focus-visible,
-button:focus-visible,
-.nav-toggle-btn:focus-visible {
-  outline: 0.125rem solid var(--teal);
-  outline-offset: 0.2rem;
 }
 
 button {
@@ -197,20 +191,27 @@ main,
   font-weight: 800;
 }
 
+.main-nav a.active-nav-link:hover,
+.main-nav a.active-nav-link:focus-visible,
+.footer-nav a.active-nav-link:hover,
+.footer-nav a.active-nav-link:focus-visible {
+  text-decoration: none;
+}
+
 .main-nav .active-nav-link::after,
 .footer-nav .active-nav-link::after {
   content: "";
   position: absolute;
   right: 0;
   left: 0;
-  bottom: -0.35rem;
+  bottom: 0.4rem;
   height: 0.125rem;
   background: #c37f80;
   border-radius: 999px;
 }
 
 .footer-nav .active-nav-link::after {
-  bottom: -0.5rem;
+  bottom: -0.2rem;
 }
 
 .nav-toggle,
@@ -296,11 +297,14 @@ main,
   font-weight: 700;
   font-size: var(--text-body);
   letter-spacing: -0.02em;
+  color: var(--teal);
 }
 
 .footer-nav a:hover,
 .footer-nav a:focus-visible {
   color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
 }
 
 .footer-partners {
@@ -706,8 +710,6 @@ main,
 }
 
 .aep-note:focus-visible {
-  outline: 0.25rem solid var(--teal);
-  outline-offset: 0.3125rem;
   border-radius: 0.875rem;
 }
 
@@ -980,6 +982,45 @@ main,
   }
 }
 
+@media (max-width: 51.25rem) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle-btn {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.75rem;
+    margin-inline-start: auto;
+  }
+
+  .nav-toggle-btn span {
+    display: block;
+    width: 1.375rem;
+    height: 0.2rem;
+    background: var(--teal);
+    border-radius: 2px;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+    max-height: calc(100dvh - 5.5rem);
+    overflow-y: auto;
+  }
+
+  .nav-toggle:checked ~ .main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
 @media (max-width: 47.9375rem) {
   :root {
     --text-h1: 2rem;
@@ -1067,8 +1108,12 @@ main,
   }
 
   .ata-sequential-nav {
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
   }
 }
 
@@ -1076,5 +1121,40 @@ main,
   * {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* Keyboard focus: one turquoise ring on every interactive control. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #49BBBD;
+  outline-offset: 2px;
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-nav-prev-text,
+  .ata-nav-next-text {
+    font-size: 0;
+    line-height: 1;
+  }
+
+  .ata-nav-prev-text::after,
+  .ata-nav-next-text::after {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .ata-nav-prev-text::after {
+    content: "אחורה";
+  }
+
+  .ata-nav-next-text::after {
+    content: "קדימה";
   }
 }

@@ -259,19 +259,6 @@
   display: none !important;
 }
 
-.u6r-trigger:focus,
-.u6r-detail:focus,
-.u6r-close:focus {
-  outline: none;
-}
-
-.u6r-trigger:focus-visible,
-.u6r-detail:focus-visible,
-.u6r-close:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
-}
-
 .u6r-month {
   display: inline-flex;
   align-items: center;
@@ -433,6 +420,9 @@
 
   .u6r-month-local {
     display: inline-flex;
+    order: -1;
+    align-self: center;
+    margin: 0 0 0.45rem;
   }
 
   .u6r-station,

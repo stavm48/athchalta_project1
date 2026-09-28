@@ -258,15 +258,6 @@
   transform: translateY(-0.15rem);
 }
 
-.u5-step:focus {
-  outline: none;
-}
-
-.u5-step:focus-visible .u5-date {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.3rem;
-}
-
 .u5-card-panel {
   display: flex;
   justify-content: center;
@@ -376,8 +367,6 @@
 }
 
 .u5-card-link:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.25rem;
   border-radius: 0.2rem;
 }
 
@@ -409,7 +398,28 @@
   }
 
   .u5-card-panel {
-    margin-top: 0.35rem;
+    margin-top: 1.75rem;
+  }
+}
+
+@media (max-width: 64rem) {
+  .u5-card-image {
+    display: none;
+  }
+
+  .u5-card-shell {
+    display: block;
+    max-width: 100%;
+  }
+
+  .u5-card-copy {
+    position: static;
+    height: auto;
+    min-height: 0;
+    padding: 1.35rem 1.25rem 1.5rem;
+    border: 0.2rem solid var(--u5-highlight, #f59dc5);
+    border-radius: 1.15rem;
+    background: color-mix(in srgb, var(--u5-highlight, #f59dc5) 22%, white);
   }
 }
 

@@ -179,8 +179,6 @@
 }
 
 .asr-note:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.3rem;
   border-radius: 0.7rem;
 }
 
@@ -388,7 +386,13 @@
   letter-spacing: 0;
 }
 
-@media (max-width: 47.9375rem) {
+@media (max-width: 64rem) {
+  .asr-note {
+    width: 32%;
+  }
+}
+
+@media (max-width: 51.25rem) {
   .ata-unit-title {
     font-size: 2rem;
   }
@@ -397,90 +401,119 @@
     font-size: 1.5rem;
   }
 
-  .asr-note-green,
-  .asr-note-blue {
-    top: 4%;
-    width: 34%;
-  }
-
-  .asr-note-pink,
-  .asr-note-yellow {
-    top: 50%;
-    width: 34%;
-  }
-
-  .asr-note-blue,
-  .asr-note-yellow {
-    left: 8%;
-  }
-
-  .asr-note-green,
-  .asr-note-pink {
-    left: 54%;
-  }
-
   .asr-corkboard,
   .asr-corkboard.has-open-note {
     aspect-ratio: auto;
     min-height: 0;
+    overflow: visible;
+    background: #f6efe4;
+    border-radius: 1.15rem;
+    padding: 1rem;
   }
 
   .asr-corkboard-frame {
-    position: relative;
-    height: auto;
-    object-fit: contain;
+    display: none;
   }
 
-  .asr-corkboard.has-open-note .asr-corkboard-frame {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-  }
-
-  .asr-corkboard.has-open-note {
-    min-height: 42rem;
-  }
-
+  .asr-corkboard-stage,
   .asr-corkboard.has-open-note .asr-corkboard-stage {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: minmax(0, 1fr) auto;
-    justify-content: stretch;
+    position: static;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
     min-height: 0;
-    padding: 1.5rem 1.2rem 1.4rem;
-    row-gap: 0.85rem;
-    column-gap: 0.75rem;
-  }
-
-  .asr-corkboard.has-open-note .asr-note.is-active {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    width: min(22rem, 100%);
-    max-width: 22rem;
-    max-height: none;
-    height: auto;
-    aspect-ratio: 1 / 1;
     padding: 0;
   }
 
+  .asr-note,
+  .asr-note-green,
+  .asr-note-blue,
+  .asr-note-pink,
+  .asr-note-yellow,
+  .asr-corkboard.has-open-note .asr-note,
+  .asr-corkboard.has-open-note .asr-note.is-active,
   .asr-corkboard.has-open-note .asr-note:not(.is-active) {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
     grid-column: auto;
-    grid-row: 2;
+    grid-row: auto;
     width: 100%;
     max-width: none;
+    height: auto;
+    aspect-ratio: auto;
+    transform: none;
+    filter: none;
   }
 
-  .asr-corkboard.has-open-note .asr-note.is-active .asr-note-content {
-    inset: 15% 12% 14%;
-    gap: 0.4rem;
+  .asr-note-paper {
+    display: none;
   }
 
-  .asr-corkboard.has-open-note .asr-note.is-active .asr-note-title,
-  .asr-corkboard.has-open-note .asr-note.is-active .asr-note-title.font-handwriting {
-    font-size: 1.25rem;
-    padding: 0;
+  .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note.is-active .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note:not(.is-active) .asr-note-content {
+    position: relative;
+    inset: auto;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 1rem 1.1rem;
+    border-radius: 0.85rem;
+    text-align: right;
+    pointer-events: none;
   }
 
+  .asr-note-green .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note-green .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note-green.is-active .asr-note-content {
+    background: #e7f6df;
+  }
+
+  .asr-note-blue .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note-blue .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note-blue.is-active .asr-note-content {
+    background: #e3f4fb;
+  }
+
+  .asr-note-pink .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note-pink .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note-pink.is-active .asr-note-content {
+    background: #fde8f1;
+  }
+
+  .asr-note-yellow .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note-yellow .asr-note-content,
+  .asr-corkboard.has-open-note .asr-note-yellow.is-active .asr-note-content {
+    background: #fff4c8;
+  }
+
+  .asr-note-icon,
   .asr-corkboard.has-open-note .asr-note.is-active .asr-note-icon {
-    width: 2.5rem;
+    width: 2.25rem;
+    max-height: none;
+    align-self: center;
+  }
+
+  .asr-note-title,
+  .asr-note-title.font-handwriting,
+  .asr-corkboard.has-open-note .asr-note.is-active .asr-note-title,
+  .asr-corkboard.has-open-note .asr-note:not(.is-active) .asr-note-title {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .asr-note-explanation {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+  }
+
+  .asr-corkboard.has-open-note .asr-note.is-active .asr-note-explanation {
+    max-height: 40rem;
+    opacity: 1;
+    margin-top: 0.75rem;
   }
 }

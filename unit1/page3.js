@@ -56,6 +56,10 @@ if (window.athaltaProgress) {
 
     if (details) {
       details.hidden = !willOpen;
+      if (willOpen) {
+        details.setAttribute("tabindex", "-1");
+        details.focus();
+      }
     }
 
     if (liveRegion) {

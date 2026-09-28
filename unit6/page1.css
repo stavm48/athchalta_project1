@@ -355,11 +355,6 @@
   opacity: 0.45;
 }
 
-.u6-slice-hit:focus,
-.u6-slice-hit:focus-visible {
-  outline: none;
-}
-
 .u6-wheel-core {
   position: absolute;
   left: 50%;
@@ -458,15 +453,8 @@
   color: var(--teal);
 }
 
-.u6-card-close:focus,
-.u6-close:focus {
-  outline: none;
-}
-
 .u6-card-close:focus-visible,
 .u6-close:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
   border-radius: 0.25rem;
 }
 
@@ -548,6 +536,40 @@
 
 .u6-card-note {
   font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .u6-slice-icon {
+    width: 1.65rem;
+  }
+
+  .u6-slice-copy {
+    gap: 0.15rem;
+    padding: 0;
+  }
+
+  .u6-slice-label {
+    font-size: 0.75rem;
+    line-height: 1.15;
+  }
+
+  .u6-slice-yellow .u6-slice-copy {
+    top: 20%;
+    right: 4%;
+    left: 56%;
+  }
+
+  .u6-slice-blue .u6-slice-copy {
+    top: 20%;
+    left: 4%;
+    right: 56%;
+  }
+
+  .u6-slice-pink .u6-slice-copy {
+    left: 22%;
+    right: 22%;
+    bottom: 8%;
+  }
 }
 
 @media (max-width: 47.9375rem) {

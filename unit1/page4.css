@@ -336,8 +336,6 @@
 }
 
 .ac4-arrow:focus-visible {
-  outline: 0.25rem solid #ccebec;
-  outline-offset: 0.125rem;
   border-radius: 0.75rem;
 }
 
@@ -371,11 +369,6 @@
 
 .ac4-indicator.is-active {
   background: var(--rose);
-}
-
-.ac4-indicator:focus-visible {
-  outline: 0.1875rem solid var(--teal);
-  outline-offset: 0.25rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

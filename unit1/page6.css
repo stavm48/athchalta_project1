@@ -362,6 +362,41 @@
   }
 }
 
+@media (max-width: 51.25rem) {
+  .ag-goals-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .ag-goal {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .ag-goal-copy,
+  .ag-goal-text {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+  }
+
+  .ag-goal-title {
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .ag-goal-icon,
+  .ag-goal-2 .ag-goal-icon,
+  .ag-goal-4 .ag-goal-icon {
+    width: 4.75rem;
+    max-width: 4.75rem;
+  }
+
+}
+
 @media (max-width: 47.9375rem) {
   .ag-goals-grid {
     grid-template-columns: 1fr;

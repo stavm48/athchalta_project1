@@ -26,6 +26,7 @@ if (window.athaltaProgress) {
   var detailsExamples = root.querySelector("#af-details-examples");
   var detailsExampleLabel = root.querySelector("#af-details-example-label");
   var detailsClose = root.querySelector("#af-details-close");
+  var lastFoundationButton = null;
   var mapWrap = root.querySelector(".af-map-wrap");
   var cardToggles = root.querySelectorAll(".af-card-inner");
   var STORAGE_KEY = "athalta_unit1_foundations_visited";
@@ -492,7 +493,12 @@ if (window.athaltaProgress) {
     }, 650);
   }
 
-  function closeFoundation() {
+  function closeFoundation(event) {
+    if (event && typeof event.preventDefault === "function") {
+      event.preventDefault();
+    }
+
+    var restore = lastFoundationButton;
     if (revealTimer) {
       clearTimeout(revealTimer);
       revealTimer = null;
@@ -507,13 +513,24 @@ if (window.athaltaProgress) {
     routePath.style.strokeDasharray = "none";
     routePath.style.strokeDashoffset = "0";
 
+    if (restore && document.contains(restore)) {
+      restore.focus({ preventScroll: true });
+    }
+
     if (closeTimer) {
       clearTimeout(closeTimer);
     }
 
     closeTimer = setTimeout(function () {
+      var anchorTop = mapWrap ? mapWrap.getBoundingClientRect().top : 0;
       details.classList.remove("is-mounted");
       shell.classList.remove("is-active");
+      if (mapWrap) {
+        var shift = mapWrap.getBoundingClientRect().top - anchorTop;
+        if (Math.abs(shift) > 1) {
+          window.scrollBy({ top: shift, behavior: "auto" });
+        }
+      }
       closeTimer = null;
       scrollElementIntoView(mapWrap, "start");
     }, prefersReducedMotion() ? 0 : 330);
@@ -525,6 +542,7 @@ if (window.athaltaProgress) {
       return;
     }
 
+    lastFoundationButton = button;
     markFoundationVisited(number);
 
     if (activeFoundation === number) {
@@ -570,6 +588,9 @@ if (window.athaltaProgress) {
             details.classList.add("is-visible");
             revealTimer = null;
             scrollElementIntoView(details, "center");
+            if (detailsClose) {
+              detailsClose.focus();
+            }
           },
           prefersReducedMotion() ? 0 : 680
         );
@@ -584,12 +605,20 @@ if (window.athaltaProgress) {
   });
 
   if (detailsClose) {
-    detailsClose.addEventListener("click", function () {
+    detailsClose.addEventListener("click", function (event) {
+      event.preventDefault();
       if (activeFoundation) {
-        closeFoundation();
+        closeFoundation(event);
       }
     });
   }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && activeFoundation) {
+      event.preventDefault();
+      closeFoundation();
+    }
+  });
 
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimer);

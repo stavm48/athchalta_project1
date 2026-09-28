@@ -4,9 +4,9 @@
    =================================================================== */
 
 .ata-unit-page {
-  max-width: var(--content);
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 2.5rem 1rem 4rem;
 }
 
 .ata-unit-title {
@@ -66,6 +66,16 @@
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.zoom-disclaimer {
+  width: 100%;
+  margin: 0 0 0.65rem;
+  color: var(--navy);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
   text-align: right;
 }
 
@@ -131,38 +141,22 @@
   transform: rotate(45deg) translateY(-0.1rem);
 }
 
-.u7m-filter-input:focus-visible + .u7m-filter-box {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
-}
-
 .u7m-table-scroll {
   width: 100%;
   margin: 0;
-  padding: 0.2rem 0.15rem 1.15rem;
-  overflow-x: auto;
-  overflow-y: visible;
+  padding: 0;
+  overflow: visible;
   direction: rtl;
-  scrollbar-width: thin;
-}
-
-.u7m-table-scroll:focus {
-  outline: none;
-}
-
-.u7m-table-scroll:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
 }
 
 .u7m-schedule-table {
   width: 100%;
-  min-width: 72rem;
+  min-width: 0;
   table-layout: fixed;
   margin: 0;
   border: 0;
   border-collapse: separate;
-  border-spacing: 0.625rem 0.875rem;
+  border-spacing: 0.4rem 0.875rem;
   background: transparent;
 }
 
@@ -191,7 +185,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  vertical-align: stretch;
+  vertical-align: top;
 }
 
 .u7m-role {
@@ -201,7 +195,7 @@
   border-radius: 0 0.875rem 0.875rem 0;
   color: var(--navy);
   text-align: center;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .u7m-role-title {
@@ -232,10 +226,8 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  min-height: 18rem;
-  height: 100%;
   margin: 0;
-  padding: 0.9rem 0.45rem 0.85rem;
+  padding: 0.9rem 0.3rem 0.85rem;
   color: var(--navy);
   font-size: var(--text-body);
   font-weight: 400;
@@ -254,14 +246,14 @@
 .u7m-stack {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   gap: 0.625rem;
   width: 100%;
-  height: 100%;
 }
 
 .u7m-stack .u7m-event {
-  flex: 1 1 auto;
-  min-height: 10.5rem;
+  flex: 0 0 auto;
 }
 
 .u7m-blue {
@@ -284,8 +276,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: auto 0 1rem;
+  justify-content: flex-start;
+  margin: 0.65rem 0 0.35rem;
   color: var(--u7m-zoom);
   font-size: var(--text-body);
   font-weight: 600;
@@ -313,23 +305,28 @@
   flex-shrink: 0;
 }
 
+.u7m-custom-icon-placeholder:has(img) {
+  width: 4rem;
+  height: 4rem;
+}
+
 .u7m-custom-icon-placeholder img {
   display: block;
-  width: 1.5rem;
-  height: auto;
-  max-height: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  max-width: 100%;
   flex-shrink: 0;
   object-fit: contain;
 }
 
 .u7m-event > .u7m-custom-icon-placeholder {
-  margin-top: auto;
-  margin-bottom: 1.15rem;
+  margin-top: 0.65rem;
+  margin-bottom: 0.35rem;
 }
 
 .u7m-date {
   display: block;
-  margin-top: auto;
+  margin-top: 0.35rem;
   color: var(--navy);
   font-size: var(--text-body);
   font-weight: 400;
@@ -365,6 +362,70 @@
   display: none !important;
 }
 
+.responsive-schedule-downloads {
+  display: none;
+}
+
+@media (max-width: 1130px) {
+  .u7m-filters,
+  .u7m-table-scroll {
+    display: none;
+  }
+
+  .responsive-schedule-downloads {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    width: 100%;
+    margin: 0 0 1.5rem;
+  }
+
+  .responsive-schedule-downloads a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 2.75rem;
+    max-width: 100%;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .responsive-schedule-downloads a:first-child {
+    background: #49bbbd;
+  }
+
+  .responsive-schedule-downloads a:last-child {
+    background: #c37f80;
+  }
+
+  .responsive-schedule-downloads a:first-child:hover,
+  .responsive-schedule-downloads a:first-child:focus-visible {
+    background: #3aa8aa;
+    color: #ffffff;
+  }
+
+  .responsive-schedule-downloads a:last-child:hover,
+  .responsive-schedule-downloads a:last-child:focus-visible {
+    background: #b06e6f;
+    color: #ffffff;
+  }
+
+  .responsive-schedule-downloads a:focus-visible {
+    outline: 2px solid #49bbbd;
+    outline-offset: 3px;
+  }
+}
+
 @media (max-width: 47.9375rem) {
   .ata-unit-title {
     font-size: 2rem;
@@ -372,10 +433,6 @@
 
   .u7m-section-title {
     font-size: 1.5rem;
-  }
-
-  .u7m-schedule-table {
-    min-width: 64rem;
   }
 }
 

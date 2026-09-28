@@ -32,6 +32,12 @@
   }
 
   var ROOT = sitePrefix();
+  var onRoadmap = /\/navigation\/navigation\.html$/i.test(
+    (window.location.pathname || "").replace(/\\/g, "/")
+  );
+  var roadmapAttrs = onRoadmap
+    ? ' class="active-nav-link" aria-current="page"'
+    : "";
 
   var HEADER_HTML =
     '<header class="site-header">' +
@@ -53,7 +59,9 @@
     'index.html">ראשי</a>' +
     '<a href="' +
     ROOT +
-    'navigation/navigation.html" class="active-nav-link" aria-current="page">הסביבה שלי</a>' +
+    'navigation/navigation.html"' +
+    roadmapAttrs +
+    '>מפת הדרך שלי</a>' +
     '<a href="' +
     ROOT +
     'index.html#learning">כניסה לתפקיד</a>' +
@@ -80,7 +88,9 @@
     'index.html">ראשי</a>' +
     '<a href="' +
     ROOT +
-    'navigation/navigation.html" class="active-nav-link" aria-current="page">הסביבה שלי</a>' +
+    'navigation/navigation.html"' +
+    roadmapAttrs +
+    '>מפת הדרך שלי</a>' +
     '<a href="' +
     ROOT +
     'index.html#learning">כניסה לתפקיד</a>' +
@@ -109,6 +119,22 @@
   inject("global-header", HEADER_HTML);
   inject("global-footer", FOOTER_HTML);
 
+  function appendScript(fileName, onload) {
+    if (document.querySelector('script[src$="' + fileName + '"]')) {
+      if (onload) {
+        onload();
+      }
+      return;
+    }
+    var el = document.createElement("script");
+    el.src = ROOT + fileName;
+    el.async = false;
+    if (onload) {
+      el.onload = onload;
+    }
+    document.body.appendChild(el);
+  }
+
   function loadSidebar() {
     if (!document.querySelector('link[href$="sidebar.css"]')) {
       var link = document.createElement("link");
@@ -118,12 +144,14 @@
       document.head.appendChild(link);
     }
 
-    if (window.athaltaSidebar || document.querySelector('script[src$="sidebar.js"]')) {
-      return;
+    function startSidebar() {
+      if (window.athaltaSidebar || document.querySelector('script[src$="sidebar.js"]')) {
+        return;
+      }
+      appendScript("sidebar.js");
     }
-    var script = document.createElement("script");
-    script.src = ROOT + "sidebar.js";
-    document.body.appendChild(script);
+
+    appendScript("a11y.js", startSidebar);
   }
 
   loadSidebar();

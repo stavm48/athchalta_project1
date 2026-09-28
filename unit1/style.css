@@ -27,9 +27,10 @@
   --font: "Rubik", "Heebo", "Assistant", sans-serif;
   --font-email: "Plus Jakarta Sans", "Rubik", sans-serif;
   --content: 75rem;
-  --text-h1: 2.625rem;
-  --text-h2: 1.875rem;
-  --text-h3: 1.3125rem;
+  --text-h1: clamp(2rem, 1.15rem + 2.6vw, 2.625rem);
+  --text-h2: clamp(1.5rem, 1.05rem + 1.6vw, 1.875rem);
+  --text-h3: clamp(1.25rem, 1.05rem + 0.55vw, 1.3125rem);
+  --text-h4: clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
   --text-lead: 1rem;
   --text-body: 1rem;
   --lh-heading: 1.2;
@@ -85,13 +86,6 @@ a,
 button {
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-a:focus-visible,
-button:focus-visible,
-.nav-toggle-btn:focus-visible {
-  outline: 0.125rem solid var(--teal);
-  outline-offset: 0.2rem;
 }
 
 button {
@@ -214,20 +208,27 @@ main,
   font-weight: 800;
 }
 
+.main-nav a.active-nav-link:hover,
+.main-nav a.active-nav-link:focus-visible,
+.footer-nav a.active-nav-link:hover,
+.footer-nav a.active-nav-link:focus-visible {
+  text-decoration: none;
+}
+
 .main-nav .active-nav-link::after,
 .footer-nav .active-nav-link::after {
   content: "";
   position: absolute;
   right: 0;
   left: 0;
-  bottom: -0.35rem;
+  bottom: 0.4rem;
   height: 0.125rem;
   background: #c37f80;
   border-radius: 999px;
 }
 
 .footer-nav .active-nav-link::after {
-  bottom: -0.5rem;
+  bottom: -0.2rem;
 }
 
 .nav-toggle,
@@ -314,11 +315,14 @@ main,
   font-weight: 700;
   font-size: var(--text-body);
   letter-spacing: -0.02em;
+  color: var(--teal);
 }
 
 .footer-nav a:hover,
 .footer-nav a:focus-visible {
   color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
 }
 
 .footer-partners {
@@ -482,10 +486,38 @@ main,
    alternates right / left. The L-shaped pipe PNGs share the same
    grid cell (behind the row) so they connect stages without
    absolute positioning. */
+.ata-about-route {
+  container-type: inline-size;
+  width: 100%;
+}
+
+.ata-route-scale {
+  width: 100%;
+  position: relative;
+}
+
 .ata-route-shell {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+@container (max-width: 72rem) {
+  .ata-route-scale {
+    height: 0;
+    padding-bottom: 194.62%;
+    overflow: hidden;
+  }
+
+  .ata-route-shell {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72rem;
+    max-width: none;
+    transform: scale(calc(100cqi / 72rem));
+    transform-origin: top right;
+  }
 }
 
 .ata-route-step {
@@ -949,6 +981,45 @@ main,
   }
 }
 
+@media (max-width: 51.25rem) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle-btn {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.75rem;
+    margin-inline-start: auto;
+  }
+
+  .nav-toggle-btn span {
+    display: block;
+    width: 1.375rem;
+    height: 0.2rem;
+    background: var(--teal);
+    border-radius: 2px;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+    max-height: calc(100dvh - 5.5rem);
+    overflow-y: auto;
+  }
+
+  .nav-toggle:checked ~ .main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
 @media (max-width: 47.9375rem) {
   :root {
     --text-h1: 2rem;
@@ -972,6 +1043,8 @@ main,
     flex-direction: column;
     justify-content: center;
     gap: 0.3rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     padding: 0.75rem;
     margin-inline-start: auto;
   }
@@ -1032,109 +1105,171 @@ main,
   }
 }
 
-/* Mobile */
-@media (max-width: 40.625rem) {
-  .ata-unit-page {
-    padding: 2rem 1.25rem 4.5rem;
+@media (max-width: 768px) {
+  .ata-about-route,
+  .ata-route-scale,
+  .ata-route-shell,
+  .ata-route-step,
+  .ata-step-1,
+  .ata-step-2,
+  .ata-step-3,
+  .ata-step-4,
+  .ata-step-5 {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    transform: none;
+    overflow: visible;
+  }
+
+  .ata-route-scale {
+    padding-bottom: 0;
+  }
+
+  .ata-route-shell {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .ata-route-step {
-    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 0;
   }
 
   .ata-step-pipe {
     display: none;
   }
 
-  .ata-step-1 {
-    width: 100%;
-    margin-inline-end: 0;
-  }
-
-  .ata-step-1 .ata-step-lead {
-    width: auto;
-  }
-
-  .ata-step-1 .ata-info-card {
-    margin-top: 0;
-  }
-
-  .ata-step-2 {
-    width: 100%;
-    margin-inline-start: 0;
-    margin-top: 0;
-  }
-
-  .ata-step-2 .ata-step-lead {
-    width: auto;
-  }
-
-  .ata-step-2 .ata-info-card {
-    margin-top: 0;
-  }
-
-  .ata-step-3 {
-    margin-top: 0;
-    width: 100%;
-    margin-inline-end: 0;
-  }
-
-  .ata-step-3 .ata-step-lead {
-    width: auto;
-  }
-
-  .ata-step-4 {
-    margin-top: 0;
-    width: 100%;
-    margin-inline-start: 0;
-  }
-
-  .ata-step-4 .ata-step-lead {
-    width: auto;
-  }
-
-  .ata-step-4 .ata-info-card {
-    margin-top: 0;
-  }
-
-  .ata-step-5 {
-    width: 100%;
-    margin-inline-end: 0;
-    margin-top: 0;
-  }
-
-  .ata-step-body,
+  .ata-route-step .ata-step-body,
   .ata-route-step:nth-child(odd) .ata-step-body,
-  .ata-route-step:nth-child(even) .ata-step-body {
-    flex-direction: column;
-    justify-self: center;
+  .ata-route-step:nth-child(even) .ata-step-body,
+  .ata-step-1 .ata-step-body,
+  .ata-step-2 .ata-step-body,
+  .ata-step-3 .ata-step-body,
+  .ata-step-4 .ata-step-body,
+  .ata-step-5 .ata-step-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
     width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
-  .ata-step-plant {
-    height: 5.5rem;
+  .ata-step-5 .ata-step-card-col,
+  .ata-step-5 .ata-step-plant {
+    position: static;
+    left: auto;
+    right: auto;
+    margin: 0;
+    transform: none;
   }
 
-  .ata-step-plant-sm {
-    height: 4.5rem;
+  .ata-step-5 .ata-step-card-col {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+    width: auto;
   }
 
-  .ata-info-card {
-    padding: 1.25rem 1.25rem 1.5rem;
+  .ata-route-step .ata-step-lead,
+  .ata-step-1 .ata-step-lead,
+  .ata-step-2 .ata-step-lead,
+  .ata-step-3 .ata-step-lead,
+  .ata-step-4 .ata-step-lead,
+  .ata-step-5 .ata-step-lead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.75rem;
+    min-width: 4.75rem;
+    flex-shrink: 0;
+    overflow: visible;
   }
 
-  .ata-card-heading-wrapper {
-    margin: 0 0 1rem;
+  .ata-step-plant,
+  .ata-step-plant-sm,
+  .ata-step-1 .ata-step-plant,
+  .ata-step-2 .ata-step-plant,
+  .ata-step-3 .ata-step-plant,
+  .ata-step-4 .ata-step-plant,
+  .ata-step-5 .ata-step-plant {
+    display: block;
+    position: static;
+    grid-area: auto;
+    width: 4.5rem;
+    max-width: 4.5rem;
+    height: auto;
+    max-height: 5.5rem;
+    margin: 0;
+    object-fit: contain;
+    flex-shrink: 0;
+    align-self: center;
+    z-index: 1;
+  }
+
+  .ata-info-card,
+  .ata-step-1 .ata-info-card,
+  .ata-step-2 .ata-info-card,
+  .ata-step-3 .ata-info-card,
+  .ata-step-4 .ata-info-card,
+  .ata-step-5 .ata-info-card,
+  .ata-card-pink,
+  .ata-card-blue,
+  .ata-card-green,
+  .ata-card-coral,
+  .ata-card-yellow {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    padding: 1rem 1rem 1.15rem;
   }
 
   .ata-card-heading {
-    padding: 0.4rem 1.25rem;
-    font-size: 1.125rem;
-    white-space: normal;
+    font-size: 1.25rem;
   }
 
   .ata-card-body {
-    font-size: 1.0625rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .ata-route-step:not(:last-child)::after {
+    content: "";
+    display: block;
+    width: 0.4rem;
+    height: 1.5rem;
+    margin: 0.4rem 1.9rem 0.4rem auto;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+
+  .ata-step-1::after {
+    background: #ebc0db;
+  }
+
+  .ata-step-2::after {
+    background: #b9e4ed;
+  }
+
+  .ata-step-3::after {
+    background: #a9d48f;
+  }
+
+  .ata-step-4::after {
+    background: #f59a97;
   }
 }
 
@@ -1142,5 +1277,40 @@ main,
   * {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* Keyboard focus: one turquoise ring on every interactive control. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #49BBBD;
+  outline-offset: 2px;
+}
+
+@media (max-width: 47.9375rem) {
+  .ata-nav-prev-text,
+  .ata-nav-next-text {
+    font-size: 0;
+    line-height: 1;
+  }
+
+  .ata-nav-prev-text::after,
+  .ata-nav-next-text::after {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .ata-nav-prev-text::after {
+    content: "אחורה";
+  }
+
+  .ata-nav-next-text::after {
+    content: "קדימה";
   }
 }

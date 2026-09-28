@@ -233,11 +233,6 @@
   background: var(--aw-peach-hover);
 }
 
-.aw-accordion-button:focus-visible {
-  outline: 0.2rem solid var(--navy);
-  outline-offset: 0.15rem;
-}
-
 .aw-accordion-label {
   display: block;
   flex: 1;

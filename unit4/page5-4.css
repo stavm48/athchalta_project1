@@ -161,7 +161,7 @@
   position: relative;
   width: auto;
   max-width: 100%;
-  margin-inline: 5.5rem;
+  margin-inline: clamp(0rem, 6vw, 5.5rem);
 }
 
 .u4e-slides {
@@ -210,15 +210,6 @@
   text-align: center;
 }
 
-.u4e-card-title:focus {
-  outline: none;
-}
-
-.u4e-card-title:focus-visible {
-  outline: 0.2rem solid var(--teal);
-  outline-offset: 0.2rem;
-}
-
 .u4e-panel {
   display: flex;
   flex-direction: column;
@@ -242,8 +233,8 @@
 
 .u4e-stack-row {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
   gap: 1rem;
   width: 100%;
 }
@@ -251,8 +242,9 @@
 .u4e-panel-label {
   display: inline-flex;
   flex-shrink: 0;
-  align-self: flex-start;
-  margin: 0;
+  align-self: center;
+  justify-content: center;
+  margin: 0 auto;
   padding: 0.15rem 0.75rem;
   border: 0;
   border-radius: 8px;
@@ -356,11 +348,6 @@
   color: var(--navy);
 }
 
-.u4e-inline-link:focus-visible {
-  outline: 0.2rem solid var(--u4e-yellow-accent);
-  outline-offset: 0.15rem;
-}
-
 .u4e-links-list {
   display: flex;
   flex-wrap: wrap;
@@ -389,11 +376,6 @@
 
 .u4e-link-chip:hover {
   transform: translateY(-0.1rem);
-}
-
-.u4e-link-chip:focus-visible {
-  outline: 0.2rem solid var(--u4e-yellow-accent);
-  outline-offset: 0.2rem;
 }
 
 .u4e-nav {
@@ -439,11 +421,6 @@
   transform: translateY(-50%) scale(1.05);
 }
 
-.u4e-nav:focus-visible {
-  outline: 0.2rem solid var(--navy);
-  outline-offset: 0.2rem;
-}
-
 .u4e-nav[hidden] {
   display: none;
 }
@@ -474,26 +451,46 @@
   background: var(--u4e-yellow-accent);
 }
 
-.u4e-dot:focus-visible {
-  outline: 0.2rem solid var(--navy);
-  outline-offset: 0.2rem;
-}
-
 @media (max-width: 47.9375rem) {
+  .u4e-carousel,
+  .u4e-carousel-wrapper,
+  .u4e-card {
+    width: 100%;
+    max-width: none;
+  }
+
   .u4e-carousel-wrapper {
-    margin-inline: 3.25rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 0;
   }
 
-  .u4e-next {
-    left: calc(-2.75rem - 12px);
+  .u4e-slides {
+    flex: 1 0 100%;
+    order: -1;
   }
 
+  .u4e-nav,
+  .u4e-next,
   .u4e-prev {
-    right: calc(-2.75rem - 12px);
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    transform: none;
+    margin-top: 0.85rem;
+  }
+
+  .u4e-nav:hover,
+  .u4e-nav:focus-visible {
+    transform: none;
   }
 
   .u4e-card {
-    padding: 1.5rem 1rem 1.25rem;
+    padding: 1.25rem 1rem 1.15rem;
     gap: 2rem;
   }
 

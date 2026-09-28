@@ -28,57 +28,102 @@ if (window.athaltaProgress) {
   var status = root.querySelector("#u5s-status");
   var folder = root.querySelector(".u5s-folder");
   var activeAudience = null;
-  var ANIMATION_MS = 450;
+  var ANIMATION_MS = 300;
 
   function prefersReducedMotion() {
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
   function clearExpandTimer(el) {
-    if (el._u5sExpandTimer) {
+    if (el && el._u5sExpandTimer) {
       window.clearTimeout(el._u5sExpandTimer);
       el._u5sExpandTimer = null;
     }
   }
 
-  function expandFromTop(el, onDone) {
+  function releaseAccordionMotion(el) {
+    if (!el) {
+      return;
+    }
+
     clearExpandTimer(el);
-    el.hidden = false;
-    el.classList.remove("is-open");
-    el.offsetHeight;
-
-    window.requestAnimationFrame(function () {
-      el.classList.add("is-open");
-
-      if (typeof onDone === "function") {
-        onDone();
-      }
-    });
+    el.style.transition = "";
+    el.style.height = "";
+    el.style.overflow = "";
   }
 
-  function collapseToTop(el, onDone) {
+  function expandFromTop(el) {
+    if (!el) {
+      return;
+    }
+
     clearExpandTimer(el);
+
+    var current = el.hidden ? 0 : el.getBoundingClientRect().height;
+
     el.hidden = false;
+    el.classList.add("is-open");
+
+    if (prefersReducedMotion()) {
+      releaseAccordionMotion(el);
+      return;
+    }
+
+    el.style.overflow = "hidden";
+    el.style.transition = "none";
+    el.style.height = "auto";
+
+    var end = el.scrollHeight;
+
+    el.style.height = current + "px";
+    el.offsetHeight;
+    el.style.transition = "height " + ANIMATION_MS + "ms ease";
+    el.style.height = end + "px";
+
+    el._u5sExpandTimer = window.setTimeout(function () {
+      el._u5sExpandTimer = null;
+
+      if (el.classList.contains("is-open")) {
+        el.style.transition = "";
+        el.style.height = "";
+        el.style.overflow = "";
+      }
+    }, ANIMATION_MS);
+  }
+
+  function collapseToTop(el) {
+    if (!el || el.hidden) {
+      return;
+    }
+
+    clearExpandTimer(el);
     el.classList.remove("is-open");
 
-    function finish() {
+    if (prefersReducedMotion()) {
+      el.hidden = true;
+      releaseAccordionMotion(el);
+      return;
+    }
+
+    var start = el.getBoundingClientRect().height;
+
+    el.style.overflow = "hidden";
+    el.style.transition = "none";
+    el.style.height = start + "px";
+    el.offsetHeight;
+    el.style.transition = "height " + ANIMATION_MS + "ms ease";
+    el.style.height = "0px";
+
+    el._u5sExpandTimer = window.setTimeout(function () {
       el._u5sExpandTimer = null;
 
       if (!el.classList.contains("is-open")) {
         el.hidden = true;
+        el.style.transition = "";
+        el.style.height = "";
+        el.style.overflow = "";
       }
-
-      if (typeof onDone === "function") {
-        onDone();
-      }
-    }
-
-    if (prefersReducedMotion()) {
-      finish();
-      return;
-    }
-
-    el._u5sExpandTimer = window.setTimeout(finish, ANIMATION_MS);
+    }, ANIMATION_MS);
   }
 
   function setStatus(message) {
@@ -103,10 +148,15 @@ if (window.athaltaProgress) {
       .forEach(function (content) {
         content.classList.remove("is-open");
         content.hidden = true;
+        releaseAccordionMotion(content);
       });
   }
 
   function closeAccordionEl(button) {
+    if (!button || button.getAttribute("aria-expanded") !== "true") {
+      return;
+    }
+
     var target = document.getElementById(button.getAttribute("aria-controls"));
 
     button.setAttribute("aria-expanded", "false");
@@ -249,18 +299,20 @@ if (window.athaltaProgress) {
   Array.prototype.slice
     .call(root.querySelectorAll(".u5s-accordion-button"))
     .forEach(function (button) {
-      button.addEventListener("click", function () {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         var parentPanel = button.closest(".u5s-panel");
         var isOpen = button.getAttribute("aria-expanded") === "true";
+        var openSibling = parentPanel
+          ? parentPanel.querySelector(
+              '.u5s-accordion-button[aria-expanded="true"]'
+            )
+          : null;
 
-        if (parentPanel) {
-          Array.prototype.slice
-            .call(parentPanel.querySelectorAll(".u5s-accordion-button"))
-            .forEach(function (sibling) {
-              if (sibling !== button) {
-                closeAccordionEl(sibling);
-              }
-            });
+        if (openSibling && openSibling !== button) {
+          closeAccordionEl(openSibling);
         }
 
         if (isOpen) {

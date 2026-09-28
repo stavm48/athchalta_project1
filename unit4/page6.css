@@ -113,11 +113,6 @@
   box-shadow: 0 0.75rem 1.5rem rgba(31, 61, 100, 0.12);
 }
 
-.u4sum-tip:focus-within {
-  outline: 0.2rem solid var(--navy);
-  outline-offset: 0.2rem;
-}
-
 .u4sum-tip-coral {
   --tip-color: var(--u4-coral);
 }
@@ -276,8 +271,6 @@
 }
 
 .u4sum-tool-action:focus-visible {
-  outline: 0.2rem solid var(--navy);
-  outline-offset: 0.2rem;
   border-radius: 0.25rem;
 }
 

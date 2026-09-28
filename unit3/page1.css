@@ -181,8 +181,6 @@
 }
 
 .agr-step:focus-visible {
-  outline: 0.2rem solid var(--navy);
-  outline-offset: 0.35rem;
   border-radius: 1rem;
 }
 
@@ -369,8 +367,6 @@
 }
 
 .agr-modal-close:focus-visible {
-  outline: 0.15rem solid var(--navy);
-  outline-offset: 0.15rem;
   border-radius: 0.25rem;
 }
 
@@ -435,11 +431,6 @@
 
 .agr-modal-note a:hover {
   color: var(--teal);
-}
-
-.agr-modal-note a:focus-visible {
-  outline: 0.15rem solid var(--navy);
-  outline-offset: 0.15rem;
 }
 
 body.agr-modal-open {

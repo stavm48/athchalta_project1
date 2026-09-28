@@ -23,12 +23,13 @@ if (window.athaltaProgress) {
 
   var stage = board.querySelector(".asr-corkboard-stage");
   var notes = Array.prototype.slice.call(board.querySelectorAll(".asr-note"));
+  var lastNote = null;
 
   if (!stage || !notes.length) {
     return;
   }
 
-  function closeAllNotes() {
+  function closeAllNotes(restoreFocus) {
     board.classList.remove("has-open-note");
     stage.classList.remove("has-open-note");
 
@@ -42,6 +43,10 @@ if (window.athaltaProgress) {
         explanation.setAttribute("aria-hidden", "true");
       }
     });
+
+    if (restoreFocus !== false && lastNote && document.contains(lastNote)) {
+      lastNote.focus();
+    }
   }
 
   function openNote(selectedNote) {
@@ -50,6 +55,7 @@ if (window.athaltaProgress) {
       return;
     }
 
+    lastNote = selectedNote;
     board.classList.add("has-open-note");
     stage.classList.add("has-open-note");
 
@@ -83,9 +89,10 @@ if (window.athaltaProgress) {
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && board.classList.contains("has-open-note")) {
+      event.preventDefault();
       closeAllNotes();
     }
   });
 
-  closeAllNotes();
+  closeAllNotes(false);
 })();

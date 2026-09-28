@@ -823,7 +823,11 @@ if (window.athaltaProgress) {
     videoModal.hidden = false;
     videoModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    videoClose.focus();
+    if (window.athaltaA11y) {
+      window.athaltaA11y.focusFirst(videoModal.querySelector(".atc-video-modal-window"), videoClose);
+    } else if (videoClose) {
+      videoClose.focus();
+    }
   }
 
   function closeVideoModal() {
@@ -879,8 +883,18 @@ if (window.athaltaProgress) {
   videoBackdrop.addEventListener("click", closeVideoModal);
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && !videoModal.hidden) {
+    if (videoModal.hidden) {
+      return;
+    }
+    if (event.key === "Escape") {
       closeVideoModal();
+      return;
+    }
+    if (event.key === "Tab" && window.athaltaA11y) {
+      window.athaltaA11y.trap(
+        videoModal.querySelector(".atc-video-modal-window") || videoModal,
+        event
+      );
     }
   });
 
