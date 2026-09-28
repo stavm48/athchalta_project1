@@ -188,6 +188,8 @@ main,
 }
 
 .main-nav a {
+  width: fit-content;
+  max-width: 100%;
   font-weight: 700;
   font-size: var(--text-body);
   padding: 0.75rem 0;
@@ -240,7 +242,7 @@ main,
 .site-footer {
   background: var(--white);
   border-top: 0.625rem solid var(--footer-rule);
-  padding: 3rem 3rem 4rem;
+  padding: 3rem 3rem 1.25rem;
 }
 
 .footer-grid {
@@ -307,11 +309,14 @@ main,
 .footer-nav {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1.6rem;
   padding-top: 0.5rem;
 }
 
 .footer-nav a {
+  width: fit-content;
+  max-width: 100%;
   font-weight: 700;
   font-size: var(--text-body);
   letter-spacing: -0.02em;
@@ -500,6 +505,10 @@ main,
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.ata-mobile-connector {
+  display: none;
 }
 
 @container (max-width: 72rem) {
@@ -1071,7 +1080,7 @@ main,
   }
 
   .site-footer {
-    padding: 2rem 1.25rem 3rem;
+    padding: 2rem 1.25rem 1.25rem;
   }
 
   .footer-grid {
@@ -1106,6 +1115,55 @@ main,
 }
 
 @media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  .site-header,
+  .header-inner,
+  .site-footer,
+  .page-bg {
+    max-width: 100%;
+  }
+
+  .ata-unit-page {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.75rem 1.25rem 4rem;
+    overflow-x: clip;
+  }
+
+  .ata-unit-title,
+  .ata-about-opening,
+  .ata-about-section-title,
+  .ata-about-opening-text,
+  .ata-about-route-title {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-inline: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    transform: none;
+    overflow-wrap: break-word;
+  }
+
+  .ata-unit-title-index,
+  .ata-unit-title-name,
+  .ata-unit-title-divider {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .ata-about-route {
+    container-type: normal;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .ata-about-route,
   .ata-route-scale,
   .ata-route-shell,
@@ -1116,10 +1174,14 @@ main,
   .ata-step-4,
   .ata-step-5 {
     width: 100%;
-    max-width: none;
+    max-width: 100%;
     height: auto;
     margin: 0;
     padding: 0;
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
     transform: none;
     overflow: visible;
   }
@@ -1129,21 +1191,59 @@ main,
   }
 
   .ata-route-shell {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .ata-route-step {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    margin-bottom: 0;
+    gap: 0;
+    width: 100%;
   }
 
-  .ata-step-pipe {
+  .ata-route-step {
+    display: grid;
+    grid-template-columns: 3.75rem minmax(0, 1fr);
+    column-gap: 0.3rem;
+    row-gap: 0;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ata-step-pipe,
+  .ata-step-1 .ata-pipe-pink,
+  .ata-step-2 .ata-pipe-blue,
+  .ata-step-3 .ata-pipe-green,
+  .ata-step-4 .ata-pipe-coral,
+  .ata-step-5 .ata-pipe-yellow {
     display: none;
+  }
+
+  .ata-mobile-connector {
+    display: block;
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: center;
+    align-self: start;
+    width: 0.7rem;
+    height: 2rem;
+    margin: 0;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+
+  .ata-mobile-connector--pink {
+    background-color: #ebc0db;
+  }
+
+  .ata-mobile-connector--blue {
+    background-color: #b9e4ed;
+  }
+
+  .ata-mobile-connector--green {
+    background-color: #a9d48f;
+  }
+
+  .ata-mobile-connector--coral {
+    background-color: #f59a97;
   }
 
   .ata-route-step .ata-step-body,
@@ -1154,15 +1254,30 @@ main,
   .ata-step-3 .ata-step-body,
   .ata-step-4 .ata-step-body,
   .ata-step-5 .ata-step-body {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.75rem;
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
+    display: contents;
+  }
+
+  .ata-step-lead,
+  .ata-step-1 .ata-step-lead,
+  .ata-step-2 .ata-step-lead,
+  .ata-step-3 .ata-step-lead,
+  .ata-step-4 .ata-step-lead,
+  .ata-step-5 .ata-step-plant {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .ata-info-card,
+  .ata-step-1 .ata-info-card,
+  .ata-step-2 .ata-info-card,
+  .ata-step-3 .ata-info-card,
+  .ata-step-4 .ata-info-card,
+  .ata-step-5 .ata-info-card,
+  .ata-step-5 .ata-step-card-col {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .ata-step-5 .ata-step-card-col,
@@ -1181,21 +1296,25 @@ main,
     align-items: stretch;
     min-width: 0;
     width: auto;
+    max-width: 100%;
   }
 
   .ata-route-step .ata-step-lead,
   .ata-step-1 .ata-step-lead,
   .ata-step-2 .ata-step-lead,
   .ata-step-3 .ata-step-lead,
-  .ata-step-4 .ata-step-lead,
-  .ata-step-5 .ata-step-lead {
+  .ata-step-4 .ata-step-lead {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4.75rem;
-    min-width: 4.75rem;
+    width: 3.75rem;
+    min-width: 3.75rem;
+    max-width: 3.75rem;
+    margin: 0;
     flex-shrink: 0;
     overflow: visible;
+    position: static;
+    transform: none;
   }
 
   .ata-step-plant,
@@ -1207,12 +1326,14 @@ main,
   .ata-step-5 .ata-step-plant {
     display: block;
     position: static;
-    grid-area: auto;
-    width: 4.5rem;
-    max-width: 4.5rem;
+    width: 3.75rem;
+    min-width: 3.75rem;
+    max-width: 3.75rem;
     height: auto;
-    max-height: 5.5rem;
+    max-height: none;
     margin: 0;
+    left: auto;
+    right: auto;
     object-fit: contain;
     flex-shrink: 0;
     align-self: center;
@@ -1232,44 +1353,63 @@ main,
   .ata-card-yellow {
     flex: 1 1 auto;
     width: auto;
+    max-width: 100%;
     min-width: 0;
+    height: auto;
     margin: 0;
-    padding: 1rem 1rem 1.15rem;
+    position: static;
+    left: auto;
+    right: auto;
+    transform: none;
+    padding: 1rem 0.85rem 1.15rem;
   }
 
-  .ata-card-heading {
+  .ata-card-heading-wrapper,
+  .ata-card-pink .ata-card-heading-wrapper {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.85rem;
+  }
+
+  .ata-card-heading,
+  .ata-card-pink .ata-card-heading,
+  .ata-card-blue .ata-card-heading,
+  .ata-card-green .ata-card-heading,
+  .ata-card-coral .ata-card-heading,
+  .ata-card-yellow .ata-card-heading {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
     font-size: 1.25rem;
+    line-height: 1.35;
+    padding: 0.45rem 0.85rem;
   }
 
   .ata-card-body {
+    width: 100%;
+    max-width: 100%;
     font-size: 1rem;
     line-height: 1.6;
+    overflow-wrap: anywhere;
   }
 
-  .ata-route-step:not(:last-child)::after {
-    content: "";
-    display: block;
-    width: 0.4rem;
-    height: 1.5rem;
-    margin: 0.4rem 1.9rem 0.4rem auto;
-    border-radius: 999px;
-    flex-shrink: 0;
+  .ata-sequential-nav {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2rem;
+    padding: 0;
+    gap: 0.75rem;
   }
 
-  .ata-step-1::after {
-    background: #ebc0db;
-  }
-
-  .ata-step-2::after {
-    background: #b9e4ed;
-  }
-
-  .ata-step-3::after {
-    background: #a9d48f;
-  }
-
-  .ata-step-4::after {
-    background: #f59a97;
+  .ata-nav-prev,
+  .ata-nav-next {
+    min-width: 0;
+    max-width: 100%;
   }
 }
 

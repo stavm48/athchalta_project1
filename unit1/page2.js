@@ -10,8 +10,7 @@ if (window.athaltaProgress) {
 (function () {
   "use strict";
 
-  var overview = document.getElementById("athalta-overview");
-  var intro = document.querySelector(".athalta-partners-intro");
+  var network = document.querySelector(".athalta-network");
   var detail = document.getElementById("athalta-detail");
   var closeButton = document.querySelector(".athalta-close-card");
   var overviewButtons = document.querySelectorAll(".athalta-main-partner");
@@ -19,26 +18,79 @@ if (window.athaltaProgress) {
   var cards = document.querySelectorAll(".athalta-partner-card");
   var lastPartner = null;
 
+  function scrollToCard(card) {
+    window.requestAnimationFrame(function () {
+      card.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function fitContributionFrames(card) {
+    if (!card) {
+      return;
+    }
+
+    var list = card.querySelector(".athalta-contributions");
+    if (!list) {
+      return;
+    }
+
+    var items = list.querySelectorAll(".athalta-contribution");
+    if (!items.length) {
+      return;
+    }
+
+    var mobile = window.matchMedia("(max-width: 47.9375rem)").matches;
+
+    items.forEach(function (item) {
+      item.style.width = "max-content";
+      item.style.whiteSpace = "nowrap";
+    });
+
+    var max = 0;
+    items.forEach(function (item) {
+      max = Math.max(max, item.getBoundingClientRect().width);
+    });
+
+    var gap = parseFloat(window.getComputedStyle(list).columnGap) || 0;
+    var available = card.clientWidth;
+    var columns = mobile ? 1 : 2;
+    var limit = columns === 1 ? available : (available - gap) / 2;
+    var wraps = max > limit;
+    if (wraps) {
+      max = limit;
+    }
+
+    var width = Math.ceil(max) + "px";
+    items.forEach(function (item) {
+      item.style.width = width;
+      item.style.whiteSpace = wraps ? "normal" : "nowrap";
+    });
+  }
+
   function openPartner(partnerName, trigger) {
-    if (!overview || !detail) {
+    if (!network || !detail) {
       return;
     }
 
     lastPartner = partnerName;
 
-    overview.hidden = true;
-    if (intro) {
-      intro.hidden = true;
-    }
+    network.hidden = true;
     detail.hidden = false;
 
+    var openedCard = null;
     cards.forEach(function (card) {
       var active = card.getAttribute("data-card") === partnerName;
       card.hidden = !active;
       if (active) {
-        card.focus();
+        openedCard = card;
+        card.focus({ preventScroll: true });
       }
     });
+
+    if (openedCard) {
+      fitContributionFrames(openedCard);
+      scrollToCard(openedCard);
+    }
 
     miniButtons.forEach(function (button) {
       var active = button.getAttribute("data-partner") === partnerName;
@@ -52,15 +104,12 @@ if (window.athaltaProgress) {
   }
 
   function closePartner() {
-    if (!overview || !detail) {
+    if (!network || !detail) {
       return;
     }
 
     detail.hidden = true;
-    overview.hidden = false;
-    if (intro) {
-      intro.hidden = false;
-    }
+    network.hidden = false;
 
     if (lastPartner) {
       var previousButton = document.querySelector(
@@ -92,5 +141,13 @@ if (window.athaltaProgress) {
     if (event.key === "Escape" && detail && !detail.hidden) {
       closePartner();
     }
+  });
+
+  window.addEventListener("resize", function () {
+    cards.forEach(function (card) {
+      if (!card.hidden) {
+        fitContributionFrames(card);
+      }
+    });
   });
 })();

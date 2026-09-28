@@ -166,6 +166,8 @@ main,
 }
 
 .main-nav a {
+  width: fit-content;
+  max-width: 100%;
   font-weight: 700;
   font-size: var(--text-body);
   padding: 0.75rem 0;
@@ -218,7 +220,7 @@ main,
 .hero {
   max-width: var(--content);
   margin: 0 auto;
-  padding: 5.5rem 1.5rem 4.5rem;
+  padding: 3.5rem 1.5rem 2.75rem;
 }
 
 .hero-copy {
@@ -319,7 +321,7 @@ main,
 .features {
   max-width: var(--content);
   margin: 0 auto;
-  padding: 3rem 1.5rem 5rem;
+  padding: 2rem 1.5rem 3.25rem;
 }
 
 .features-head {
@@ -327,7 +329,7 @@ main,
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.25rem;
 }
 
 .features-head h2,
@@ -424,11 +426,11 @@ main,
 .know {
   max-width: var(--content);
   margin: 0 auto;
-  padding: 1.5rem 1.5rem 6rem;
+  padding: 1rem 1.5rem 3.75rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.75rem;
+  gap: 1.15rem;
 }
 
 .learn-cards {
@@ -455,23 +457,39 @@ main,
 }
 
 .learn-card .btn-learn {
-  width: min(100%, 17.5rem);
+  width: fit-content;
+  max-width: 100%;
   margin-top: auto;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.2rem 0.85rem 0.2rem 0.2rem;
+  transition: all 0.2s ease;
+}
+
+.learn-card .btn-learn:hover {
+  box-shadow: 0 8px 16px rgba(31, 61, 100, 0.16);
+  transform: translateY(-2px);
+  filter: none;
+}
+
+.learn-card .btn-learn:focus-visible {
+  filter: none;
+  outline: 2px solid #49bbbd;
+  outline-offset: 2px;
 }
 
 .pill-coral {
-  background: #feece9;
-  color: var(--navy);
-}
-
-.card--coral .btn-learn {
   background: #f59a97;
   color: var(--navy);
 }
 
-.card--coral .btn-learn-arrow {
+.card--coral .btn-learn {
   background: #feece9;
+  color: var(--navy);
+}
+
+.card--coral .btn-learn-arrow {
+  background: #f59a97;
 }
 
 .learn-card-icon {
@@ -482,6 +500,13 @@ main,
   flex-shrink: 0;
   object-fit: contain;
   background: transparent;
+}
+
+.card--coral .learn-card-icon {
+  height: 10.5rem;
+  max-width: none;
+  margin-top: -1rem;
+  margin-bottom: -0.75rem;
 }
 
 .learn-card-text {
@@ -495,7 +520,7 @@ main,
 .site-footer {
   background: var(--white);
   border-top: 0.625rem solid var(--footer-rule);
-  padding: 3rem 3rem 4rem;
+  padding: 3rem 3rem 1.25rem;
 }
 
 .footer-grid {
@@ -562,11 +587,14 @@ main,
 .footer-nav {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1.6rem;
   padding-top: 0.5rem;
 }
 
 .footer-nav a {
+  width: fit-content;
+  max-width: 100%;
   font-weight: 700;
   font-size: var(--text-body);
   letter-spacing: -0.02em;
@@ -713,7 +741,7 @@ main,
   }
 
   .hero {
-    padding: 3rem 1.25rem 2.5rem;
+    padding: 2rem 1.25rem 1.65rem;
   }
 
   .hero-copy {
@@ -726,11 +754,11 @@ main,
 
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 2.25rem;
+    gap: 1.5rem;
   }
 
   .know {
-    padding: 1rem 1.25rem 4.5rem;
+    padding: 0.75rem 1.25rem 3rem;
   }
 
   .learn-cards {
@@ -743,12 +771,17 @@ main,
   }
 
   .learn-card-icon {
-    max-width: 65%;
-    height: auto;
+    max-width: 70%;
+    height: 8.75rem;
+  }
+
+  .card--coral .learn-card-icon {
+    height: 10.5rem;
+    max-width: none;
   }
 
   .site-footer {
-    padding: 2rem 1.25rem 3rem;
+    padding: 2rem 1.25rem 1.25rem;
   }
 
   .footer-grid {

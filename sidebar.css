@@ -448,6 +448,26 @@
   }
 }
 
+@media (max-width: 82rem) and (min-width: 51.3125rem) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background: var(--white, #ffffff);
+  }
+
+  .athalta-sidebar-open {
+    top: 2rem;
+    right: auto;
+    left: 1rem;
+    border-radius: 0.7rem;
+  }
+
+  .athalta-sidebar-open:hover {
+    transform: translateY(-2px);
+  }
+}
+
 @media (max-width: 51.25rem) {
   .athalta-sidebar-open {
     display: none;

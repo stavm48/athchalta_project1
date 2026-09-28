@@ -76,3 +76,85 @@
     trap: trap
   };
 })(window, document);
+
+(function () {
+  var script = document.currentScript;
+  var src = ((script && script.getAttribute("src")) || "").split("?")[0].replace(/\\/g, "/");
+  var root = "./";
+  if (src && src.charAt(0) !== "/" && !/^https?:\/\//i.test(src)) {
+    root = src.replace(/[^/]*$/, "") || "./";
+  }
+
+  function mountScrollTop() {
+    if (document.querySelector(".scroll-to-top")) {
+      return;
+    }
+
+    if (!document.getElementById("athalta-scroll-top-css")) {
+      var style = document.createElement("style");
+      style.id = "athalta-scroll-top-css";
+      style.textContent =
+        ".scroll-to-top{position:fixed;bottom:30px;left:30px;z-index:999;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:2px;border:0;border-radius:0.45rem;background:transparent;box-shadow:0 2px 5px rgba(0,0,0,0.05);cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.3s ease,transform 0.3s ease;}" +
+        ".scroll-to-top img{width:100%;height:100%;object-fit:contain;flex-shrink:0;background:transparent;}" +
+        ".scroll-to-top.is-visible{opacity:1;pointer-events:auto;}" +
+        ".scroll-to-top:hover{transform:translateY(-4px);}" +
+        ".scroll-to-top:focus-visible{outline:2px solid #49BBBD;outline-offset:3px;}" +
+        "@media (max-width:768px){.scroll-to-top{display:none;}}" +
+        "@media (prefers-reduced-motion:reduce){.scroll-to-top{transition:none;}}";
+      document.head.appendChild(style);
+    }
+
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "scroll-to-top";
+    button.setAttribute("aria-label", "חזרה לראש העמוד");
+    button.innerHTML =
+      '<img src="' +
+      root +
+      'assets/general/upArrow.png" alt="" aria-hidden="true">';
+    document.body.appendChild(button);
+
+    var base = 30;
+    var gap = 12;
+    var frame = 0;
+
+    function update() {
+      button.classList.toggle("is-visible", window.scrollY > 300);
+
+      var footer = document.querySelector(".site-footer");
+      var next = base;
+      if (footer) {
+        var lift = window.innerHeight - footer.getBoundingClientRect().top + gap;
+        if (lift > base) {
+          next = lift;
+        }
+      }
+      button.style.bottom = next + "px";
+    }
+
+    function requestUpdate() {
+      if (frame) {
+        return;
+      }
+      frame = window.requestAnimationFrame(function () {
+        frame = 0;
+        update();
+      });
+    }
+
+    button.addEventListener("click", function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    update();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountScrollTop);
+  } else {
+    mountScrollTop();
+  }
+})();

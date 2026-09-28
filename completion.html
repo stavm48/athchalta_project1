@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>סיום מפת הדרך | אתחלתא</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="completion.css" />
+  </head>
+  <body>
+    <div id="global-header"></div>
+
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <main class="completion-page">
+      <h1>כל הכבוד! השלמת את מפת הדרך בהצלחה.</h1>
+
+      <div class="completion-copy">
+        <p>
+          עברת דרך כל 7 היחידות של תוכנית אתחלתא, והכרת את היסודות, השותפים
+          והכלים שילוו אותנו לאורך עשייתנו&nbsp;בתוכנית.
+        </p>
+        <p>
+          <span class="fw-bold">רגע לפני היציאה לשטח, חשוב לזכור: הסיום כאן הוא רק ההתחלה.</span>
+          מרחב הלמידה נשאר פתוח וימשיך לשמש כארגז הכלים המקצועי שלך. ניתן לחזור
+          לכאן בכל עת באמצעות הדף הראשי ותפריטי&nbsp;הניווט.
+        </p>
+        <p>צוות אתחלתא מאחל לך הצלחה רבה בדרכך&nbsp;בתוכנית!</p>
+      </div>
+
+      <section class="completion-reflection" aria-labelledby="completion-reflection-heading">
+        <div class="completion-reflection-header">
+          <span class="completion-reflection-icon" aria-hidden="true">
+            <img
+              class="reflection-pencil"
+              src="assets/navigate/pencil.png"
+              alt=""
+              width="32"
+              height="32"
+            />
+          </span>
+          <h2 id="completion-reflection-heading">רפלקציה אישית</h2>
+        </div>
+        <p id="completion-reflection-prompt">
+          רגע לפני שנסיים, איזו תובנה מרכזית תיקח/י איתך מתהליך הלמידה להמשך&nbsp;הדרך?
+        </p>
+        <label class="completion-sr" for="completion-reflection-text">הרפלקציה האישית שלי</label>
+        <textarea
+          id="completion-reflection-text"
+          rows="6"
+          dir="rtl"
+          aria-describedby="completion-reflection-prompt"
+          placeholder="כתבו כאן את הרפלקציה האישית שלכם...."
+        ></textarea>
+        <div class="completion-reflection-actions">
+          <button class="completion-save" type="button">שמירת הרפלקציה</button>
+        </div>
+      </section>
+
+      <div class="completion-actions">
+        <a
+          class="completion-btn completion-btn--pdf"
+          href="https://moodle.macam.ac.il/pluginfile.php/37358/mod_resource/content/1/%D7%9E%D7%A1%D7%9E%D7%9A%20%D7%90%D7%AA%D7%97%D7%9C%D7%AA%D7%90%20%D7%A1%D7%95%D7%A4%D7%99.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          למסמך מודל אתחלתא המלא
+          <span class="completion-btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+              <path d="M12 4v10m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M5 15v3.5A1.5 1.5 0 006.5 20h11a1.5 1.5 0 001.5-1.5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+        </a>
+        <a class="completion-btn completion-btn--home" href="index.html">
+          חזרה לעמוד הראשי
+          <span class="completion-btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+              <path d="M4 10.5L12 4l8 6.5V20a1 1 0 01-1 1h-5v-6H10v6H5a1 1 0 01-1-1v-9.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
+        <a class="ata-nav-prev" href="unit7/page2.html">
+          <span class="ata-nav-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="ata-nav-prev-text">חזרה למתווה מפגשים תשפ״ז</span>
+        </a>
+      </nav>
+    </main>
+
+    <div id="global-footer"></div>
+
+    <script src="completion.js"></script>
+    <script src="a11y.js"></script>
+    <script src="components.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script>
+      var completionConfettiStarted = false;
+
+      function startCompletionConfetti() {
+        if (typeof confetti !== "function" || completionConfettiStarted) {
+          return;
+        }
+        completionConfettiStarted = true;
+
+        var end = Date.now() + 2000;
+        var colors = ["#49BBBD", "#C37F80", "#FEECE9"];
+
+        (function frame() {
+          confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors,
+            zIndex: 10000,
+            disableForReducedMotion: true,
+          });
+          confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+            zIndex: 10000,
+            disableForReducedMotion: true,
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        })();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startCompletionConfetti);
+      } else {
+        startCompletionConfetti();
+      }
+    </script>
+  </body>
+</html>

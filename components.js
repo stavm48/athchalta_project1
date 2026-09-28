@@ -32,12 +32,18 @@
   }
 
   var ROOT = sitePrefix();
-  var onRoadmap = /\/navigation\/navigation\.html$/i.test(
-    (window.location.pathname || "").replace(/\\/g, "/")
-  );
-  var roadmapAttrs = onRoadmap
-    ? ' class="active-nav-link" aria-current="page"'
-    : "";
+  var pagePath = (window.location.pathname || "").replace(/\\/g, "/");
+  var onRoadmap = /\/navigation\/navigation\.html$/i.test(pagePath);
+  var onCatalog = /\/unit4\/page7\.html$/i.test(pagePath);
+  var onMeetings = /\/unit7\/page2\.html$/i.test(pagePath);
+
+  function currentAttrs(isCurrent) {
+    return isCurrent ? ' class="active-nav-link" aria-current="page"' : "";
+  }
+
+  var roadmapAttrs = currentAttrs(onRoadmap);
+  var catalogAttrs = currentAttrs(onCatalog);
+  var meetingsAttrs = currentAttrs(onMeetings);
 
   var HEADER_HTML =
     '<header class="site-header">' +
@@ -64,7 +70,14 @@
     '>מפת הדרך שלי</a>' +
     '<a href="' +
     ROOT +
-    'index.html#learning">כניסה לתפקיד</a>' +
+    'unit4/page7.html"' +
+    catalogAttrs +
+    '>קטלוג חומרים</a>' +
+    '<a href="' +
+    ROOT +
+    'unit7/page2.html"' +
+    meetingsAttrs +
+    '>מתווה מפגשים</a>' +
     "</nav>" +
     "</div>" +
     "</header>";
@@ -77,8 +90,8 @@
     ROOT +
     'assets/home/athalta.png" alt="אתחלתא" />' +
     '<p class="footer-tagline">אתחלתא | חממה למחנכות ומחנכי כיתה חדשים</p>' +
-    '<p class="footer-support">לשאלות, בירורים או צורך בתמיכה, מוזמנים ומוזמנות לפנות אלינו:</p>' +
-    '<a class="footer-email" href="mailto:athalta@macam.ac.il" aria-label="שליחת דוא״ל אל athalta@macam.ac.il">' +
+    '<p class="footer-support">לשאלות, בירורים או צורך בתמיכה, מוזמנים ומוזמנות לפנות&nbsp;אלינו:</p>' +
+    '<a class="footer-email" href="https://mail.google.com/mail/?view=cm&fs=1&to=athalta@macam.ac.il" target="_blank" rel="noopener noreferrer" aria-label="שליחת דוא״ל אל athalta@macam.ac.il">' +
     '<svg class="footer-email-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
     "athalta@macam.ac.il</a>" +
     "</div>" +
@@ -93,7 +106,14 @@
     '>מפת הדרך שלי</a>' +
     '<a href="' +
     ROOT +
-    'index.html#learning">כניסה לתפקיד</a>' +
+    'unit4/page7.html"' +
+    catalogAttrs +
+    '>קטלוג חומרים</a>' +
+    '<a href="' +
+    ROOT +
+    'unit7/page2.html"' +
+    meetingsAttrs +
+    '>מתווה מפגשים</a>' +
     "</nav>" +
     '<div class="footer-partners">' +
     '<img class="logo-mofet" src="' +

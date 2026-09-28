@@ -172,6 +172,8 @@ main,
 }
 
 .main-nav a {
+  width: fit-content;
+  max-width: 100%;
   font-weight: 700;
   font-size: var(--text-body);
   padding: 0.75rem 0;
@@ -222,7 +224,7 @@ main,
 .site-footer {
   background: var(--white);
   border-top: 0.625rem solid var(--footer-rule);
-  padding: 3rem 3rem 4rem;
+  padding: 3rem 3rem 1.25rem;
 }
 
 .footer-grid {
@@ -289,11 +291,14 @@ main,
 .footer-nav {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1.6rem;
   padding-top: 0.5rem;
 }
 
 .footer-nav a {
+  width: fit-content;
+  max-width: 100%;
   font-weight: 700;
   font-size: var(--text-body);
   letter-spacing: -0.02em;
@@ -531,6 +536,12 @@ main,
 .aep-note-wrap-3 {
   top: 34rem;
   right: 0;
+}
+
+@media (min-width: 769px) {
+  .aep-note-wrap-3 {
+    margin-top: 8rem;
+  }
 }
 
 .aep-note {
@@ -835,6 +846,18 @@ main,
   }
 }
 
+@media (min-width: 1151px) {
+  .aep-stage {
+    height: 66.5rem;
+  }
+}
+
+@media (max-width: 1150px) and (min-width: 769px) {
+  .aep-stage {
+    height: 60rem;
+  }
+}
+
 @container aep-note (max-width: 28rem) {
   .aep-note-year.font-handwriting {
     font-size: 1.2rem;
@@ -1070,7 +1093,7 @@ main,
   }
 
   .site-footer {
-    padding: 2rem 1.25rem 3rem;
+    padding: 2rem 1.25rem 1.25rem;
   }
 
   .footer-grid {
