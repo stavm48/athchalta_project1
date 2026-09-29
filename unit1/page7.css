@@ -170,6 +170,42 @@
   min-height: 0;
   background: transparent;
   direction: rtl;
+  opacity: 0;
+  translate: 0 1.35rem;
+}
+
+.af-cards-section.is-revealed .af-card {
+  animation: afCardIn 0.75s ease forwards;
+}
+
+.af-cards-section.is-revealed .af-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.af-cards-section.is-revealed .af-card:nth-child(2) {
+  animation-delay: 0.22s;
+}
+
+.af-cards-section.is-revealed .af-card:nth-child(3) {
+  animation-delay: 0.44s;
+}
+
+.af-cards-section.is-revealed .af-card.is-settled {
+  opacity: 1;
+  translate: none;
+  animation: none;
+}
+
+@keyframes afCardIn {
+  from {
+    opacity: 0;
+    translate: 0 1.35rem;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
 .af-card-inner {
@@ -184,13 +220,15 @@
   border: 0;
   background: transparent;
   transform-style: preserve-3d;
-  transform: rotateY(0deg);
+  transform: rotateY(0deg) translateZ(0);
   cursor: pointer;
   transition: transform 0.7s ease, box-shadow 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .af-card.is-flipped .af-card-inner {
-  transform: rotateY(-180deg);
+  transform: rotateY(-180deg) translateZ(0);
 }
 
 .af-card-face {
@@ -207,11 +245,13 @@
   box-shadow: var(--shadow);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .af-card-front {
   z-index: 2;
-  transform: rotateY(0deg);
+  transform: rotateY(0deg) translateZ(0) scale(1, 1);
 }
 
 .af-card-back {
@@ -221,7 +261,16 @@
   justify-content: flex-start;
   gap: 0.75rem;
   background: var(--white);
-  transform: rotateY(-180deg);
+  transform: rotateY(-180deg) translateZ(0) scale(1, 1);
+}
+
+.af-card-title,
+.af-card-body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0) scale(1, 1);
 }
 
 .af-card-title {
@@ -256,6 +305,7 @@
   line-height: 1.65;
   direction: rtl;
   text-align: right;
+  text-wrap: pretty;
 }
 
 .af-card-body strong {
@@ -370,6 +420,7 @@
   line-height: 1.55;
   direction: rtl;
   text-align: right;
+  text-wrap: pretty;
 }
 
 .af-details-block {
@@ -383,12 +434,14 @@
 
 .af-details-list {
   margin: 0.25rem 0 0;
-  padding-inline-start: 1.5rem;
-  padding-inline-end: 0;
+  padding-right: 1.5rem;
+  padding-left: 0;
+  list-style-position: outside;
 }
 
 .af-details-list li {
   margin-bottom: 0.25rem;
+  text-wrap: pretty;
 }
 
 .af-route-svg {
@@ -694,8 +747,8 @@
   text-wrap: pretty;
 }
 
-.af-nowrap {
-  white-space: nowrap;
+.af-reflection-prompt .fw-bold {
+  font-weight: 700;
 }
 
 .af-reflection-textarea {
@@ -775,6 +828,28 @@
   box-shadow: inset 0 0 0 0.125rem var(--teal);
 }
 
+.af-reflection.is-saved .af-reflection-action:hover,
+.af-reflection.is-saved .af-reflection-action:focus-visible {
+  background: #eaf6f6;
+  filter: none;
+}
+
+.af-reflection-action:disabled {
+  opacity: 0.45;
+  cursor: default;
+  filter: none;
+  box-shadow: none;
+}
+
+.af-reflection-hint {
+  margin: 0;
+  color: var(--navy);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: right;
+}
+
 .af-reflection-status {
   margin: 0;
   color: var(--navy);
@@ -819,29 +894,47 @@
 
   .af-cards-wrapper {
     grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .af-card,
   .af-card-inner,
   .af-card-face {
-    height: 100%;
-    min-height: 17.5rem;
+    width: 100%;
+    height: auto;
+    min-height: 9rem;
   }
 
-  .af-card-back,
-  .af-foundation-details {
+  .af-card-face {
+    padding: 1rem 0.9rem 1.15rem;
+  }
+
+  .af-card-title {
+    font-size: 1.25rem;
+  }
+
+  .af-card-body {
+    font-size: 1rem;
+  }
+
+  .af-card-back {
     padding: 1.15rem 0.85rem 1.25rem;
   }
 
+  .af-foundation-details {
+    padding: 1.15rem 1.5rem 1.25rem 1rem;
+  }
+
   .af-card-body,
-  .af-details-text,
-  .af-details-list {
+  .af-details-text {
     width: 100%;
     padding-inline: 0;
   }
 
-  .af-card-title {
-    font-size: var(--text-h3);
+  .af-details-list {
+    width: 100%;
+    padding-right: 1.5rem;
+    padding-left: 0;
   }
 
   .af-route-svg,
@@ -890,6 +983,14 @@
 
   .af-card.is-flipped .af-card-back {
     transform: none;
+  }
+
+  .af-card,
+  .af-cards-section.is-revealed .af-card,
+  .af-cards-section.is-revealed .af-card.is-settled {
+    opacity: 1;
+    translate: none;
+    animation: none;
   }
 
   .af-map-wrap,

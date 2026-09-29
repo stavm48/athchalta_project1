@@ -5,7 +5,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(6, "components");
+  window.athaltaProgress.markPageAsViewed(6, "u6_p2");
 }
 
 (function initAthaltaBudgetComponents() {

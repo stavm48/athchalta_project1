@@ -4,5 +4,5 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "summary");
+  window.athaltaProgress.markPageAsViewed(4, "u4_p6");
 }

@@ -1,12 +1,11 @@
 /**
  * Unit 3 — Page 1: הקמת חממות אתחלתא.
- * Marks Unit 2 complete, records this page as viewed, and drives
+ * Records this page as viewed and drives
  * the seven-step greenhouse roadmap with localStorage visit marks.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markUnitAsCompleted(2);
-  window.athaltaProgress.markPageAsViewed(3, "greenhouse-roadmap");
+  window.athaltaProgress.markPageAsViewed(3, "u3_p1");
 }
 
 (function initGreenhouseRoadmap() {

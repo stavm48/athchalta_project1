@@ -753,6 +753,28 @@ main,
   width: 12%;
 }
 
+.aep-note-wrap,
+.aep-arrow {
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 1.35rem;
+  transition:
+    opacity 0.65s ease-out,
+    translate 0.65s ease-out,
+    visibility 0s linear 0.65s;
+}
+
+.aep-note-wrap.is-in,
+.aep-arrow.is-in {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+  transition:
+    opacity 0.65s ease-out,
+    translate 0.65s ease-out,
+    visibility 0s linear 0s;
+}
+
 .aep-decoration {
   position: absolute;
   z-index: 0;
@@ -786,6 +808,14 @@ main,
 
   .aep-note:hover .aep-note-animation {
     filter: none;
+  }
+
+  .aep-note-wrap,
+  .aep-arrow {
+    opacity: 1;
+    visibility: visible;
+    translate: none;
+    transition: none;
   }
 }
 

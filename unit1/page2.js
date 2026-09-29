@@ -4,7 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(1, "partners");
+  window.athaltaProgress.markPageAsViewed(1, "u1_p2");
 }
 
 (function () {

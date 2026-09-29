@@ -4,7 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "syllabus-reminder");
+  window.athaltaProgress.markPageAsViewed(4, "u4_p2");
 }
 
 (function initAthaltaSyllabusReminder() {

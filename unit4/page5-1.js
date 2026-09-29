@@ -4,8 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "contents-professionalism");
-  window.athaltaProgress.markPageAsViewed("4-5-1", "professionalism");
+  window.athaltaProgress.markPageAsViewed(4, "u4_p5_1");
 }
 
 (function initAthaltaUnit4ProfessionalismContents() {

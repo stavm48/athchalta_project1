@@ -4,8 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "catalog");
-  window.athaltaProgress.markUnitAsCompleted(4);
+  window.athaltaProgress.markPageAsViewed(4, "u4_p7");
 }
 
 (function () {

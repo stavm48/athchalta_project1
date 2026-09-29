@@ -4,5 +4,5 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(1, "reflection");
+  window.athaltaProgress.markPageAsViewed(1, "u1_p5");
 }

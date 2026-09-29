@@ -1,11 +1,10 @@
 /**
  * Unit 6 — Page 3: דיווח תקציב שנתי.
- * Marks this page (and Unit 6) viewed, and toggles timeline stations.
+ * Records this page as viewed and toggles timeline stations.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(6, "report");
-  window.athaltaProgress.markUnitAsCompleted(6);
+  window.athaltaProgress.markPageAsViewed(6, "u6_p3");
 }
 
 (function initAthaltaBudgetReport() {

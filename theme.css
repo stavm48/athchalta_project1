@@ -633,10 +633,37 @@ main {
   }
 }
 
+/* Scroll reveal — fade and rise as a section enters the viewport. */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out,
+    visibility 0s linear 0.8s;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out,
+    visibility 0s linear 0s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
     animation: none !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
   }
 }
 

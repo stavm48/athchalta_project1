@@ -1,12 +1,11 @@
 /**
  * Unit 1 — Page 7: יסודות אתחלתא.
- * Marks the foundations page as viewed. Handles expandable cards
+ * Handles expandable cards
  * and the six-foundation map with SVG path routing.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(1, "foundations");
-  window.athaltaProgress.markUnitAsCompleted(1);
+  window.athaltaProgress.markPageAsViewed(1, "u1_p7");
 }
 
 (function initAthaltaFoundations() {
@@ -123,6 +122,47 @@ if (window.athaltaProgress) {
         { threshold: 0.2, rootMargin: "0px 0px -6% 0px" }
       );
       mapObserver.observe(mapWrap);
+    }
+  }
+
+  var cardsSection = root.querySelector(".af-cards-section");
+  var principleCards = root.querySelectorAll(".af-cards-wrapper > .af-card");
+
+  function settleCard(card) {
+    card.classList.add("is-settled");
+  }
+
+  principleCards.forEach(function (card) {
+    card.addEventListener("animationend", function (event) {
+      if (event.animationName === "afCardIn") {
+        settleCard(card);
+      }
+    });
+  });
+
+  if (cardsSection) {
+    var revealCards = function () {
+      cardsSection.classList.add("is-revealed");
+      if (prefersReducedMotion()) {
+        principleCards.forEach(settleCard);
+      }
+    };
+
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+      revealCards();
+    } else {
+      var cardsObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              revealCards();
+              cardsObserver.disconnect();
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      cardsObserver.observe(cardsSection);
     }
   }
 
@@ -285,23 +325,35 @@ if (window.athaltaProgress) {
     });
   }
 
+  function bindLastWords(text) {
+    var trimmed = String(text || "").replace(/\s+/g, " ").trim();
+    var parts = trimmed.split(" ");
+
+    if (parts.length < 2) {
+      return trimmed;
+    }
+
+    var last = parts.pop();
+    return parts.join(" ") + "\u00A0" + last;
+  }
+
   function fillDetails(number) {
     var data = foundationData[number];
     detailsTitle.textContent = data.title;
-    detailsSubtitle.textContent = data.subtitle;
+    detailsSubtitle.textContent = bindLastWords(data.subtitle);
     detailsAllows.innerHTML = "";
 
     var allowsList = document.createElement("ul");
     allowsList.className = "af-details-list";
     data.allows.forEach(function (item) {
       var allowsItem = document.createElement("li");
-      allowsItem.textContent = item;
+      allowsItem.textContent = bindLastWords(item);
       allowsList.appendChild(allowsItem);
     });
     detailsAllows.appendChild(allowsList);
 
-    detailsImportance.textContent = data.importance;
-    detailsExamples.textContent = data.examples;
+    detailsImportance.textContent = bindLastWords(data.importance);
+    detailsExamples.textContent = bindLastWords(data.examples);
     detailsExampleLabel.textContent = data.exampleLabel;
     details.style.borderColor = data.color;
     details.style.setProperty("--af-active", data.color);
@@ -688,6 +740,19 @@ if (window.athaltaProgress) {
       return true;
     }
 
+    function canSave() {
+      return textarea.value.trim().length >= 2;
+    }
+
+    function syncSaveButton() {
+      var ready = isLocked || canSave();
+      actionButton.disabled = isLocked ? false : !canSave();
+      var hint = section.querySelector("#af-reflection-hint");
+      if (hint) {
+        hint.hidden = ready;
+      }
+    }
+
     function applyMode(locked, options) {
       var settings = options || {};
 
@@ -712,6 +777,8 @@ if (window.athaltaProgress) {
       } else if (settings.focus === "button") {
         actionButton.focus();
       }
+
+      syncSaveButton();
     }
 
     function loadState() {
@@ -754,6 +821,8 @@ if (window.athaltaProgress) {
         return;
       }
 
+      syncSaveButton();
+
       if (draftTimer) {
         window.clearTimeout(draftTimer);
       }
@@ -768,6 +837,11 @@ if (window.athaltaProgress) {
       if (isLocked) {
         applyMode(false, { announceEdit: true, focus: "textarea" });
         persistState();
+        return;
+      }
+
+      if (!canSave()) {
+        syncSaveButton();
         return;
       }
 

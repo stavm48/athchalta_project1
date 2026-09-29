@@ -1,5 +1,5 @@
 /* ===================================================================
-   Unit 1 — Page 6: מטרת חממות וסדנאות התוכנית
+   Unit 1 — Page 6: המצפן שלנו: מטרות התוכנית
    Global tokens, header, footer, and sequential nav from theme.css.
    =================================================================== */
 
@@ -106,6 +106,36 @@
   min-width: 0;
   direction: rtl;
   text-align: right;
+  opacity: 0;
+  animation: agGoalIn 0.7s ease forwards;
+}
+
+.ag-goal:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.ag-goal:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.ag-goal:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.ag-goal:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+@keyframes agGoalIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .ag-goal-copy {
@@ -172,6 +202,10 @@
 .ag-goal-2 .ag-goal-icon {
   width: 7.35rem;
   max-width: 7.35rem;
+}
+
+.ag-workshops {
+  width: 100%;
 }
 
 .ag-purpose {
@@ -256,7 +290,8 @@
   direction: rtl;
   text-align: center;
   opacity: 0;
-  transform: translateY(20px);
+  translate: 0 1.25rem;
+  will-change: transform;
 }
 
 .ag-foundation:hover,
@@ -267,44 +302,60 @@
 
 .ag-foundations.is-revealed .ag-foundation,
 .ag-foundations.is-revealed .ag-foundation-card {
-  animation-name: agFadeInUp;
-  animation-duration: 1.2s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
+  animation-name: agFadeInUp, gentleFloat;
+  animation-duration: 1.2s, 6s;
+  animation-timing-function: ease, ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: forwards, none;
+  will-change: transform;
 }
 
 .ag-foundations.is-revealed .ag-foundation:nth-child(1) {
-  animation-delay: 0s;
+  animation-delay: 0s, 1.2s;
 }
 
 .ag-foundations.is-revealed .ag-foundation:nth-child(2) {
-  animation-delay: 0.50s;
+  animation-delay: 0.5s, 1.7s;
 }
 
 .ag-foundations.is-revealed .ag-foundation:nth-child(3) {
-  animation-delay: 1s;
+  animation-delay: 1s, 2.2s;
 }
 
 .ag-foundations.is-revealed .ag-foundation:nth-child(4) {
-  animation-delay: 1.50s;
+  animation-delay: 1.5s, 2.7s;
 }
 
 .ag-foundations.is-revealed .ag-foundation:nth-child(5) {
-  animation-delay: 2s;
+  animation-delay: 2s, 3.2s;
 }
 
 .ag-foundations.is-revealed .ag-foundation:nth-child(6) {
-  animation-delay: 2.50s;
+  animation-delay: 2.5s, 3.7s;
 }
 
 @keyframes agFadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    translate: 0 1.25rem;
   }
 
   to {
     opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes gentleFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
     transform: translateY(0);
   }
 }
@@ -395,22 +446,74 @@
     max-width: 4.75rem;
   }
 
-}
-
-@media (max-width: 47.9375rem) {
   .ag-goals-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ag-goal {
+    display: flex;
+    align-items: flex-start;
     width: 100%;
   }
 
+  .ag-goal-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .ag-goal-title {
+    display: inline-block;
+    width: max-content;
+    max-width: 100%;
+    align-self: flex-start;
+  }
+
+  .ag-goal-text {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .ag-foundations-grid {
-    grid-template-columns: repeat(2, 11.25rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
       "one two"
       "three four"
       "five six";
-    width: max-content;
+    gap: 1.35rem 0.75rem;
+    width: 100%;
     max-width: 100%;
+  }
+
+  .ag-foundation,
+  .ag-foundation-card {
+    min-height: 8.25rem;
+    padding: 0.85rem 0.5rem;
+  }
+
+  .ag-foundation-label {
+    max-width: 100%;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .ag-foundation-num {
+    font-size: 1.75rem;
+    top: -0.85rem;
+    left: -0.35rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ag-foundations-grid {
+    gap: 1.15rem 0.65rem;
   }
 }
 
@@ -419,33 +522,14 @@
     padding: 1.75rem 1rem 3rem;
   }
 
-  .ag-foundations-grid {
-    grid-template-columns: 11.25rem;
-    grid-template-areas:
-      "one"
-      "two"
-      "three"
-      "four"
-      "five"
-      "six";
-    width: max-content;
-    max-width: 100%;
-  }
-
-  .ag-foundation {
-    min-height: 8.5rem;
-  }
-
-  .ag-foundation-num {
-    font-size: 1.75rem;
-  }
-
-  .ag-foundation-label {
-    font-size: 1.05rem;
+  .ag-foundation,
+  .ag-foundation-card {
+    min-height: 7.5rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .ag-goal,
   .ag-foundation,
   .ag-foundation-card,
   .ag-foundation:hover,
@@ -454,6 +538,7 @@
   .ag-foundations.is-revealed .ag-foundation-card {
     opacity: 1;
     transform: none;
+    translate: none;
     animation: none;
   }
 }

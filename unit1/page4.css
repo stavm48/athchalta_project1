@@ -130,6 +130,22 @@
   margin-top: 1.75rem;
 }
 
+.ac4-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  text-align: right;
+}
+
+.ac4-carousel-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+}
+
 .ac4-subheading {
   margin: 0 0 0.125rem;
   color: var(--teal);
@@ -140,27 +156,72 @@
 }
 
 .ac4-carousel-intro {
+  margin: 0 0 0.85rem;
+}
+
+.ac4-click-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: var(--prose-measure);
   margin: 0 0 1.25rem;
+}
+
+.ac4-click-icon {
+  display: block;
+  width: 3.5rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.ac4-click-text {
+  margin: 0;
+  color: var(--teal);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-align: right;
 }
 
 .ac4-carousel {
   display: grid;
   grid-template-columns: auto minmax(0, 33.75rem) auto;
   align-items: center;
-  justify-content: center;
   column-gap: 0.35rem;
   row-gap: 0.5rem;
   width: max-content;
   max-width: 100%;
-  margin-inline: auto;
+  margin-inline: 0;
+  justify-content: start;
   min-height: 0;
 }
 
+.ac4-controls {
+  display: contents;
+}
+
 .ac4-viewport {
+  grid-column: 2;
+  grid-row: 1;
   width: 100%;
   max-width: 33.75rem;
   min-width: 0;
   min-height: 26.5rem;
+}
+
+.ac4-arrow-prev {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.ac4-arrow-next {
+  grid-column: 3;
+  grid-row: 1;
 }
 
 .ac4-slide {
@@ -350,10 +411,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  grid-column: 1 / -1;
+  grid-row: 2;
   gap: 0.625rem;
-  width: max-content;
+  width: 100%;
   max-width: 100%;
-  margin: 1.15rem auto 0;
+  margin: 1.15rem 0 0;
 }
 
 .ac4-indicator {
@@ -438,33 +501,17 @@
     margin-bottom: 1.5rem;
   }
 
-  .ac4-carousel {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "viewport viewport"
-      "prev next";
-    gap: 1rem;
+  .ac4-carousel-block {
     width: 100%;
   }
 
   .ac4-viewport {
-    grid-area: viewport;
     max-width: 100%;
     min-height: 0;
   }
 
   .ac4-card {
     min-height: 0;
-  }
-
-  .ac4-arrow-prev {
-    grid-area: prev;
-    justify-self: start;
-  }
-
-  .ac4-arrow-next {
-    grid-area: next;
-    justify-self: end;
   }
 
   .ac4-card-header {
@@ -497,12 +544,59 @@
     text-align: right;
   }
 
+  .ac4-indicators {
+    margin-top: 1.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ac4-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0;
+  }
+
+  .ac4-viewport {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ac4-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    width: 100%;
+    margin-top: 0.9375rem;
+  }
+
+  .ac4-arrow-prev,
+  .ac4-arrow-next {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    grid-column: auto;
+    grid-row: auto;
+    transform: none;
+    justify-self: center;
+  }
+
   .ac4-arrow-image {
-    width: 2.5rem;
+    width: 1.5rem;
   }
 
   .ac4-indicators {
-    margin-top: 1.125rem;
+    grid-column: auto;
+    grid-row: auto;
+    width: auto;
+    margin: 0;
   }
 }
 

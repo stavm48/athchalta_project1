@@ -42,18 +42,23 @@
           <h2 id="completion-reflection-heading">רפלקציה אישית</h2>
         </div>
         <p id="completion-reflection-prompt">
-          רגע לפני שנסיים, איזו תובנה מרכזית תיקח/י איתך מתהליך הלמידה להמשך&nbsp;הדרך?
+          <span class="fw-bold">
+            רגע לפני שנסיים, איזו תובנה מרכזית תיקח/י איתך מתהליך הלמידה להמשך&nbsp;הדרך?
+          </span>
         </p>
         <label class="completion-sr" for="completion-reflection-text">הרפלקציה האישית שלי</label>
         <textarea
           id="completion-reflection-text"
           rows="6"
           dir="rtl"
-          aria-describedby="completion-reflection-prompt"
-          placeholder="כתבו כאן את הרפלקציה האישית שלכם...."
+          aria-describedby="completion-reflection-prompt completion-reflection-hint"
+          placeholder="כתבו כאן את הרפלקציה..."
         ></textarea>
         <div class="completion-reflection-actions">
-          <button class="completion-save" type="button">שמירת הרפלקציה</button>
+          <button class="completion-save" type="button" disabled>שמירת הרפלקציה</button>
+          <p id="completion-reflection-hint" class="completion-reflection-hint">
+            יש להקליד לפחות 2 תווים על מנת&nbsp;לשמור
+          </p>
         </div>
       </section>
 

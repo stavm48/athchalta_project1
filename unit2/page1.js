@@ -1,12 +1,11 @@
 /**
  * Unit 2 — Page 1: בעלות התפקידים בתוכנית.
- * Marks Unit 1 complete, records this page as viewed, and drives
+ * Records this page as viewed and drives
  * the three-role timeline with localStorage progress.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markUnitAsCompleted(1);
-  window.athaltaProgress.markPageAsViewed(2, "roles");
+  window.athaltaProgress.markPageAsViewed(2, "u2_p1");
 }
 
 (function initUnit2Roles() {

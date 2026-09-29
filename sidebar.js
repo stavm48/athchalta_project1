@@ -7,7 +7,14 @@
   "use strict";
 
   var UNIT_COUNT = 7;
-  var STORAGE_PREFIX = "athalta_unit_";
+
+  var VISITED_CHECK =
+    '<span class="visited-check">' +
+    '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="10" fill="currentColor"/>' +
+    '<path d="M7.5 12.5l3 3 6-6.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>' +
+    "</svg>" +
+    "</span>";
 
   function sitePrefix() {
     var el = document.currentScript;
@@ -58,7 +65,7 @@
         },
         {
           href: "unit1/page6.html",
-          label: "מטרת חממות וסדנאות התוכנית"
+          label: "המצפן שלנו: מטרות התוכנית"
         },
         {
           href: "unit1/page7.html",
@@ -275,15 +282,25 @@
     );
   }
 
+  function isPageVisited(pageId) {
+    if (!pageId || !window.athaltaProgress || !window.athaltaProgress.isPageVisited) {
+      return false;
+    }
+    return window.athaltaProgress.isPageVisited(pageId);
+  }
+
   function isUnitCompleted(unitId) {
     if (window.athaltaProgress && window.athaltaProgress.isUnitCompleted) {
       return window.athaltaProgress.isUnitCompleted(unitId);
     }
-    try {
-      return localStorage.getItem(STORAGE_PREFIX + unitId) === "completed";
-    } catch (error) {
-      return false;
+    return false;
+  }
+
+  function pageIdForHref(href) {
+    if (window.athaltaProgress && window.athaltaProgress.pageIdForHref) {
+      return window.athaltaProgress.pageIdForHref(href);
     }
+    return "";
   }
 
   function completedCount() {
@@ -313,6 +330,7 @@
     return unit.pages
       .map(function (page, index) {
         var active = isActiveHref(page.href);
+        var pageId = pageIdForHref(page.href);
         return (
           '<li class="athalta-sidebar-page">' +
           '<a class="athalta-sidebar-link' +
@@ -320,12 +338,13 @@
           '" href="' +
           escapeHtml(fromRoot(page.href)) +
           '"' +
+          (pageId ? ' data-page-id="' + escapeHtml(pageId) + '"' : "") +
           (active ? ' aria-current="page"' : "") +
           ">" +
           '<span class="athalta-sidebar-page-index">' +
           (index + 1) +
           ".</span>" +
-          "<span>" +
+          '<span class="athalta-sidebar-page-label">' +
           escapeHtml(page.label) +
           "</span>" +
           "</a>" +
@@ -456,6 +475,7 @@
     panel.setAttribute("aria-hidden", open ? "false" : "true");
     btn.setAttribute("aria-expanded", open ? "true" : "false");
     if (open) {
+      updateSidebarProgress();
       lastFocus = document.activeElement;
       if (closeBtn && !panel.classList.contains("is-mobile-embedded")) {
         closeBtn.focus();
@@ -540,7 +560,7 @@
       var unitData = UNITS.filter(function (unit) {
         return unit.id === id;
       })[0];
-      var check = unitEl.querySelector(".athalta-sidebar-check");
+      var check = unitEl.querySelector(".athalta-sidebar-unit-title-row > .athalta-sidebar-check");
       var complete = unitData
         ? isUnitCompleted(unitData.progressId)
         : isUnitCompleted(id);
@@ -548,6 +568,20 @@
         check.hidden = !complete;
       }
     });
+
+    Array.prototype.forEach.call(
+      document.querySelectorAll(".athalta-sidebar-link[data-page-id]"),
+      function (link) {
+        var pageId = link.getAttribute("data-page-id");
+        var visited = isPageVisited(pageId);
+        var pageCheck = link.querySelector(".visited-check");
+        if (visited && !pageCheck) {
+          link.insertAdjacentHTML("beforeend", VISITED_CHECK);
+        } else if (!visited && pageCheck) {
+          pageCheck.parentNode.removeChild(pageCheck);
+        }
+      }
+    );
   }
 
   function bindEvents() {

@@ -4,8 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "contents-purpose");
-  window.athaltaProgress.markPageAsViewed("4-5-6", "purpose");
+  window.athaltaProgress.markPageAsViewed(4, "u4_p5_6");
 }
 
 (function initAthaltaUnit4PurposeContents() {

@@ -1,12 +1,11 @@
 /**
  * Unit 5 — Page 1: אבני הדרך בתוכנית.
- * Marks Unit 4 complete, records this page as viewed, and toggles
+ * Records this page as viewed and toggles
  * the four partnership-milestone cards on the timeline.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markUnitAsCompleted(4);
-  window.athaltaProgress.markPageAsViewed(5, "roadmap");
+  window.athaltaProgress.markPageAsViewed(5, "u5_p1");
 }
 
 (function initAthaltaUnit5Roadmap() {

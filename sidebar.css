@@ -403,6 +403,29 @@
   flex-shrink: 0;
 }
 
+.athalta-sidebar-page-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.visited-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  padding: 0;
+  color: var(--sb-teal, #49bbbd);
+}
+
+.visited-check svg {
+  display: block;
+  width: 1rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
 .athalta-sidebar-demo-note {
   max-width: var(--prose-measure, 47em);
   margin: 0;
@@ -442,7 +465,7 @@
   }
 
   .athalta-sidebar-unit-title,
-  .athalta-sidebar-link span:last-child {
+  .athalta-sidebar-page-label {
     min-width: 0;
     flex: 1 1 auto;
   }

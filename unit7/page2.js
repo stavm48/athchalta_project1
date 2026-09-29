@@ -1,12 +1,11 @@
 /**
  * Unit 7 — Page 2: מתווה מפגשים תשפ״ז.
- * Records this page as viewed, completes Unit 7, and filters
+ * Records this page as viewed and filters
  * schedule rows by audience checkboxes.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(7, "schedule");
-  window.athaltaProgress.markUnitAsCompleted(7);
+  window.athaltaProgress.markPageAsViewed(7, "u7_p2");
 }
 
 (function initAthaltaUnit7Meetings() {

@@ -53,7 +53,7 @@
 
 .ar5-intro-text {
   width: 100%;
-  max-width: none;
+  max-width: var(--prose-measure);
   margin: 0;
   color: var(--navy);
   font-size: 1rem;
@@ -61,7 +61,11 @@
   line-height: 1.7;
   letter-spacing: -0.02em;
   text-align: right;
-  white-space: nowrap;
+  text-wrap: pretty;
+}
+
+.ar5-question strong {
+  font-weight: 700;
 }
 
 .ar5-reflection-header {
@@ -136,10 +140,6 @@
 }
 
 @media (max-width: 47.9375rem) {
-  .ar5-intro-text {
-    white-space: normal;
-  }
-
   .ar5-question {
     font-size: 1rem;
   }

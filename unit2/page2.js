@@ -5,7 +5,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(2, "audience");
+  window.athaltaProgress.markPageAsViewed(2, "u2_p2");
 }
 
 (function initAudienceTrack() {

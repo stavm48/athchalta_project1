@@ -1,12 +1,11 @@
 /**
  * Unit 7 — Page 1: שאלות נפוצות (FAQ).
- * Marks Unit 6 complete, records this page as viewed, and toggles
+ * Records this page as viewed and toggles
  * knowledge-area questions and answer bubbles.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markUnitAsCompleted(6);
-  window.athaltaProgress.markPageAsViewed(7, "faq");
+  window.athaltaProgress.markPageAsViewed(7, "u7_p1");
 }
 
 (function initAthaltaUnit7Faq() {

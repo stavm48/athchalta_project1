@@ -328,6 +328,12 @@
 
 .ata-frameworks-section {
   width: 100%;
+  text-align: right;
+}
+
+.ata-frameworks-intro {
+  width: 100%;
+  text-align: right;
 }
 
 .ata-frameworks-lead {
@@ -361,8 +367,27 @@
   border-color: #e5f0f3;
 }
 
-.ata-framework-card:hover {
+.ata-framework-card.reveal-on-scroll {
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out,
+    box-shadow 0.3s ease;
+}
+
+.ata-framework-cards > .reveal-on-scroll:nth-child(1) {
+  transition-delay: 0.12s, 0.12s, 0s;
+}
+
+.ata-framework-cards > .reveal-on-scroll:nth-child(2) {
+  transition-delay: 0.28s, 0.28s, 0s;
+}
+
+.ata-framework-card.reveal-on-scroll.is-visible:hover {
   transform: translateY(-0.18rem);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   box-shadow:
     0 0.9rem 2rem rgba(31, 61, 100, 0.18),
     0 0.2rem 0.6rem rgba(31, 61, 100, 0.09);

@@ -4,8 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(4, "contents-identity");
-  window.athaltaProgress.markPageAsViewed("4-5-3", "identity");
+  window.athaltaProgress.markPageAsViewed(4, "u4_p5_3");
 }
 
 (function initAthaltaUnit4IdentityContents() {

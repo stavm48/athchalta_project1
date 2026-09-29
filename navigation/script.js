@@ -1,125 +1,233 @@
 /**
- * Athalta onboarding — navigation hub progress tracking.
+ * Athalta — strict page-visit progress.
  *
- * Progress is tracked silently using vanilla localStorage only
- * (no backend, no accounts — matches the project's static-site rules).
+ * Each learning page sets data-page-id on <body> (for example u1_p1).
+ * On load that id is stored in localStorage under "visitedPages".
+ * A unit is completed only when every id in unitConfig for that unit
+ * is present. Reaching the last page, or opening the next unit, does
+ * not complete a unit by itself.
  *
  * Storage shape:
- *   athalta_unit_<unitId>         -> "completed" | (unset)
- *   athalta_unit_<unitId>_pages   -> JSON array of viewed pageIds
+ *   visitedPages -> JSON array of page ids, e.g. ["u1_p1","u2_p1"]
  */
 
 (function () {
   "use strict";
 
-  var STORAGE_PREFIX = "athalta_unit_";
+  var VISITED_KEY = "visitedPages";
 
   /**
-   * Mark a single page within a unit as viewed.
-   *
-   * Call this from inside each unit's own pages (unit1/index.html,
-   * unit1/page2.html, etc.) on load — no "Finish Unit" button required.
-   *
-   * Usage:
-   *   markPageAsViewed("1", "index");
-   *
-   * Optionally pass the full list of required page ids for the unit as a
-   * third argument; the unit is flagged "completed" once every required
-   * page has been viewed. If omitted, the page is recorded but the unit
-   * is not auto-completed — use markUnitAsCompleted from the unit's
-   * final page instead.
-   *
-   * @param {string|number} unitId
-   * @param {string} pageId
-   * @param {string[]} [requiredPageIds]
+   * Required pages per unit, in sidebar order.
+   * Keys are "unit1" … "unit7". isUnitCompleted also accepts 1 or "1".
    */
-  function markPageAsViewed(unitId, pageId, requiredPageIds) {
-    if (!unitId || !pageId) {
-      return;
-    }
+  var unitConfig = {
+    unit1: ["u1_p1", "u1_p2", "u1_p3", "u1_p4", "u1_p5", "u1_p6", "u1_p7"],
+    unit2: ["u2_p1", "u2_p2"],
+    unit3: ["u3_p1", "u3_p2"],
+    unit4: [
+      "u4_p1",
+      "u4_p2",
+      "u4_p5_0",
+      "u4_p5_01",
+      "u4_p5_1",
+      "u4_p5_3",
+      "u4_p5_4",
+      "u4_p5_5",
+      "u4_p5_6",
+      "u4_p6",
+      "u4_p7"
+    ],
+    unit5: ["u5_p1", "u5_p2", "u5_p3"],
+    unit6: ["u6_p1", "u6_p2", "u6_p3"],
+    unit7: ["u7_p1", "u7_p2"]
+  };
 
-    var pagesKey = STORAGE_PREFIX + unitId + "_pages";
-    var viewedPages = readJson(pagesKey, []);
+  var PAGE_BY_HREF = {
+    "unit1/index.html": "u1_p1",
+    "unit1/page2.html": "u1_p2",
+    "unit1/page3.html": "u1_p3",
+    "unit1/page4.html": "u1_p4",
+    "unit1/page5.html": "u1_p5",
+    "unit1/page6.html": "u1_p6",
+    "unit1/page7.html": "u1_p7",
+    "unit2/page1.html": "u2_p1",
+    "unit2/page2.html": "u2_p2",
+    "unit3/page1.html": "u3_p1",
+    "unit3/page2.html": "u3_p2",
+    "unit4/page1.html": "u4_p1",
+    "unit4/page2.html": "u4_p2",
+    "unit4/page5-0.html": "u4_p5_0",
+    "unit4/page5-01.html": "u4_p5_01",
+    "unit4/page5-1.html": "u4_p5_1",
+    "unit4/page5-3.html": "u4_p5_3",
+    "unit4/page5-4.html": "u4_p5_4",
+    "unit4/page5-5.html": "u4_p5_5",
+    "unit4/page5-6.html": "u4_p5_6",
+    "unit4/page6.html": "u4_p6",
+    "unit4/page7.html": "u4_p7",
+    "unit5/page1.html": "u5_p1",
+    "unit5/page2.html": "u5_p2",
+    "unit5/page3.html": "u5_p3",
+    "unit6/page1.html": "u6_p1",
+    "unit6/page2.html": "u6_p2",
+    "unit6/page3.html": "u6_p3",
+    "unit7/page1.html": "u7_p1",
+    "unit7/page2.html": "u7_p2"
+  };
 
-    if (viewedPages.indexOf(pageId) === -1) {
-      viewedPages.push(pageId);
-      localStorage.setItem(pagesKey, JSON.stringify(viewedPages));
-    }
+  var knownIds = [];
+  Object.keys(unitConfig).forEach(function (unitKey) {
+    unitConfig[unitKey].forEach(function (pageId) {
+      if (knownIds.indexOf(pageId) === -1) {
+        knownIds.push(pageId);
+      }
+    });
+  });
 
-    var isUnitComplete =
-      Array.isArray(requiredPageIds) &&
-      requiredPageIds.length > 0 &&
-      requiredPageIds.every(function (id) {
-        return viewedPages.indexOf(id) !== -1;
-      });
-
-    if (isUnitComplete) {
-      localStorage.setItem(STORAGE_PREFIX + unitId, "completed");
+  function readVisited() {
+    try {
+      var raw = localStorage.getItem(VISITED_KEY);
+      var parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      return [];
     }
   }
 
-  /**
-   * Mark an entire unit as completed.
-   * Call this from the unit's final page once the learner has reached it.
-   *
-   * @param {string|number} unitId
-   */
-  function markUnitAsCompleted(unitId) {
-    if (!unitId) {
-      return;
-    }
+  function isKnownPageId(pageId) {
+    return !!pageId && knownIds.indexOf(pageId) !== -1;
+  }
 
-    localStorage.setItem(STORAGE_PREFIX + unitId, "completed");
+  function recordPageVisit(pageId) {
+    if (!isKnownPageId(pageId)) {
+      return false;
+    }
+    var visited = readVisited();
+    if (visited.indexOf(pageId) !== -1) {
+      return false;
+    }
+    visited.push(pageId);
+    try {
+      localStorage.setItem(VISITED_KEY, JSON.stringify(visited));
+    } catch (error) {
+      return false;
+    }
+    return true;
   }
 
   /**
-   * @param {string|number} unitId
-   * @returns {boolean}
+   * Read data-page-id from <body> or <main> only.
+   * Sidebar links also carry data-page-id, so a generic query would
+   * record the wrong page.
    */
+  function currentPageId() {
+    var bodyId = document.body && document.body.getAttribute("data-page-id");
+    if (bodyId) {
+      return bodyId;
+    }
+    var main = document.querySelector("main[data-page-id]");
+    return main ? main.getAttribute("data-page-id") : "";
+  }
+
+  function trackCurrentPage() {
+    recordPageVisit(currentPageId());
+  }
+
+  function requiredPagesFor(unitId) {
+    var key = String(unitId || "");
+    if (unitConfig[key]) {
+      return unitConfig[key];
+    }
+    if (unitConfig["unit" + key]) {
+      return unitConfig["unit" + key];
+    }
+    return null;
+  }
+
+  function isPageVisited(pageId) {
+    return readVisited().indexOf(pageId) !== -1;
+  }
+
   function isUnitCompleted(unitId) {
-    return localStorage.getItem(STORAGE_PREFIX + unitId) === "completed";
+    var required = requiredPagesFor(unitId);
+    if (!required || !required.length) {
+      return false;
+    }
+    var visited = readVisited();
+    return required.every(function (pageId) {
+      return visited.indexOf(pageId) !== -1;
+    });
   }
 
-  /**
-   * Reads every .ata-unit-card on the navigation hub and toggles its
-   * status badge text + pastel "completed" class based on localStorage.
-   */
+  function pageIdForHref(href) {
+    var path = String(href || "").replace(/\\/g, "/").split("?")[0];
+    var key;
+    for (key in PAGE_BY_HREF) {
+      if (Object.prototype.hasOwnProperty.call(PAGE_BY_HREF, key)) {
+        if (path === key || path.slice(-key.length) === key) {
+          return PAGE_BY_HREF[key];
+        }
+      }
+    }
+    return "";
+  }
+
   function refreshUnitBadges() {
     var cards = document.querySelectorAll(".ata-unit-card[data-unit-id]");
-
-    cards.forEach(function (card) {
+    Array.prototype.forEach.call(cards, function (card) {
       var unitId = card.getAttribute("data-unit-id");
       var badge = card.querySelector("[data-status-badge]");
-
+      var completed;
       if (!badge) {
         return;
       }
-
-      var completed = isUnitCompleted(unitId);
-
+      completed = isUnitCompleted(unitId);
       badge.textContent = completed ? "בוצעה" : "טרם בוצעה";
       badge.classList.toggle("is-completed", completed);
       badge.classList.toggle("is-pending", !completed);
     });
   }
 
-  function readJson(key, fallback) {
-    try {
-      var raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : fallback;
-    } catch (error) {
-      return fallback;
+  function syncProgressUi() {
+    refreshUnitBadges();
+    if (typeof window.updateSidebarProgress === "function") {
+      window.updateSidebarProgress();
     }
   }
 
-  document.addEventListener("DOMContentLoaded", refreshUnitBadges);
+  /**
+   * Kept so older page scripts do not throw.
+   * Only a catalog id (u1_p1 and similar) is recorded.
+   * This never marks a unit complete on its own.
+   */
+  function markPageAsViewed(unitId, pageId) {
+    if (recordPageVisit(pageId)) {
+      syncProgressUi();
+    }
+  }
 
-  // Expose a small public API so unit pages (loaded separately) can call
-  // markPageAsViewed without duplicating this file's internals.
+  /**
+   * No longer writes a completion flag.
+   * Unit status is derived only from visitedPages + unitConfig.
+   */
+  function markUnitAsCompleted() {}
+
+  trackCurrentPage();
+
+  document.addEventListener("DOMContentLoaded", function () {
+    trackCurrentPage();
+    syncProgressUi();
+  });
+
   window.athaltaProgress = {
+    unitConfig: unitConfig,
     markPageAsViewed: markPageAsViewed,
     markUnitAsCompleted: markUnitAsCompleted,
     isUnitCompleted: isUnitCompleted,
+    isPageVisited: isPageVisited,
+    getVisitedPages: readVisited,
+    pageIdForHref: pageIdForHref,
     refreshUnitBadges: refreshUnitBadges,
+    syncProgressUi: syncProgressUi
   };
 })();

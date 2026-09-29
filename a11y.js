@@ -158,3 +158,102 @@
     mountScrollTop();
   }
 })();
+
+/**
+ * Reveals .reveal-on-scroll blocks when they enter the viewport.
+ * data-reveal-scroll keeps the block hidden until the reader actually scrolls.
+ * data-reveal-fallback="3000" stays hidden until that scroll, or until the delay elapses.
+ */
+(function () {
+  "use strict";
+
+  function show(el, observer) {
+    if (!el || el.classList.contains("is-visible")) {
+      return;
+    }
+    el.classList.add("is-visible");
+    if (observer) {
+      observer.unobserve(el);
+    }
+  }
+
+  function initRevealOnScroll() {
+    var nodes = document.querySelectorAll(".reveal-on-scroll");
+    if (!nodes.length) {
+      return;
+    }
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      Array.prototype.forEach.call(nodes, function (el) {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+
+    function holdsForScroll(el) {
+      return (
+        el.hasAttribute("data-reveal-scroll") ||
+        el.hasAttribute("data-reveal-fallback")
+      );
+    }
+
+    var scrolled = false;
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          var el = entry.target;
+          if (entry.isIntersecting) {
+            el.setAttribute("data-in-view", "true");
+          } else {
+            el.removeAttribute("data-in-view");
+          }
+          if (!entry.isIntersecting) {
+            return;
+          }
+          if (holdsForScroll(el) && !scrolled) {
+            return;
+          }
+          show(el, observer);
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    Array.prototype.forEach.call(nodes, function (el) {
+      observer.observe(el);
+      var wait = Number(el.getAttribute("data-reveal-fallback"));
+      if (!wait) {
+        return;
+      }
+      window.setTimeout(function () {
+        show(el, observer);
+      }, wait);
+    });
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (window.scrollY <= 8) {
+          return;
+        }
+        scrolled = true;
+        Array.prototype.forEach.call(nodes, function (el) {
+          if (!holdsForScroll(el)) {
+            return;
+          }
+          if (el.getAttribute("data-in-view") === "true") {
+            show(el, observer);
+          }
+        });
+      },
+      { passive: true }
+    );
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRevealOnScroll);
+  } else {
+    initRevealOnScroll();
+  }
+})();

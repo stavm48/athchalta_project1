@@ -1,12 +1,11 @@
 /**
  * Unit 6 — Page 1: מקורות ומבנה התקציב.
- * Marks Unit 5 complete, records this page as viewed, and toggles
+ * Records this page as viewed and toggles
  * the budget-structure wheel slices and detail cards.
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markUnitAsCompleted(5);
-  window.athaltaProgress.markPageAsViewed(6, "budget");
+  window.athaltaProgress.markPageAsViewed(6, "u6_p1");
 }
 
 (function initAthaltaBudgetSources() {

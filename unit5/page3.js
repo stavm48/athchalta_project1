@@ -5,7 +5,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(5, "meetings");
+  window.athaltaProgress.markPageAsViewed(5, "u5_p3");
 }
 
 (function initAthaltaMeetings() {

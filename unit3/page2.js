@@ -4,7 +4,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(3, "workshops");
+  window.athaltaProgress.markPageAsViewed(3, "u3_p2");
 }
 
 (function initWorkshopsAccordion() {

@@ -5,7 +5,7 @@
  */
 
 if (window.athaltaProgress) {
-  window.athaltaProgress.markPageAsViewed(5, "year-milestones");
+  window.athaltaProgress.markPageAsViewed(5, "u5_p2");
 }
 
 (function initAthaltaYearMilestones() {

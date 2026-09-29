@@ -5,12 +5,10 @@
 
 if (window.athaltaProgress) {
   if (document.querySelector(".as-video-card")) {
-    window.athaltaProgress.markPageAsViewed(4, "contents-intro");
-    window.athaltaProgress.markPageAsViewed("4-5-0", "intro");
+    window.athaltaProgress.markPageAsViewed(4, "u4_p5_0");
   }
   if (document.querySelector(".u4c-carousel")) {
-    window.athaltaProgress.markPageAsViewed(4, "contents-belonging");
-    window.athaltaProgress.markPageAsViewed("4-5-01", "belonging");
+    window.athaltaProgress.markPageAsViewed(4, "u4_p5_01");
   }
 }
 
