@@ -1,0 +1,274 @@
+/* Suggested-content pages: right-align the idea carousel with the page headings. */
+
+.u4c-carousel,
+.u4p-carousel,
+.u4i-carousel,
+.u4e-carousel,
+.u4s-carousel,
+.u4m-carousel,
+.u4e-static-card {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.u4e-static-card .u4e-card {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.u4c-nav.is-at-edge,
+.u4p-nav.is-at-edge,
+.u4i-nav.is-at-edge,
+.u4e-nav.is-at-edge,
+.u4s-nav.is-at-edge,
+.u4m-nav.is-at-edge {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.u4c-link-chip:hover,
+.u4c-link-chip:focus-visible,
+.u4p-link-chip:hover,
+.u4p-link-chip:focus-visible,
+.u4i-link-chip:hover,
+.u4i-link-chip:focus-visible,
+.u4e-link-chip:hover,
+.u4e-link-chip:focus-visible,
+.u4s-link-chip:hover,
+.u4s-link-chip:focus-visible,
+.u4m-link-chip:hover,
+.u4m-link-chip:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0.35rem 0.75rem rgba(31, 61, 100, 0.16);
+}
+
+.u4c-inline-link:hover,
+.u4c-inline-link:focus-visible {
+  color: #4f7a3a;
+}
+
+.u4p-inline-link:hover,
+.u4p-inline-link:focus-visible {
+  color: #b84a47;
+}
+
+.u4i-inline-link:hover,
+.u4i-inline-link:focus-visible {
+  color: #a85d88;
+}
+
+.u4e-inline-link:hover,
+.u4e-inline-link:focus-visible {
+  color: #8a6d00;
+}
+
+.u4s-inline-link:hover,
+.u4s-inline-link:focus-visible {
+  color: #2f7f90;
+}
+
+.u4m-inline-link:hover,
+.u4m-inline-link:focus-visible {
+  color: #c43b78;
+}
+
+.u4c-examples-list li,
+.u4p-examples-list li,
+.u4i-examples-list li,
+.u4e-examples-list li,
+.u4s-examples-list li,
+.u4m-examples-list li {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.u4c-examples-list li::before,
+.u4p-examples-list li::before,
+.u4i-examples-list li::before,
+.u4e-examples-list li::before,
+.u4s-examples-list li::before,
+.u4m-examples-list li::before {
+  display: inline-block;
+  margin-top: 0;
+  margin-inline-end: 0.65rem;
+  vertical-align: middle;
+}
+
+.u4c-inline-link,
+.u4p-inline-link,
+.u4i-inline-link,
+.u4e-inline-link,
+.u4s-inline-link,
+.u4m-inline-link,
+.u4c-link-chip,
+.u4p-link-chip,
+.u4i-link-chip,
+.u4e-link-chip,
+.u4s-link-chip,
+.u4m-link-chip {
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .u4c-carousel,
+  .u4p-carousel,
+  .u4i-carousel,
+  .u4e-carousel,
+  .u4s-carousel,
+  .u4m-carousel {
+    display: grid;
+    direction: ltr;
+    grid-template-columns: 1fr auto auto auto 1fr;
+    grid-template-areas:
+      "slides slides slides slides slides"
+      ". leftArrow dots rightArrow .";
+    align-items: center;
+    justify-items: center;
+    column-gap: 0.45rem;
+    row-gap: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .u4c-carousel-wrapper,
+  .u4p-carousel-wrapper,
+  .u4i-carousel-wrapper,
+  .u4e-carousel-wrapper,
+  .u4s-carousel-wrapper,
+  .u4m-carousel-wrapper {
+    display: contents;
+  }
+
+  .u4c-slides,
+  .u4p-slides,
+  .u4i-slides,
+  .u4e-slides,
+  .u4s-slides,
+  .u4m-slides {
+    grid-area: slides;
+    direction: rtl;
+    width: 100%;
+  }
+
+  .u4c-next,
+  .u4p-next,
+  .u4i-next,
+  .u4e-next,
+  .u4s-next,
+  .u4m-next {
+    grid-area: leftArrow;
+  }
+
+  .u4c-prev,
+  .u4p-prev,
+  .u4i-prev,
+  .u4e-prev,
+  .u4s-prev,
+  .u4m-prev {
+    grid-area: rightArrow;
+  }
+
+  .u4c-nav,
+  .u4p-nav,
+  .u4i-nav,
+  .u4e-nav,
+  .u4s-nav,
+  .u4m-nav,
+  .u4c-next,
+  .u4p-next,
+  .u4i-next,
+  .u4e-next,
+  .u4s-next,
+  .u4m-next,
+  .u4c-prev,
+  .u4p-prev,
+  .u4i-prev,
+  .u4e-prev,
+  .u4s-prev,
+  .u4m-prev {
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0;
+    transform: none;
+  }
+
+  .u4c-nav svg,
+  .u4p-nav svg,
+  .u4i-nav svg,
+  .u4e-nav svg,
+  .u4s-nav svg,
+  .u4m-nav svg {
+    width: 0.95rem;
+  }
+
+  .u4c-nav:hover,
+  .u4c-nav:focus-visible,
+  .u4p-nav:hover,
+  .u4p-nav:focus-visible,
+  .u4i-nav:hover,
+  .u4i-nav:focus-visible,
+  .u4e-nav:hover,
+  .u4e-nav:focus-visible,
+  .u4s-nav:hover,
+  .u4s-nav:focus-visible,
+  .u4m-nav:hover,
+  .u4m-nav:focus-visible {
+    transform: none;
+  }
+
+  .u4c-dots,
+  .u4p-dots,
+  .u4i-dots,
+  .u4e-dots,
+  .u4s-dots,
+  .u4m-dots {
+    grid-area: dots;
+    direction: rtl;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    gap: 0.28rem;
+  }
+
+  .u4c-dot,
+  .u4p-dot,
+  .u4i-dot,
+  .u4e-dot,
+  .u4s-dot,
+  .u4m-dot {
+    width: 1.05rem;
+    height: 0.38rem;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .u4-puzzle-banner {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .u4c-link-chip:hover,
+  .u4c-link-chip:focus-visible,
+  .u4p-link-chip:hover,
+  .u4p-link-chip:focus-visible,
+  .u4i-link-chip:hover,
+  .u4i-link-chip:focus-visible,
+  .u4e-link-chip:hover,
+  .u4e-link-chip:focus-visible,
+  .u4s-link-chip:hover,
+  .u4s-link-chip:focus-visible,
+  .u4m-link-chip:hover,
+  .u4m-link-chip:focus-visible {
+    transform: none;
+  }
+}

@@ -26,6 +26,43 @@ if (window.athaltaProgress) {
   var status = root.querySelector("#u5m-status");
   var activeKey = null;
   var closeTimer = null;
+  var restingScroll = null;
+
+  function scrollBehavior() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return "auto";
+    }
+    return "smooth";
+  }
+
+  function rememberResting() {
+    if (restingScroll === null) {
+      restingScroll = window.scrollY || window.pageYOffset || 0;
+    }
+  }
+
+  function returnToResting() {
+    if (restingScroll === null) {
+      return;
+    }
+    var top = restingScroll;
+    restingScroll = null;
+    window.scrollTo({ top: top, behavior: scrollBehavior() });
+  }
+
+  function revealItem(item) {
+    window.setTimeout(function () {
+      if (!item.classList.contains("is-active")) {
+        return;
+      }
+      var rect = item.getBoundingClientRect();
+      var margin = 24;
+      var overflow = rect.bottom - (window.innerHeight - margin);
+      if (overflow > 8) {
+        window.scrollBy({ top: overflow, behavior: scrollBehavior() });
+      }
+    }, 480);
+  }
 
   function setStatus(message) {
     if (status) {
@@ -63,6 +100,7 @@ if (window.athaltaProgress) {
     });
 
     setStatus("המידע נסגר.");
+    returnToResting();
   }
 
   function openItem(button) {
@@ -80,6 +118,10 @@ if (window.athaltaProgress) {
     if (closeTimer) {
       window.clearTimeout(closeTimer);
       closeTimer = null;
+    }
+
+    if (!activeKey) {
+      rememberResting();
     }
 
     items.forEach(function (item) {
@@ -108,6 +150,7 @@ if (window.athaltaProgress) {
     });
 
     activeKey = key;
+    revealItem(selectedItem);
     setStatus(
       "נפתחה נקודת הציון " +
         button.textContent.replace(/\s+/g, " ").trim() +

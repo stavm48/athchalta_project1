@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../assets/home/finalLogo.png" />
+    <link rel="apple-touch-icon" href="../assets/home/finalLogo.png" />
     <title>יחידה 4 | קטלוג החומרים של אתחלתא</title>
     <link rel="stylesheet" href="../theme.css" />
     <link rel="stylesheet" href="./page7.css" />
+    <link rel="stylesheet" href="./mobile-video-play.css" />
   </head>
   <body data-page-id="u4_p7">
     <div id="global-header"></div>
@@ -25,7 +28,7 @@
             קטלוג החומרים של אתחלתא
           </h2>
           <p class="atc-intro">
-            כאן תוכלו למצוא חומרים, סדנאות, פרקטיקות ומשאבים שיסייעו לכן בתכנון
+            כאן תוכלו למצוא חומרים, סדנאות, פרקטיקות ומשאבים שמטרתם לסייע בתכנון
             ובהנחיית תהליכי הלמידה. ניתן לחפש חומר לפי שמו או לסנן את הקטלוג לפי
             סוג החומר, יסודות אתחלתא ומרכיבי&nbsp;התפקיד.
           </p>
@@ -40,7 +43,12 @@
             היכרות עם קטלוג החומרים
           </h3>
           <div class="atc-opening-video-frame">
-            <video class="atc-opening-video" preload="metadata" controls>
+            <button
+              class="as-video-play"
+              type="button"
+              aria-label="הפעלת סרטון ההיכרות עם קטלוג החומרים"
+            ></button>
+            <video class="atc-opening-video" preload="metadata" controls playsinline>
               הדפדפן שלך אינו תומך בהצגת וידאו.
             </video>
           </div>
@@ -102,7 +110,12 @@
         <div class="atc-grid" role="list" aria-label="קטלוג חומרי אתחלתא"></div>
 
         <div class="atc-empty" hidden>
-          <div class="atc-empty-icon" aria-hidden="true">?</div>
+          <img
+            class="atc-empty-icon"
+            src="../assets/unit4/notFound.png"
+            alt=""
+            aria-hidden="true"
+          />
           <h3>לא מצאנו חומר מתאים</h3>
           <p>נסו לשנות את החיפוש או לנקות את הסינונים.</p>
           <button class="atc-empty-reset" type="button">
@@ -134,7 +147,12 @@
             </div>
             <div class="atc-video-modal-body">
               <div class="atc-modal-media">
-                <video class="atc-modal-video" preload="metadata" controls hidden>
+                <button
+                  class="as-video-play"
+                  type="button"
+                  aria-label="הפעלת סרטון ההסבר"
+                ></button>
+                <video class="atc-modal-video" preload="metadata" controls playsinline hidden>
                   הדפדפן שלך אינו תומך בהצגת וידאו.
                 </video>
                 <iframe
@@ -170,11 +188,11 @@
               />
             </svg>
           </span>
-          <span class="ata-nav-prev-text">חזרה לסיכום — מחברים את כל החלקים</span>
+          <span class="ata-nav-prev-text">לסיכום — מחברים את כל החלקים</span>
         </a>
-
+        
         <a class="ata-nav-next" href="../unit5/page1.html">
-          <span class="ata-nav-next-text">מעבר ליחידה 5: אבני הדרך בתוכנית</span>
+          <span class="ata-nav-next-text">אבני הדרך בתוכנית</span>
           <span class="ata-nav-arrow" aria-hidden="true">
             <svg
               viewBox="0 0 24 24"
@@ -201,6 +219,7 @@
     <script src="../a11y.js"></script>
     <script src="../navigation/script.js"></script>
     <script src="./page7.js"></script>
+    <script src="./mobile-video-play.js"></script>
     <script src="../components.js"></script>
   </body>
 </html>

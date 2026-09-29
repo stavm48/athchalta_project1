@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../assets/general/Favicon.png" />
+    <link rel="apple-touch-icon" href="../assets/general/Favicon.png" />
     <title>יחידה 4 | תכנים מוצעים — מבוא</title>
     <link rel="stylesheet" href="../theme.css" />
     <link rel="stylesheet" href="./page5-0.css" />
+    <link rel="stylesheet" href="./mobile-video-play.css" />
   </head>
   <body data-page-id="u4_p5_0">
     <div id="global-header"></div>
@@ -25,8 +28,8 @@
             תכנים מוצעים ורעיונות ליישום
           </h2>
           <p class="u4c-intro">
-            ההנחיות וההמלצות הבאות נועדו לסייע בגיבוש תכנים לבניית הסילבוס
-            בחממות ובסדנאות אתחלתא למחנכות כיתה חדשות. התכנים והרעיונות ליישום
+            <strong>ההנחיות וההמלצות הבאות נועדו לסייע בגיבוש תכנים לבניית הסילבוס
+            בחממות ובסדנאות אתחלתא למחנכות כיתה חדשות.</strong> התכנים והרעיונות ליישום
             מאורגנים לפי החיבור שלהם ליסודות אתחלתא, אך חשוב לזכור שתוכן אחד
             יכול להיות רלוונטי ליותר מיסוד אחד וכך גם דרך היישום שלו במפגש.
             מרבית התכנים והדוגמאות מבוססים על ניסיון הצוותים האקדמיים השותפים
@@ -41,8 +44,13 @@
             <span class="as-video-name">סדנאות, פרקטיקות ומרחבים</span>
           </h3>
           <div class="as-video-frame">
+            <button
+              class="as-video-play"
+              type="button"
+              aria-label="הפעלת הסרטון: סדנאות, פרקטיקות ומרחבים"
+            ></button>
             <iframe
-              src="https://player.vimeo.com/video/1229403855?h=cc2259b712&amp;app_id=122963"
+              src="https://player.vimeo.com/video/1229403855?h=cc2259b712&amp;playsinline=1&amp;app_id=122963"
               title="מ׳אתחלה - סרטון פתיחה &quot;סדנאות, פרקטיקות ומרחבים&quot;"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
@@ -51,6 +59,9 @@
             ></iframe>
           </div>
         </article>
+        <p class="u4c-intro u4c-after-video">
+          <strong>בעמודים הבאים ביחידה תוכלו להעמיק בתכנים המוצעים להנחיה בחלוקה ליסודות&nbsp;התוכנית.</strong>
+        </p>
       </div>
 
       <nav class="ata-sequential-nav" aria-label="ניווט בין עמודים">
@@ -73,12 +84,12 @@
             </svg>
           </span>
           <span class="ata-nav-prev-text"
-            >חזרה לארבעת העקרונות לכתיבת סילבוס למחנכות כיתה חדשות</span
+            >ארבעת העקרונות לכתיבת סילבוס</span
           >
         </a>
 
         <a class="ata-nav-next" href="./page5-01.html">
-          <span class="ata-nav-next-text">ביטוי עצמי ושייכות</span>
+          <span class="ata-nav-next-text">תכנים להנחיה: ביטוי עצמי ושייכות</span>
           <span class="ata-nav-arrow" aria-hidden="true">
             <svg
               viewBox="0 0 24 24"
@@ -105,6 +116,7 @@
     <script src="../a11y.js"></script>
     <script src="../navigation/script.js"></script>
     <script src="./page5-0.js"></script>
+    <script src="./mobile-video-play.js"></script>
     <script src="../components.js"></script>
   </body>
 </html>

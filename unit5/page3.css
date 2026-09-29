@@ -118,6 +118,12 @@
   object-fit: contain;
 }
 
+.u5s-instruction-text {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
 .u5s-folder {
   display: flex;
   flex-direction: column;
@@ -129,14 +135,25 @@
 .u5s-audience-buttons {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 1.5rem;
+  align-items: stretch;
+  column-gap: 1.5rem;
+  row-gap: 0;
   width: 100%;
   margin: 0;
   padding: 0;
   position: relative;
   z-index: 2;
   direction: rtl;
+}
+
+.u5s-audience-button[data-u5s-audience="heads"] {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.u5s-audience-button[data-u5s-audience="facilitators"] {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .u5s-audience-button {
@@ -147,7 +164,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: stretch;
   width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   margin: 0;
   padding: 1rem 1.25rem;
   border: var(--u5s-border) solid var(--u5s-main);
@@ -213,6 +233,8 @@
   position: relative;
   z-index: 1;
   display: block;
+  grid-column: 1 / -1;
+  grid-row: 2;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -384,7 +406,7 @@
   text-align: right;
 }
 
-@media (max-width: 47.9375rem) {
+@media (max-width: 768px) {
   .ata-unit-title {
     font-size: 2rem;
   }
@@ -393,24 +415,36 @@
     font-size: 1.5rem;
   }
 
+  .u5s-instruction {
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    box-sizing: border-box;
+    padding-inline: 0.15rem;
+  }
+
+  .u5s-instruction-text {
+    flex: 1 1 0%;
+  }
+
   .u5s-audience-buttons {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 0.85rem;
   }
 
-  .u5s-audience-button[aria-expanded="true"] {
-    margin-bottom: 0;
-    border-radius: 0.625rem;
-    border-bottom-color: var(--u5s-main);
-    padding-bottom: 1rem;
-  }
-
-  .u5s-audience-button[aria-expanded="true"]::after {
-    content: none;
+  .u5s-audience-button,
+  .u5s-panel {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
   }
 
   .u5s-panel.is-open {
-    margin-top: 0.85rem;
+    margin-top: -0.85rem;
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
   }
 
   .u5s-accordion-list {

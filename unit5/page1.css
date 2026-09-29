@@ -86,6 +86,15 @@
   text-wrap: pretty;
 }
 
+.u5-intro strong,
+.u5-intro-emphasis {
+  font-weight: 700;
+}
+
+.u5-intro-emphasis {
+  margin-top: -0.45rem;
+}
+
 .u5-roadmap-heading {
   width: 100%;
   max-width: var(--prose-measure);

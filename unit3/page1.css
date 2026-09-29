@@ -161,8 +161,8 @@
   flex-direction: column;
   align-items: center;
   width: max-content;
-  min-width: 8.25rem;
-  max-width: 10.5rem;
+  min-width: 0;
+  max-width: 12.25rem;
   margin: 0;
   padding: 0;
   border: 0;
@@ -197,20 +197,16 @@
 .agr-step-3 {
   --cx: 17%;
   --cy: 16%;
-  min-width: 10.5rem;
-  max-width: 12.5rem;
 }
 
 .agr-step-4 {
-  --cx: 50%;
+  --cx: 60%;
   --cy: 36%;
 }
 
 .agr-step-5 {
   --cx: 93.5%;
   --cy: 56%;
-  min-width: 10.5rem;
-  max-width: 12.5rem;
 }
 
 .agr-step-6 {
@@ -219,10 +215,8 @@
 }
 
 .agr-step-7 {
-  --cx: 34%;
+  --cx: 48%;
   --cy: 96%;
-  min-width: 10.5rem;
-  max-width: 12.5rem;
 }
 
 .agr-num {
@@ -231,7 +225,7 @@
   justify-content: center;
   min-width: var(--agr-num-size);
   min-height: var(--agr-num-size);
-  margin: 0 auto 0.35rem;
+  margin: 0 auto 0.25rem;
   padding: 0.25rem;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
@@ -246,15 +240,14 @@
 }
 
 .agr-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0.35rem 0.7rem;
-  border-radius: 0.7rem;
+  display: block;
+  width: max-content;
+  max-width: 12.25rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.65rem;
   background: var(--agr-ice);
   color: var(--navy);
-  font-size: var(--text-body);
+  font-size: 0.8125rem;
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.02em;
@@ -298,7 +291,7 @@
 .agr-house {
   position: absolute;
   z-index: 1;
-  left: 13.5%;
+  left: 6%;
   top: 95%;
   width: 8.75rem;
   max-width: 28%;
@@ -344,6 +337,22 @@
   box-shadow: var(--shadow);
   direction: rtl;
   text-align: right;
+}
+
+.agr-modal:not([hidden]) .agr-modal-dialog {
+  animation: agrDialogIn 0.38s ease;
+}
+
+@keyframes agrDialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.85rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .agr-modal-close {

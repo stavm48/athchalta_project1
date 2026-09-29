@@ -286,19 +286,6 @@ if (window.athaltaProgress) {
       videoUrl: ""
     },
     {
-      name: "מחקר אתחלתא: אקוסיסטם של חוסן",
-      categories: ["מחקר"],
-      audience: "מנחות ומחנכות כיתה",
-      additionalAudience: "אקו-סיסטם כולו",
-      foundations: [],
-      roleComponents: [],
-      fileType: "מחקר",
-      status: "פורסם",
-      resourceUrl: "",
-      hasVideo: false,
-      videoUrl: ""
-    },
-    {
       name: "סוגיות אתחלתא",
       categories: ["מסמך"],
       audience: "מנחות",
@@ -353,36 +340,6 @@ if (window.athaltaProgress) {
       status: "פורסם",
       resourceUrl:
         "https://lionff.com/pedagogic-tools/%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA-%D7%A9%D7%A2%D7%95%D7%AA-%D7%95%D7%94%D7%A4%D7%95%D7%A0%D7%98%D7%A6%D7%99%D7%90%D7%9C-%D7%94%D7%97%D7%91%D7%A8%D7%AA%D7%99-%D7%A8%D7%92%D7%A9%D7%99-%D7%94%D7%98%D7%9E-2/",
-      hasVideo: false,
-      videoUrl: ""
-    },
-    {
-      name: "המחנכת כמובילת קהילת משמעות",
-      categories: ["סדנה"],
-      audience: "מנחות ומחנכות כיתה",
-      additionalAudience: "מנהלות, מורות חונכות",
-      foundations: ["ביטוי עצמי ושייכות", "מסוגלות", "זהות", "שליחות ומשמעות"],
-      roleComponents: [
-        "חינוך לערכים והכיתה כקבוצה חברתית",
-        "שוויון הזדמנויות",
-        "ראייה ותכלול הוליסטי של התלמיד"
-      ],
-      fileType: "",
-      status: "דורש עדכון",
-      resourceUrl: "",
-      hasVideo: false,
-      videoUrl: ""
-    },
-    {
-      name: "גלגל החיים לחונכים",
-      categories: ["סדנה", "כלי", "פרקטיקה"],
-      audience: "מחנכות כיתה",
-      additionalAudience: "מורות חונכות",
-      foundations: ["כולם"],
-      roleComponents: ["כולם"],
-      fileType: "",
-      status: "דורש עדכון",
-      resourceUrl: "",
       hasVideo: false,
       videoUrl: ""
     },
@@ -629,7 +586,7 @@ if (window.athaltaProgress) {
         '" target="_blank" rel="noopener noreferrer">לפתיחה</a>';
     } else {
       html +=
-        '<span class="atc-resource-disabled" aria-disabled="true">לפתיחה</span>';
+        '<button type="button" class="atc-resource-disabled" disabled>יעלה בקרוב</button>';
     }
 
     if (material.hasVideo) {
@@ -809,8 +766,14 @@ if (window.athaltaProgress) {
     lastVideoTrigger = trigger || null;
     modalTitle.textContent = "סרטון הסבר | " + (title || "");
     clearModalMedia();
+    if (window.athaltaMobileVideo) {
+      window.athaltaMobileVideo.reset(catalog.querySelector(".atc-modal-media"));
+    }
 
     if (isVimeoUrl(url) && modalIframe) {
+      if (url.indexOf("playsinline=") === -1) {
+        url += (url.indexOf("?") === -1 ? "?" : "&") + "playsinline=1";
+      }
       modalIframe.hidden = false;
       modalIframe.title = title || "סרטון הסבר";
       modalIframe.src = url;

@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../assets/general/Favicon.png" />
+    <link rel="apple-touch-icon" href="../assets/general/Favicon.png" />
     <title>יחידה 4 | לסיכום — מחברים את כל החלקים</title>
     <link rel="stylesheet" href="../theme.css" />
     <link rel="stylesheet" href="./page6.css" />
@@ -95,14 +97,15 @@
           <h2 id="u4sum-tools-heading" class="u4sum-tools-heading">
             כלי עזר לבניית סילבוס
           </h2>
-          <p class="u4sum-intro">
-            הסתייעו בכלי הבינה המלאכותית לתכנון סיורים ולבניית הסילבוס&nbsp;ודיוקו.
-          </p>
+        
 
           <div class="u4sum-tools-grid" role="list">
             <article class="u4sum-tool u4sum-tool-blue" role="listitem">
               <span class="u4sum-tool-tag">צ׳אט בינה מלאכותית</span>
               <h3 class="u4sum-tool-title">צ׳אט בוט לתכנון סיורים</h3>
+              <p class="u4sum-tool-text">
+                קבלת מידע על הסיורים המוצעים בתוכנית ותכנון סיורים מותאמים&nbsp;לקבוצה.
+              </p>
               <a
                 class="u4sum-tool-action"
                 href="https://chatgpt.com/g/g-67dfe0921964819198674d857d2753bd-bvt-tknvn-syvr-grsh-2"
@@ -116,7 +119,10 @@
 
             <article class="u4sum-tool u4sum-tool-green" role="listitem">
               <span class="u4sum-tool-tag">עזר</span>
-              <h3 class="u4sum-tool-title">צ׳ק ליסט לבניית סילבוס</h3>
+              <h3 class="u4sum-tool-title">תבנית סילבוס</h3>
+              <p class="u4sum-tool-text">
+                באמצעות התבנית תוכלו לתכנן ולארגן במסודר את פעילות החממה&nbsp;והסדנה.
+              </p>
               <a
                 class="u4sum-tool-action"
                 href="../assets/unit4/SyllabusFormat.docx"
@@ -125,6 +131,61 @@
                 להורדה
               </a>
             </article>
+          </div>
+        </section>
+
+        <section class="af-reflection" aria-labelledby="u4sum-reflection-heading">
+          <div class="af-reflection-header">
+            <span class="af-reflection-icon" aria-hidden="true">
+              <img
+                class="reflection-pencil"
+                src="../assets/navigate/pencil.png"
+                alt=""
+                width="32"
+                height="32"
+                aria-hidden="true"
+              />
+            </span>
+            <h3 id="u4sum-reflection-heading" class="af-subheading">
+              רפלקציה אישית
+            </h3>
+          </div>
+          <p id="u4sum-reflection-prompt" class="af-reflection-prompt">
+            <span class="fw-bold">
+              איזה כלי, סדנה או רעיון מתוך התכנים שהוצעו ביחידה זו תרצה/י לקחת
+              וליישם כבר בבניית הסילבוס הקרוב?&nbsp;(רשות)
+            </span>
+          </p>
+          <label class="af-sr-only" for="u4sum-reflection-text">
+            הרפלקציה האישית שלי
+          </label>
+          <textarea
+            id="u4sum-reflection-text"
+            class="af-reflection-textarea"
+            name="personal-reflection"
+            rows="6"
+            dir="rtl"
+            aria-describedby="u4sum-reflection-prompt u4sum-reflection-hint"
+            placeholder="כתבו כאן את הרפלקציה..."
+          ></textarea>
+          <div class="af-reflection-actions">
+            <button
+              id="u4sum-reflection-action"
+              class="af-reflection-action"
+              type="button"
+              disabled
+            >
+              שמירת הרפלקציה
+            </button>
+            <p id="u4sum-reflection-hint" class="af-reflection-hint">
+              יש להקליד לפחות 2 תווים על מנת&nbsp;לשמור
+            </p>
+            <p
+              id="u4sum-reflection-status"
+              class="af-reflection-status"
+              role="status"
+              aria-live="polite"
+            ></p>
           </div>
         </section>
       </div>
@@ -148,7 +209,7 @@
               />
             </svg>
           </span>
-          <span class="ata-nav-prev-text">חזרה לשליחות ומשמעות</span>
+          <span class="ata-nav-prev-text">תכנים להנחיה: שליחות ומשמעות</span>
         </a>
 
         <a class="ata-nav-next" href="./page7.html">

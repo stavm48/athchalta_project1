@@ -94,6 +94,7 @@
   text-wrap: pretty;
 }
 
+.u6-intro strong,
 .u6-source-text strong {
   font-weight: 700;
 }
@@ -330,6 +331,7 @@
   top: 16%;
   left: 8%;
   right: 58%;
+  transform: translateX(-1rem);
 }
 
 .u6-slice-pink .u6-slice-image {
@@ -460,9 +462,14 @@
 
 .u6-card-title,
 .u6-detail-title {
-  width: 100%;
+  align-self: flex-start;
+  width: auto;
+  max-width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0.45rem 0.95rem;
+  border-radius: 0.35rem;
+  background: var(--u6-main);
+  box-sizing: border-box;
   color: var(--navy);
   font-size: var(--text-h3);
   font-weight: 700;
@@ -563,6 +570,7 @@
     top: 20%;
     left: 4%;
     right: 56%;
+    transform: translateX(-0.35rem);
   }
 
   .u6-slice-pink .u6-slice-copy {

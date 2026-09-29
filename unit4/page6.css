@@ -81,7 +81,7 @@
 
 .u4sum-tips {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 20rem));
+  grid-template-columns: repeat(2, minmax(0, 26rem));
   justify-content: start;
   align-items: stretch;
   gap: 2.25rem 1.75rem;
@@ -105,12 +105,39 @@
   background: var(--white);
   color: var(--navy);
   box-shadow: 0 0.25rem 0.625rem rgba(31, 61, 100, 0.05);
-  transition: all 0.3s ease;
+  animation: u4sumTipIn 1s ease both;
 }
 
-.u4sum-tip:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0.75rem 1.5rem rgba(31, 61, 100, 0.12);
+.u4sum-tip:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.u4sum-tip:nth-child(2) {
+  animation-delay: 0.85s;
+}
+
+.u4sum-tip:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+.u4sum-tip:nth-child(4) {
+  animation-delay: 2.15s;
+}
+
+.u4sum-tip:nth-child(5) {
+  animation-delay: 2.8s;
+}
+
+@keyframes u4sumTipIn {
+  from {
+    opacity: 0;
+    translate: 0 1rem;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
 .u4sum-tip-coral {
@@ -160,6 +187,7 @@
   font-weight: 600;
   line-height: 1.4;
   text-align: right;
+  white-space: nowrap;
 }
 
 .u4sum-tip-text {
@@ -175,6 +203,42 @@
 
 .u4sum-tools {
   margin-top: 0.5rem;
+}
+
+.u4sum-assist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 0.85rem 0 0;
+  margin-inline-end: auto;
+}
+
+.u4sum-click-icon {
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.u4sum-assist-text {
+  width: auto;
+  max-width: var(--prose-measure);
+  margin: 0;
+  color: var(--teal);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.u4sum-assist-text.fw-bold {
+  font-weight: 700;
 }
 
 .u4sum-tools-grid {
@@ -201,20 +265,16 @@
   background: var(--white);
   color: var(--navy);
   box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-}
-
-.u4sum-tool:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0.75rem 1.5rem rgba(31, 61, 100, 0.12);
 }
 
 .u4sum-tool-blue {
   --tool-color: #b6e2ed;
+  --tool-tag-bg: #e4f5f9;
 }
 
 .u4sum-tool-green {
   --tool-color: #abd28f;
+  --tool-tag-bg: #e4f3d8;
 }
 
 .u4sum-tool-tag {
@@ -226,7 +286,7 @@
   margin: 0;
   padding: 0.2rem 0.75rem;
   border-radius: 0.625rem;
-  background: var(--tool-color);
+  background: var(--tool-tag-bg, var(--tool-color));
   color: var(--navy);
   font-size: 1rem;
   font-weight: 400;
@@ -236,42 +296,58 @@
 }
 
 .u4sum-tool-title {
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex: 0 0 auto;
+  display: block;
   width: 100%;
-  margin: 0.35rem 0 0.5rem;
+  margin: 0.35rem 0 0;
   color: var(--navy);
   font-size: var(--text-h3);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.4;
-  text-align: center;
+  text-align: right;
+}
+
+.u4sum-tool-text {
+  width: 100%;
+  margin: 0;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  text-align: right;
+  text-wrap: pretty;
 }
 
 .u4sum-tool-action {
   display: inline-flex;
   align-items: center;
-  align-self: flex-end;
+  align-self: flex-start;
   width: auto;
-  margin: 0;
-  padding: 0.35rem 0.15rem;
+  margin: auto 0 0;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.625rem;
+  background: var(--tool-color);
   color: var(--navy);
   font-size: 1rem;
   font-weight: 700;
-  line-height: var(--lh-body);
+  line-height: 1.4;
   letter-spacing: -0.02em;
   text-decoration: none;
   cursor: pointer;
+  box-shadow: 0 0.15rem 0.35rem rgba(31, 61, 100, 0.18);
   transition: all 0.3s ease;
 }
 
-.u4sum-tool-action:hover {
-  color: var(--teal);
+.u4sum-tool-action:hover,
+.u4sum-tool-action:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0.4rem 0.85rem rgba(31, 61, 100, 0.2);
 }
 
 .u4sum-tool-action:focus-visible {
-  border-radius: 0.25rem;
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
 }
 
 @media (max-width: 47.9375rem) {
@@ -285,8 +361,12 @@
   }
 
   .u4sum-tips {
-    grid-template-columns: minmax(0, 20rem);
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
+  }
+
+  .u4sum-tip-title {
+    white-space: normal;
   }
 
   .u4sum-tip-last {
@@ -303,15 +383,211 @@
   }
 }
 
+.af-reflection {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 47em;
+  margin: 3.5rem 0 0;
+  margin-inline-end: auto;
+  padding: 0;
+  background: transparent;
+  color: var(--navy);
+  direction: rtl;
+  text-align: right;
+}
+
+.af-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.af-subheading {
+  width: auto;
+  margin: 0;
+  color: var(--teal);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  text-align: right;
+}
+
+.af-reflection-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0 0 0.65rem;
+}
+
+.af-reflection-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  background: transparent;
+}
+
+.af-reflection-icon img {
+  display: block;
+  width: 2rem;
+  height: auto;
+  max-width: 100%;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.af-reflection-prompt {
+  width: 100%;
+  max-width: var(--prose-measure);
+  margin: 0 0 1.15rem;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  text-align: right;
+  text-wrap: pretty;
+}
+
+.af-reflection-prompt .fw-bold {
+  font-weight: 700;
+}
+
+.af-reflection-textarea {
+  display: block;
+  width: 100%;
+  min-height: 9rem;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 0.125rem solid #c9dce6;
+  border-radius: 0.75rem;
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  resize: vertical;
+  direction: rtl;
+  text-align: right;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+.af-reflection-textarea::placeholder {
+  color: #7a93a8;
+}
+
+.af-reflection:not(.is-saved) .af-reflection-textarea:hover {
+  border-color: var(--teal);
+}
+
+.af-reflection:not(.is-saved) .af-reflection-textarea:focus-visible {
+  border-color: var(--teal);
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.af-reflection.is-saved .af-reflection-textarea {
+  border-color: #d7e6ee;
+  background: #f7fbfc;
+  resize: none;
+  cursor: default;
+}
+
+.af-reflection-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.af-reflection-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.55rem 1.5rem;
+  border: 0;
+  border-radius: 0.7rem;
+  background: var(--teal);
+  color: var(--navy);
+  font-family: var(--font);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.af-reflection-action:hover {
+  filter: brightness(0.96);
+  box-shadow: 0 0.25rem 0.5rem rgba(31, 61, 100, 0.12);
+}
+
+.af-reflection-action:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+.af-reflection.is-saved .af-reflection-action {
+  background: var(--white);
+  box-shadow: inset 0 0 0 0.125rem var(--teal);
+}
+
+.af-reflection.is-saved .af-reflection-action:hover,
+.af-reflection.is-saved .af-reflection-action:focus-visible {
+  background: #eaf6f6;
+  filter: none;
+}
+
+.af-reflection-action:disabled {
+  opacity: 0.45;
+  cursor: default;
+  filter: none;
+  box-shadow: none;
+}
+
+.af-reflection-hint {
+  margin: 0;
+  color: var(--navy);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.af-reflection-status {
+  margin: 0;
+  color: var(--navy);
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: 1.4;
+  min-height: 1.4em;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .u4sum-tip,
-  .u4sum-tool,
+  .u4sum-tip {
+    animation: none;
+  }
+
   .u4sum-tool-action {
     transition: none;
   }
 
-  .u4sum-tip:hover,
-  .u4sum-tool:hover {
+  .u4sum-tool-action:hover,
+  .u4sum-tool-action:focus-visible {
     transform: none;
   }
 }

@@ -1,5 +1,5 @@
 /**
- * Unit 4 — Page 1: עקרונות לכתיבת סילבוס למחנכות כיתה חדשות.
+ * Unit 4 — Page 1: עקרונות לכתיבת סילבוס.
  * Records this page as viewed.
  */
 

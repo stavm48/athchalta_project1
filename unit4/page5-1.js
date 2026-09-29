@@ -63,11 +63,15 @@ if (window.athaltaProgress) {
     });
 
     if (previousButton) {
-      previousButton.hidden = currentSlide === 0;
+      previousButton.hidden = false;
+      previousButton.disabled = currentSlide === 0;
+      previousButton.classList.toggle("is-at-edge", currentSlide === 0);
     }
 
     if (nextButton) {
-      nextButton.hidden = currentSlide === slides.length - 1;
+      nextButton.hidden = false;
+      nextButton.disabled = currentSlide === slides.length - 1;
+      nextButton.classList.toggle("is-at-edge", currentSlide === slides.length - 1);
     }
 
     if (status) {
@@ -81,10 +85,20 @@ if (window.athaltaProgress) {
     }
 
     if (moveFocus) {
+      var card = slides[currentSlide].querySelector(".u4p-card");
       var title = slides[currentSlide].querySelector(".u4p-card-title");
 
+      if (card) {
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var top = card.getBoundingClientRect().top + window.pageYOffset - 12;
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: reduceMotion ? "auto" : "smooth"
+        });
+      }
+
       if (title) {
-        title.focus();
+        title.focus({ preventScroll: true });
       }
     }
   }

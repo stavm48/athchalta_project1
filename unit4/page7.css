@@ -115,8 +115,9 @@
 }
 
 .atc-opening-video-frame {
+  position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   border: 0.1875rem solid var(--light-teal);
   border-radius: 1rem;
   background: #000;
@@ -306,7 +307,7 @@
   padding: 0;
   border: 0;
   border-top: 0.3rem solid var(--teal);
-  border-radius: 1.25rem 1.25rem 0.3rem 0.3rem;
+  border-radius: 0.75rem;
   overflow: hidden;
   background: var(--white);
   color: var(--navy);
@@ -513,13 +514,15 @@ button.atc-video-button:not(.atc-video-pending):hover {
   box-shadow: 0 0.4rem 0.65rem rgba(31, 61, 100, 0.21);
 }
 
-.atc-resource-disabled {
+.atc-resource-disabled,
+.atc-resource-disabled:disabled {
   border: 0.125rem solid var(--light-teal);
   background: var(--light-teal);
   color: var(--navy);
   font-weight: 600;
   cursor: default;
-  opacity: 0.72;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .atc-video-button.atc-video-pending,
@@ -619,6 +622,7 @@ button.atc-video-button:not(.atc-video-pending):hover {
 }
 
 .atc-modal-media {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000;
@@ -652,10 +656,14 @@ button.atc-video-button:not(.atc-video-pending):hover {
 }
 
 .atc-empty-icon {
+  display: block;
+  width: 6.5rem;
+  height: auto;
+  max-width: 100%;
   margin: 0 auto 0.75rem;
-  color: var(--teal);
-  font-size: var(--text-h2);
-  font-weight: 700;
+  flex-shrink: 0;
+  object-fit: contain;
+  background: transparent;
 }
 
 .atc-empty h3 {

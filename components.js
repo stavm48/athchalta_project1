@@ -78,6 +78,7 @@
     'unit7/page2.html"' +
     meetingsAttrs +
     '>מתווה מפגשים</a>' +
+    '<button type="button" class="about-nav-trigger" data-about-open>אודות</button>' +
     "</nav>" +
     "</div>" +
     "</header>";
@@ -114,6 +115,7 @@
     'unit7/page2.html"' +
     meetingsAttrs +
     '>מתווה מפגשים</a>' +
+    '<button type="button" class="about-nav-trigger" data-about-open>אודות</button>' +
     "</nav>" +
     '<div class="footer-partners">' +
     '<img class="logo-mofet" src="' +
@@ -175,4 +177,13 @@
   }
 
   loadSidebar();
+
+  if (!document.querySelector('link[href$="about.css"]')) {
+    var aboutCss = document.createElement("link");
+    aboutCss.rel = "stylesheet";
+    aboutCss.href = ROOT + "about.css";
+    document.head.appendChild(aboutCss);
+  }
+  window.ATHALTA_ROOT = ROOT;
+  appendScript("about.js");
 })();
