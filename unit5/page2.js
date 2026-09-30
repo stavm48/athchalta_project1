@@ -26,7 +26,6 @@ if (window.athaltaProgress) {
   var status = root.querySelector("#u5m-status");
   var activeKey = null;
   var closeTimer = null;
-  var restingScroll = null;
 
   function scrollBehavior() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -35,19 +34,21 @@ if (window.athaltaProgress) {
     return "smooth";
   }
 
-  function rememberResting() {
-    if (restingScroll === null) {
-      restingScroll = window.scrollY || window.pageYOffset || 0;
-    }
-  }
+  function scrollToInstruction() {
+    var instruction = root.querySelector(".u5m-instruction");
 
-  function returnToResting() {
-    if (restingScroll === null) {
+    if (!instruction) {
       return;
     }
-    var top = restingScroll;
-    restingScroll = null;
-    window.scrollTo({ top: top, behavior: scrollBehavior() });
+
+    var top =
+      instruction.getBoundingClientRect().top +
+      (window.scrollY || window.pageYOffset || 0);
+
+    window.scrollTo({
+      top: Math.max(0, top - 16),
+      behavior: scrollBehavior(),
+    });
   }
 
   function revealItem(item) {
@@ -100,7 +101,7 @@ if (window.athaltaProgress) {
     });
 
     setStatus("המידע נסגר.");
-    returnToResting();
+    scrollToInstruction();
   }
 
   function openItem(button) {
@@ -118,10 +119,6 @@ if (window.athaltaProgress) {
     if (closeTimer) {
       window.clearTimeout(closeTimer);
       closeTimer = null;
-    }
-
-    if (!activeKey) {
-      rememberResting();
     }
 
     items.forEach(function (item) {

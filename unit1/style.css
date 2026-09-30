@@ -1088,6 +1088,31 @@ main,
     gap: 2rem;
   }
 
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 0.75rem 1rem;
+    width: 100%;
+    padding-top: 0;
+    text-align: right;
+  }
+
+  .footer-nav a,
+  .footer-nav .about-nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-self: start;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 2.75rem;
+    margin: 0;
+    padding: 0.35rem 0;
+    line-height: 1.45;
+    box-sizing: border-box;
+  }
+
   .footer-brand img {
     width: 10.25rem;
   }
@@ -1452,5 +1477,102 @@ main,
 
   .ata-nav-next-text::after {
     content: "קדימה";
+  }
+}
+
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.u1p1-canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.u1p1-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.u1p1-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.u1p1-pipe-top {
+  top: 0.25rem;
+  left: 0.15rem;
+  width: 3.75rem;
+}
+
+.u1p1-pipe-mid {
+  top: 23.25rem;
+  left: 0.85rem;
+  width: 10.5rem;
+}
+
+.u1p1-pipe-lower {
+  right: 0;
+  bottom: 2rem;
+  width: 9rem;
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ata-unit-title,
+.ata-about-opening,
+.ata-about-route,
+.ata-info-card,
+.ata-sequential-nav,
+.ata-nav-prev,
+.ata-nav-next {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .u1p1-pipe-top {
+    left: 0;
+    width: 3.5rem;
+  }
+
+  .u1p1-pipe-mid {
+    top: 24rem;
+    left: 0;
+    width: 8.5rem;
+  }
+
+  .u1p1-pipe-lower {
+    right: 0;
+    width: 6.5rem;
   }
 }

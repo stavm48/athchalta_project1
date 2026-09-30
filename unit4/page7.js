@@ -589,13 +589,10 @@ if (window.athaltaProgress) {
         '<button type="button" class="atc-resource-disabled" disabled>יעלה בקרוב</button>';
     }
 
-    if (material.hasVideo) {
-      var ready = hasUsableUrl(material.videoUrl);
+    if (material.hasVideo && hasUsableUrl(material.videoUrl)) {
       html +=
-        '<button type="button" class="atc-video-button' +
-        (ready ? "" : " atc-video-pending") +
-        '" data-video-url="' +
-        escapeHtml(material.videoUrl || "") +
+        '<button type="button" class="atc-video-button" data-video-url="' +
+        escapeHtml(material.videoUrl) +
         '" data-video-title="' +
         escapeHtml(material.name) +
         '">לצפייה בסרטון הסבר</button>';

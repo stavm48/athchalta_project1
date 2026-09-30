@@ -619,3 +619,91 @@
     flex-basis: 2.125rem;
   }
 }
+
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+#athalta-challenges-v4::before,
+#athalta-challenges-v4::after {
+  display: none;
+}
+
+.u1p4-canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.u1p4-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.u1p4-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.u1p4-pipe-side {
+  top: 0.5rem;
+  left: -3.6rem;
+  width: 16rem;
+}
+
+.u1p4-pipe-corner {
+  right: 0;
+  bottom: 1rem;
+  width: 6.5rem;
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ata-unit-title,
+.ata-sequential-nav,
+.ata-nav-prev,
+.ata-nav-next {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .u1p4-pipe-side {
+    top: 0.35rem;
+    left: -6rem;
+    width: 10rem;
+  }
+
+  .u1p4-pipe-corner {
+    right: -1rem;
+    bottom: 0.35rem;
+    width: 6rem;
+  }
+}

@@ -128,6 +128,40 @@ if (window.athaltaProgress) {
     });
   }
 
+  function stickyHeaderOffset() {
+    var header = document.querySelector(".site-header");
+    var headerHeight = 0;
+
+    if (header) {
+      var position = window.getComputedStyle(header).position;
+
+      if (position === "sticky" || position === "fixed") {
+        headerHeight = header.getBoundingClientRect().height;
+      }
+    }
+
+    return headerHeight + 16;
+  }
+
+  function scrollToInstruction() {
+    var target =
+      root.querySelector(".u6c-section-title") ||
+      root.querySelector(".u6c-instruction-row");
+
+    if (!target) {
+      return;
+    }
+
+    var top =
+      target.getBoundingClientRect().top +
+      (window.scrollY || window.pageYOffset || 0);
+
+    window.scrollTo({
+      top: Math.max(0, top - stickyHeaderOffset()),
+      behavior: scrollBehavior(),
+    });
+  }
+
   function createSubCard(card, index) {
     return (
       '<article class="u6c-subcard ' +
@@ -253,11 +287,11 @@ if (window.athaltaProgress) {
     }
 
     window.requestAnimationFrame(function () {
-      scrollToStart(grid || root);
+      scrollToInstruction();
 
       window.setTimeout(function () {
         if (previousButton) {
-          previousButton.focus();
+          previousButton.focus({ preventScroll: true });
         }
       }, 0);
     });

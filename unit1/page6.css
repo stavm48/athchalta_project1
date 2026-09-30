@@ -3,6 +3,100 @@
    Global tokens, header, footer, and sequential nav from theme.css.
    =================================================================== */
 
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.ag-page-canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ag-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ag-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.ag-pipe-green {
+  top: 0;
+  left: -1.25rem;
+  width: 10.5rem;
+}
+
+.ag-pipe-mid {
+  bottom: 0;
+  left: -1.5rem;
+  width: 13.5rem;
+}
+
+.ag-pipe-lower {
+  right: 0;
+  bottom: 0;
+  width: 16.5rem;
+}
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ata-unit-title,
+.ag-intro,
+.ag-intro-text,
+.ag-main-heading,
+.ag-section-heading,
+.ag-goals,
+.ag-goal,
+.ag-goal-copy,
+.ag-goal-title,
+.ag-goal-text,
+.ag-workshops,
+.ag-purpose,
+.ag-purpose-text,
+.ag-foundations,
+.ag-foundation,
+.ag-foundation-card,
+.ata-sequential-nav,
+.ata-nav-prev,
+.ata-nav-next {
+  position: relative;
+  z-index: 1;
+}
+
 .ata-unit-page {
   max-width: var(--content);
   margin: 0 auto;
@@ -439,6 +533,21 @@
 }
 
 @media (max-width: 768px) {
+  .ag-pipe-green {
+    left: -1.75rem;
+    width: 7rem;
+  }
+
+  .ag-pipe-mid {
+    left: -2rem;
+    width: 9rem;
+  }
+
+  .ag-pipe-lower {
+    right: 0;
+    width: 11rem;
+  }
+
   .ag-goal-icon,
   .ag-goal-2 .ag-goal-icon,
   .ag-goal-4 .ag-goal-icon {

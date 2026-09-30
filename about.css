@@ -26,6 +26,17 @@
   letter-spacing: -0.02em;
 }
 
+@media (max-width: 47.9375rem) {
+  .footer-nav .about-nav-trigger {
+    justify-self: start;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 2.75rem;
+    justify-content: flex-start;
+    padding: 0.35rem 0;
+  }
+}
+
 .main-nav .about-nav-trigger:hover,
 .main-nav .about-nav-trigger:focus-visible,
 .footer-nav .about-nav-trigger:hover,

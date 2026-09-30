@@ -98,11 +98,11 @@
       pages: [
         {
           href: "unit4/page1.html",
-          label: "עקרונות לכתיבת סילבוס"
+          label: "עקרונות לכתיבת סילבוס - מבוא וסרטונים"
         },
         {
           href: "unit4/page2.html",
-          label: "ארבעת העקרונות לכתיבת סילבוס"
+          label: "עקרונות לכתיבת סילבוס - סיכום"
         },
         {
           href: "unit4/page5-0.html",
@@ -134,7 +134,7 @@
         },
         {
           href: "unit4/page6.html",
-          label: "לסיכום — מחברים את כל החלקים"
+          label: "סיכום — כל החלקים מתחברים"
         },
         {
           href: "unit4/page7.html",

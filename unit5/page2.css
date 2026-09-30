@@ -89,6 +89,7 @@
   direction: rtl;
   text-align: right;
   cursor: default;
+  scroll-margin-top: 1rem;
 }
 
 .u5m-click-icon {

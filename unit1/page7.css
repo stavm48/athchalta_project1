@@ -3,6 +3,86 @@
    Global tokens, header, footer, and sequential nav from theme.css.
    =================================================================== */
 
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.af-page-canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.af-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.af-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.af-pipe-top {
+  top: 0;
+  left: -0.5rem;
+  width: 28rem;
+}
+
+.af-pipe-mid {
+  top: 36.5rem;
+  left: -1rem;
+  width: 28rem;
+}
+
+.af-pipe-bottom {
+  right: 0;
+  bottom: 0;
+  width: 8.25rem;
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ata-unit-title,
+.af-opening,
+.af-cards-section,
+.af-card,
+.af-card-inner,
+.af-foundations-section,
+.ata-sequential-nav,
+.ata-nav-prev,
+.ata-nav-next {
+  position: relative;
+  z-index: 1;
+}
+
 :root {
   --af-peach: #feece9;
   --af-purple: #fef2f6;
@@ -987,5 +1067,22 @@
     opacity: 1;
     transform: none;
     animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .af-pipe-top {
+    left: -1.5rem;
+    width: 16rem;
+  }
+
+  .af-pipe-mid {
+    top: 34rem;
+    left: -2rem;
+    width: 16rem;
+  }
+
+  .af-pipe-bottom {
+    width: 5.5rem;
   }
 }

@@ -194,6 +194,70 @@ if (window.athaltaProgress) {
   var activeTopic = null;
   var activeQuestionIndex = null;
 
+  function prefersReducedMotion() {
+    return (
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
+
+  function scrollBehavior() {
+    return prefersReducedMotion() ? "auto" : "smooth";
+  }
+
+  function stickyHeaderOffset() {
+    var header = document.querySelector(".site-header");
+
+    if (!header) {
+      return 16;
+    }
+
+    var position = window.getComputedStyle(header).position;
+
+    if (position === "sticky" || position === "fixed") {
+      return header.getBoundingClientRect().height + 16;
+    }
+
+    return 16;
+  }
+
+  function scrollAboveQuestions() {
+    var rect = panel.getBoundingClientRect();
+    var clearance = stickyHeaderOffset() + 72;
+    var top =
+      rect.top + (window.scrollY || window.pageYOffset || 0) - clearance;
+
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: scrollBehavior(),
+    });
+  }
+
+  function scrollJustPastBubble() {
+    var rect = answerBox.getBoundingClientRect();
+    var header = stickyHeaderOffset();
+    var tail = 28;
+    var pastEnd = 40;
+    var viewBottom = window.innerHeight - pastEnd;
+    var bubbleBottom = rect.bottom + tail;
+
+    if (rect.top >= header - 1 && bubbleBottom <= viewBottom) {
+      return;
+    }
+
+    var delta = bubbleBottom - viewBottom;
+    var next = (window.scrollY || window.pageYOffset || 0) + delta;
+
+    if (rect.top - delta < header) {
+      next = rect.top + (window.scrollY || window.pageYOffset || 0) - header;
+    }
+
+    window.scrollTo({
+      top: Math.max(0, next),
+      behavior: scrollBehavior(),
+    });
+  }
+
   function closeAnswer() {
     var questionButtons = questionsContainer.querySelectorAll(".u7-question");
 
@@ -263,7 +327,11 @@ if (window.athaltaProgress) {
     answerBox.innerHTML = item.answer;
     answerBox.hidden = false;
     activeQuestionIndex = index;
-    answerBox.focus();
+    answerBox.focus({ preventScroll: true });
+
+    window.requestAnimationFrame(function () {
+      scrollJustPastBubble();
+    });
   }
 
   function renderQuestions(topicKey) {
@@ -305,6 +373,10 @@ if (window.athaltaProgress) {
 
     renderQuestions(topicKey);
     panel.hidden = false;
+
+    window.requestAnimationFrame(function () {
+      scrollAboveQuestions();
+    });
   }
 
   function toggleTopic(button) {

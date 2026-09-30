@@ -5,6 +5,14 @@
 (function (window, document) {
   "use strict";
 
+  try {
+    if (window.localStorage.getItem("athalta_fresh_start") !== "1") {
+      window.localStorage.clear();
+      window.sessionStorage.clear();
+      window.localStorage.setItem("athalta_fresh_start", "1");
+    }
+  } catch (error) {}
+
   var SELECTOR =
     'a[href]:not([tabindex="-1"]),button:not([disabled]):not([tabindex="-1"]),input:not([disabled]):not([tabindex="-1"]),select:not([disabled]):not([tabindex="-1"]),textarea:not([disabled]):not([tabindex="-1"]),iframe,video[controls],audio[controls],[tabindex]:not([tabindex="-1"])';
 

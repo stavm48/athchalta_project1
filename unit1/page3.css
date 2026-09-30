@@ -704,6 +704,7 @@ main,
 
 .aep-note-sub.font-handwriting {
   display: block;
+  font-family: "Rubik", sans-serif !important;
   font-size: var(--text-body);
   font-weight: 400;
   line-height: 1.5rem;
@@ -715,6 +716,7 @@ main,
 
 .aep-note-body.font-handwriting {
   display: block;
+  font-family: "Rubik", sans-serif !important;
   font-size: var(--text-body);
   font-weight: 400;
   line-height: 1.5rem;
@@ -879,6 +881,13 @@ main,
 @media (min-width: 1151px) {
   .aep-stage {
     height: 66.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .aep-note-wrap-1 .aep-note-sub.font-handwriting,
+  .aep-note-wrap-1 .aep-note-body.font-handwriting {
+    margin-top: 1.15rem;
   }
 }
 
@@ -1131,6 +1140,31 @@ main,
     gap: 2rem;
   }
 
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 0.75rem 1rem;
+    width: 100%;
+    padding-top: 0;
+    text-align: right;
+  }
+
+  .footer-nav a,
+  .footer-nav .about-nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-self: start;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 2.75rem;
+    margin: 0;
+    padding: 0.35rem 0;
+    line-height: 1.45;
+    box-sizing: border-box;
+  }
+
   .footer-brand img {
     width: 10.25rem;
   }
@@ -1209,5 +1243,88 @@ main,
 
   .ata-nav-next-text::after {
     content: "קדימה";
+  }
+}
+
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.u1p3-canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.u1p3-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.u1p3-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.u1p3-pipe-side {
+  top: 5.5rem;
+  left: -0.75rem;
+  width: 15.5rem;
+}
+
+.u1p3-pipe-bottom {
+  left: 18rem;
+  bottom: 0.5rem;
+  width: 32rem;
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ata-unit-title,
+.ata-sequential-nav,
+.ata-nav-prev,
+.ata-nav-next {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .u1p3-pipe-side {
+    top: 4rem;
+    left: -6.5rem;
+    width: 8rem;
+  }
+
+  .u1p3-pipe-bottom {
+    left: 4rem;
+    bottom: 0.25rem;
+    width: 14rem;
   }
 }
