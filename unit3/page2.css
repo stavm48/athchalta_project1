@@ -317,3 +317,78 @@
     );
   }
 }
+
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.u3p2-canvas {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.u3p2-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.u3p2-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: 18.75rem;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.u3p2-pipe-side {
+  top: 0.55rem;
+  left: -7.6rem;
+  width: 11rem;
+}
+
+.u3p2-pipe-corner {
+  right: -8.4rem;
+  bottom: 1.6rem;
+  width: 14rem;
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+@media (max-width: 768px) {
+  .u3p2-pipe-side {
+    top: 0.3rem;
+    left: -6.4rem;
+    width: 8.5rem;
+  }
+
+  .u3p2-pipe-corner {
+    right: -4.5rem;
+    bottom: 0.75rem;
+    width: 10rem;
+  }
+}

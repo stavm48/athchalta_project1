@@ -503,3 +503,87 @@ body.agr-modal-open {
     transform: none;
   }
 }
+
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.u3p1-canvas {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.u3p1-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.u3p1-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.u3p1-pipe-side {
+  top: 6.15rem;
+  left: -0.55rem;
+  width: 13rem;
+}
+
+.u3p1-pipe-corner {
+  right: -2rem;
+  bottom: 7.6rem;
+  width: 18rem;
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ata-unit-title,
+.agr-opening,
+.agr-roadmap,
+.ata-sequential-nav,
+.ata-nav-prev,
+.ata-nav-next {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .u3p1-pipe-side {
+    top: 0.25rem;
+    left: -1.5rem;
+    width: 8.5rem;
+  }
+
+  .u3p1-pipe-corner {
+    right: -2rem;
+    bottom: 0.4rem;
+    width: 11rem;
+  }
+}

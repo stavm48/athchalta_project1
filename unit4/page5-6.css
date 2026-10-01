@@ -502,3 +502,77 @@
     transform: none;
   }
 }
+
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.u4p56-canvas {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.u4p56-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.u4p56-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: 18.75rem;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.u4p56-pipe-a {
+  top: 0.6rem;
+  left: -7.75rem;
+  width: 11rem;
+}
+
+.u4p56-pipe-b {
+  right: -10rem;
+  bottom: 1.75rem;
+  width: 15rem;
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+@media (max-width: 768px) {
+  .u4p56-pipe-a {
+    top: 0.35rem;
+    left: -6.5rem;
+    width: 8.5rem;
+  }
+
+  .u4p56-pipe-b {
+    right: -7.5rem;
+    bottom: 0.85rem;
+    width: 11rem;
+  }
+}

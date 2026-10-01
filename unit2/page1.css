@@ -422,3 +422,90 @@
     animation: none;
   }
 }
+
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.u2p1-canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.u2p1-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.u2p1-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.u2p1-pipe-side {
+  top: 0.35rem;
+  left: -0.55rem;
+  width: 11.5rem;
+}
+
+.u2p1-pipe-bottom {
+  left: 0.5rem;
+  bottom: -9rem;
+  width: 54rem;
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ata-unit-title,
+.athalta-intro-section,
+.athalta-roles-container,
+.athalta-timeline-row,
+.athalta-role-stage,
+.ata-sequential-nav,
+.ata-nav-prev,
+.ata-nav-next {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .u2p1-pipe-side {
+    top: 0.25rem;
+    left: -1.5rem;
+    width: 9rem;
+  }
+
+  .u2p1-pipe-bottom {
+    left: -1rem;
+    bottom: 0;
+    width: 22rem;
+  }
+}

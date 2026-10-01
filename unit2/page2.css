@@ -554,3 +554,95 @@
     animation: none;
   }
 }
+
+html,
+body {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.page-bg {
+  display: none;
+  background-image: none;
+}
+
+.u2p2-canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.u2p2-pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.u2p2-pipe {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.u2p2-pipe-side {
+  top: 0.4rem;
+  left: -0.4rem;
+  width: 10rem;
+}
+
+.u2p2-pipe-lower {
+  right: -5.5rem;
+  bottom: -0.55rem;
+  width: 12rem;
+  transform: scaleX(-1);
+}
+
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.ata-unit-title,
+.ata-audience-section,
+.ata-interactive,
+.ata-plants-row,
+.ata-info-card,
+.ata-notes,
+.ata-frameworks-section,
+.ata-framework-card,
+.ata-sequential-nav,
+.ata-nav-prev,
+.ata-nav-next {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .u2p2-pipe-side {
+    top: 0.25rem;
+    left: -0.75rem;
+    width: 7rem;
+  }
+
+  .u2p2-pipe-lower {
+    right: -0.4rem;
+    bottom: 0.25rem;
+    width: 8rem;
+    transform: scaleX(-1);
+  }
+}
